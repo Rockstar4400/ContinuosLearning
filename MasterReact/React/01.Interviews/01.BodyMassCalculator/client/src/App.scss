@@ -1,0 +1,271 @@
+
+@mixin checkboxes {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  margin-left: 40px;
+}
+
+html {
+  background-color: #000;
+  max-width: 100%;
+  overflow-x: hidden;
+  body{
+    margin: 0;
+    padding: 0;
+  .Container {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    h1 {
+      width: 40%;
+      line-height: .9;
+    }
+
+    p {
+      width: 72%;
+      text-align: left;
+    }
+    .Nav {
+      .Hamburger{
+        width: 20px;
+        fill: #fff;
+        cursor: pointer;
+      }
+      .Header {
+        padding-left: 80px;
+        display: grid;
+        grid-template-columns: 2% 90% 5%;
+        grid-template-areas: "Svglogo Textheader Hamburger";
+        
+        .Svglogo{
+          width: 30px;
+          fill: #fff;
+          stroke: #fff;
+          stroke-width: 3%;
+          cursor: pointer;
+          margin-top: 60%;
+        }
+        .Textheader{
+          padding-left: 10px;
+          text-align: left;
+        }
+
+        .Hamburger{
+          margin-top: 35%;
+        }
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #7468ae;
+        position: fixed;
+        top: 0;
+        width: 100%;
+
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 25px;
+          text-decoration: none;
+        }
+
+        .active {
+          background-color: #4caf50;
+        }
+      }
+    }
+
+    .FormAndChart {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: "Form Chart";
+      grid-gap: 10px;
+      color: #fff;
+      padding-top: 140px;
+      padding-left: 80px;
+      text-align: left;
+      font-size: 16px;
+      p{
+        color: #fff;
+      }
+      .Form {
+        p{
+          opacity: .6;
+        }
+        .inputs {
+          font-size: 16px;
+          width: 70%;
+          background-color: #000;
+          border: 1px solid rgba(255, 255, 255, .4);
+          border-radius: 30px;
+          padding: 10px;
+          padding-left: 20px;
+          color: #fff;
+          opacity: 0.8;
+          margin-top: 10px;
+        }
+
+        .checkbox-rounded {
+          width: 1em;
+          height: 1em;
+          background-color: white;
+          border-radius: 50%;
+          vertical-align: middle;
+          border: 1px solid #ddd;
+          appearance: none;
+          -webkit-appearance: none;
+          outline: none;
+          cursor: pointer;
+        }
+
+        .checkbox-rounded:checked {
+          background-color: #fff;
+          border: 4px solid #7468ae;
+        }
+
+        .buttonCalc {
+          border-radius: 30px;
+          padding-left: 18px;
+          padding-right: 18px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          background-color: #433378;
+          color: #fff;
+          margin-right: 50px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-top: 12px;
+        }
+
+        .buttonCalc:hover {
+          border-radius: 30px;
+          padding-left: 18px;
+          padding-right: 18px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          background-color: #5e50a7;
+          color: #fff;
+          margin-right: 50px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .buttonClean {
+          padding: 11px;
+          color: #fff;
+          margin-right: 50px;
+          border-radius: 30px;
+          background-color: #000;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .buttonClean:hover {
+          padding: 11px;
+          color: #5e50a7;
+          margin-right: 50px;
+          border-radius: 30px;
+          background-color: #000;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .labelcheckboxMan {
+          display: inline-block;
+          padding-left: 5px;
+          padding-right: 25px;
+          padding-top: 10px;
+        }
+        .labelcheckboxWoman {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    }
+
+    .Chart{
+      display: grid;      
+      grid-template-rows: 55% 12% 13% 23%;
+      
+      .Progress{
+        display: grid;      
+        width: 100%;
+        margin-top: 27%;
+        grid-template-rows: 70% 30%;
+        #Effect{
+          width: 0%;
+          height: 40px;
+          text-align: right;
+          line-height: 30px;
+          color: white;
+          font-size: 18px;
+          #Number{
+            padding-left: 10px;
+          }
+          #Triangle{
+            font-size: 38px;
+          }
+          p{
+            text-align: right;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: -16px;
+          }
+        }          
+      }
+      .Bar{
+        border-radius: 8px;
+        width: 87%;
+        height: 90px;
+        background: rgb(17,191,215);
+        background: linear-gradient(90deg, rgba(17,191,215,1) 5%, rgba(82,158,77,1) 16%, rgba(77,170,71,1) 29%, rgba(228,211,47,1) 60%, rgba(222,194,81,1) 68%, rgba(242,121,40,1) 93%);
+        text-align: center;
+        line-height: 30px;
+        color: white;
+      }
+      .Indexes{
+        display: grid;
+        width: 100%;
+        grid-template-columns: 14% 16% 16% 16% 16%;
+        padding-top: 15px;
+        padding-left: 10px;
+
+        p{
+          font-size: 12px;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 0;
+        }
+
+        .c1{
+          @include checkboxes;
+          background-color: #1c9dd9;
+        }
+        .c2{
+          @include checkboxes;
+          background-color: #059e49;
+        }
+        .c3{
+          @include checkboxes;
+          background-color: #97c23d;
+        }
+        .c4{
+          @include checkboxes;
+          background-color: #ffcb07;
+        }
+        .c5{
+          @include checkboxes;
+          background-color: #d76427;
+        }
+      }
+    }
+  }
+  }
+}

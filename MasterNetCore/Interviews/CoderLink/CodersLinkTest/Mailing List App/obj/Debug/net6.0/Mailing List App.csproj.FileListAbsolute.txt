@@ -1,0 +1,31 @@
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\appsettings.Development.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\appsettings.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Mailing List App.staticwebassets.runtime.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Mailing List App.exe
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Mailing List App.deps.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Mailing List App.runtimeconfig.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Mailing List App.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Mailing List App.pdb
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.csproj.AssemblyReference.cache
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.AssemblyInfoInputs.cache
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.AssemblyInfo.cs
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.csproj.CoreCompileInputs.cache
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.MvcApplicationPartsAssemblyInfo.cache
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.RazorAssemblyInfo.cache
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.RazorAssemblyInfo.cs
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\staticwebassets.build.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\staticwebassets.development.json
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\scopedcss\bundle\Mailing List App.styles.css
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\scopedcss\projectbundle\Mailing List App.bundle.scp.css
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\refint\Mailing List App.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.pdb
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.genruntimeconfig.cache
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\ref\Mailing List App.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+Z:\Repositorios\MasterNetCore\Interviews\CoderLink\CodersLinkTest\Mailing List App\obj\Debug\net6.0\Mailing List App.csproj.CopyComplete

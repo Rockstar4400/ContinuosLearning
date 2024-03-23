@@ -1,0 +1,15 @@
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.csproj.AssemblyReference.cache
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.AssemblyInfoInputs.cache
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.AssemblyInfo.cs
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.csproj.CoreCompileInputs.cache
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\bin\Debug\net6.0\Singleton_patter.exe
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\bin\Debug\net6.0\Singleton_patter.deps.json
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\bin\Debug\net6.0\Singleton_patter.runtimeconfig.json
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\bin\Debug\net6.0\Singleton_patter.dll
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\bin\Debug\net6.0\Singleton_patter.pdb
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.dll
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\refint\Singleton_patter.dll
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.pdb
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\Singleton_patter.genruntimeconfig.cache
+Z:\Repositorios\MasterNetCore\Practices\Patters\Singleton_patter\Singleton_patter\obj\Debug\net6.0\ref\Singleton_patter.dll

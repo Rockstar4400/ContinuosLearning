@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EFCoreInMemoryDemo.Web.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="padding: 30px"></div>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td><a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a></td>
+            <td>
+                
+                <form asp-action="Delete">
+                    <input type="hidden" value="@item.ID" name="id" />
+                    <input type="submit" class="btn btn-primary" value="Delete" />
+                </form>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
