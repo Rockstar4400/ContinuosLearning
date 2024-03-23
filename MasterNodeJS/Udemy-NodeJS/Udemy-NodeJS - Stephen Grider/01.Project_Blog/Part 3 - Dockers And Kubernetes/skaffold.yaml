@@ -1,0 +1,58 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./a1.infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+  - image: rockstar4400/client
+    context: 01.client
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: 'src/**/*.js'
+          dest: .
+  - image: rockstar4400/comments
+    context: 03.comments
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: '*.js'
+          dest: .
+  - image: rockstar4400/event
+    context: 04.events
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: '*.js'
+          dest: .
+  - image: rockstar4400/moderation
+    context: 06.moderation
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: '*.js'
+          dest: .
+  - image: rockstar4400/posts
+    context: 02.post
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: '*.js'
+          dest: .
+  - image: rockstar4400/query
+    context: 05.query
+    docker:
+      dockerfile: Dockerfile
+    sync:
+      manual:
+        - src: '*.js'
+          dest: .

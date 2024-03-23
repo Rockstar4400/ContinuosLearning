@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PetApp</string>
+    <string name="calculator_Age">Calculator Age</string>
+    <string name="quest">When did your pet born?</string>
+    <string name="button_calc">Calculate</string>
+</resources>
