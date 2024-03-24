@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
+import { ObjServer } from '../edit-server/server.model';
 
 @Component({
   selector: 'app-server',
@@ -9,12 +10,12 @@ import { ServersService } from '../servers.service';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  server: {id: number, name: string, status: string};
+  server = ObjServer;
 
   constructor(private serversService: ServersService) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    //this.server = this.serversService.getServer(1);
   }
 
 }
