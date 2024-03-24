@@ -20,7 +20,7 @@ export class EditServerComponent implements OnInit {
   constructor(private serversService: ServersService) { }
 
   ngOnInit() {
-    //this.server = this.serversService.getServer(1);
+    this.server = this.serversService.getServer(1)!;
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }

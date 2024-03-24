@@ -15,7 +15,7 @@ export class ServerComponent implements OnInit {
   constructor(private serversService: ServersService) { }
 
   ngOnInit() {
-    //this.server = this.serversService.getServer(1);
+    this.server = this.serversService.getServer(1)!;
   }
 
 }
