@@ -25,6 +25,8 @@ export class AppComponent {
       name: this.newServerName,
       content: this.newServerContent
     });
+    
+    console.log( this.serverElements)
   }
 
   onAddBlueprint() {
