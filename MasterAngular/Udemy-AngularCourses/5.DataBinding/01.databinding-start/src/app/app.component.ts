@@ -2,38 +2,41 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
 import { ObjServer } from './serverElem.model';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule],
+  imports: [
+    RouterOutlet, 
+    FormsModule, 
+    CommonModule,
+    CockpitComponent,
+    ServerElementComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent {
-  
-  serverElements = [ObjServer];
-  newServerName = '';
-  newServerContent = '';
+  serverElements = [{type: 'server', name: 'testserver', content: 'just test'},{type: 'server', name: 'testserver', content: 'just test'}];
 
-  onAddServer() {
+  onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverData.serverName,
+      content: serverData.serverContent
     });
-    
-    console.log( this.serverElements)
   }
 
-  onAddBlueprint() {
+  onBlueprintAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+      name: serverData.serverName,
+      content: serverData.serverContent
     });
   }
+
 }
