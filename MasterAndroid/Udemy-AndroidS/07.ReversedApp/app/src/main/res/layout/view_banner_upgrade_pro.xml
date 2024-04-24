@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="horizontal" android:id="@+id/rootElement" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardCornerRadius="0dp">
-    <LinearLayout android:orientation="horizontal" android:background="@drawable/gradient_pink" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:textColor="@android:color/white" android:id="@+id/bannerMessage" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/upgrade_prog_banner_message" android:layout_weight="1"/>
-        <TextView android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@+id/getProVersionButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/details" android:textAllCaps="true"/>
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
