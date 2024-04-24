@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@+id/rootLayout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.magicbytes.upgrade_pro.BannerUpgradeProView android:id="@+id/bannerSelfAds" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="20sp" android:textColor="@android:color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Unlock more content"/>
+            <TextView android:id="@+id/availablePoints" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Engage with us in social media, follow the news and spread the word if you like the app. This way you will unlock more content questions, or you can Upgrade to Pro and get all the content and bonuses unlocked from the start."/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:id="@+id/likesUsFacebook" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/MoreContentButton">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="Like us on Facebook" android:layout_weight="1" style="@style/MoreContentButtonText"/>
+                <TextView android:id="@+id/likeUsPointsText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5 Ques." style="@style/MoreContentPointsText"/>
+            </LinearLayout>
+            <View android:background="#0d2843" android:layout_width="match_parent" android:layout_height="0.05dp" android:layout_marginLeft="16dp" android:layout_marginRight="16dp"/>
+            <LinearLayout android:orientation="horizontal" android:id="@+id/rateUs" android:padding="16dp" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/MoreContentButton">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="Rate us Google Play" android:layout_weight="1" style="@style/MoreContentButtonText"/>
+                <TextView android:id="@+id/rateUsPointsText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5 Ques." style="@style/MoreContentPointsText"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
