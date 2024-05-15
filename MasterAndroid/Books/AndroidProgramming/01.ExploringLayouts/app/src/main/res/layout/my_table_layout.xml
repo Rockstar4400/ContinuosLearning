@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:padding="10sp"
-            android:text="India"
+            android:text="@string/India"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:padding="10sp"
-            android:text="England"
+            android:text="@string/England"
             android:textColor="@android:color/black" />
 
     </TableRow>
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10sp"
-            android:text="1st"
+            android:text="@string/Number1st"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:padding="10sp"
-            android:text="213" />
+            android:text="@string/Number213" />
 
         <TextView
             android:id="@+id/textView17"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:padding="10sp"
-            android:text="707" />
+            android:text="@string/Number707" />
     </TableRow>
 
     <TableRow
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:padding="10sp"
-            android:text="2nd"
+            android:text="@string/Number2st"
             android:textColor="@android:color/black" />
 
         <TextView
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:padding="10sp"
-            android:text="103" />
+            android:text="@string/Number103" />
 
         <TextView
             android:id="@+id/textView19"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_column="2"
             android:padding="10sp"
-            android:text="276" />
+            android:text="@string/Number276" />
     </TableRow>
 
     <TableRow
@@ -96,6 +96,6 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:onClick="loadMenuLayout"
-            android:text="Load" />
+            android:text="@string/ButtonLoadCons" />
     </TableRow>
 </TableLayout>
