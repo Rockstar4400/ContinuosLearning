@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Exploring Layouts</string>
+    <string name="container_description">Exploring Layouts</string>
+    <string name="SelectText">Select a layout type to view an example. The onClick attribute of each button will call a method which executes setContentView to load the new layout</string>
+    <string name="MenuText">Menu</string>
+    <string name="textDescription">Back to the menu</string>
+    <string name="ConstraintLayout">ConstraintLayout</string>
+    <string name="TableLayout">TableLayout</string>
+    <string name="India">India</string>
+    <string name="England">England</string>
+        <string name="Number213">213</string>
+    <string name="Number2st">2st</string>
+    <string name="Number707">707</string>
+    <string name="Number1st">1st</string>
+    <string name="Number103">103</string>
+    <string name="Number276">276</string>
+    <string name="ButtonLoadCons">Load Constraint</string>
+    <string name="ButtonLoadTable">Load Table</string>
+    <string name="LabelLoad">Label</string>
+</resources>
