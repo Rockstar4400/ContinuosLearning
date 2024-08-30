@@ -1,15 +1,20 @@
-import React from 'react';
-import './App.scss';
+import React, { useState } from 'react';
 import 'semantic-ui-css/semantic.min.css'
-import Container from './components/Container';
+import { useDispatch, useSelector } from 'react-redux';
+import ContainerNoData from './ContainerNoData';
+import Container from './Container';
+import '../Styles/App.scss';
+import { loadQuotes } from '../store';
+
+// Help Links: https://www.pluralsight.com/guides/fetching-data-updating-state-react-class
 
 class App extends React.Component {
-  state = { 
-            back: null, 
-            quotes: null, 
-            font: null,
-            house: null
-          };
+
+   dispatch = useDispatch();
+
+   allQuotes = useSelector((state) => {
+      return state.quotes;
+   });
 
   componentDidMount() {
     const color1 = "#" + Math.floor(Math.random() * 16777215).toString(16);
@@ -27,18 +32,21 @@ class App extends React.Component {
     )
       .then((response) => response.json())
       .then((data) =>
-        this.setState({
-          back: (document.body.style.background = divStyles.background),
-          font: (document.body.style.fontFamily = divStyles.FontFace),
-          quotes: data.quotes,
-          house: ''
-        })
+        this.dispatch(loadQuotes(data))
+        // this.setState({
+        //   back: (document.body.style.background = divStyles.background),
+        //   font: (document.body.style.fontFamily = divStyles.FontFace),
+        //   quotes: data.quotes,
+        //   house: ''
+        // })
+        
       );
   }
-
+  
   render() {
+    
     if (this.state.quotes == null) {
-      return <Container />;
+      return <ContainerNoData />;
     } else {
       return <Container quotes={this.state.quotes} />;
     }

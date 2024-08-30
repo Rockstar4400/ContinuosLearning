@@ -1,140 +1,46 @@
 import React from "react";
-import Card from "../components/Card";
-import Button from "../components/Button";
-import Image from "./Image";
-import ButtonShare from "./ButtonShare";
-import Message from "./Message";
-import Author from "./Author";
-import Logo from "./Logo";
+import Card from "./ComponentsContainer/Card";
+import Button from "./ComponentsContainer/Button";
+import Image from "./ComponentsContainer/Image";
+import ButtonShare from "./ComponentsContainer/ButtonShare";
+import Message from "./ComponentsContainer/Message";
+import Author from "./ComponentsContainer/Author";
+import Logo from "./ComponentsContainer/Logo";
 import ContainerNoData from "./ContainerNoData";
 
 class Container extends React.Component {
-  clickHandler = this.clickHandler.bind(this);
-
-  clickHandler() {
-    // Random colors
-    const color1 = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    const color2 = "#" + Math.floor(Math.random() * 16777215).toString(16);
-
-    //Random fonts
-    const fonts = ["Beau Rivage", "Cinzel", "Kaushan Script", "Nanum Myeongjo"];
-    const fontRandom = fonts[Math.floor(Math.random() * fonts.length)];
-
-    const divStyles = {
-      background: `linear-gradient(to right, ${color1}, ${color2})`,
-      FontFace: fontRandom,
-    };
-    if (this.props.quotes !== undefined) {
-      this.setState({
-        back: (document.body.style.background = divStyles.background),
-        font: (document.body.style.fontFamily = divStyles.FontFace),
-        quotes: this.props.quotes,
-        house: "",
-      });
-    }
-  }
-
-  sharingFacebook() {
-    var fbButton = document.getElementById("fb-share-button");
-    var url = window.location.href;
-
-    fbButton.addEventListener("click", function () {
-      window.open(
-        "https://www.facebook.com/sharer/sharer.php?u=" + url,
-        "_self"
-      );
-      return false;
-    });
-  }
-
-  sharingTelegram() {
-    var tgButton = document.getElementById("tg-share-button");
-
-    tgButton.addEventListener("click", function () {
-      const quoute = document.getElementById("text").innerHTML;
-      const author = document.getElementById("author").innerHTML;
-      window.open("https://t.me/share/url?url=" + quoute + author,"_self");
-      return false;
-    });
-  }
-
-  sharingTwitter() {
-    var twButton = document.getElementById("tw-share-button");
-    document.getElementById("tweet-quote").removeAttribute("href");
-
-    twButton.addEventListener("click", function () {
-      const quoute = document.getElementById("text").innerHTML;
-      const author = document.getElementById("author").innerHTML;
-      window.open(
-        "http://twitter.com/share?text=" +
-          quoute +
-          author +
-          "&hashtags=GameOfThrones","_self"
-      );
-      return false;
-    });
-  }
-
-  copyButton() {
-    const quoute = document.getElementById("text").innerHTML;
-    const author = document.getElementById("author").innerHTML;
-
-    navigator.clipboard.writeText(quoute + author).then(
-      function () {
-        alert("Copied successfully!");
-      },
-      function (err) {
-        console.error(err);
-      }
-    );
-
-    const btn = document.getElementById("btn-copy");
-    btn.addEventListener("click", function () {
-      this.classList.toggle("active");
-    });
-  }
-
-  sharingGithub() {
-    var ghButton = document.getElementById("gh-share-button");
-    ghButton.addEventListener("click", function () {
-      window.open(
-        "https://github.com/Rockstar4400/Freecodecamp-Projects/tree/main/01.Front%20End%20Development/01.random_quote_machine",
-        "_self"
-      );
-      return false;
-    });
-  }
+  //clickHandler = this.clickHandler.bind(this); 
 
   render() {
-    const quotes = this.props.quotes;
-
-    if (quotes == null) {
-      return <ContainerNoData />;
-    } else {
-      const listItems = quotes.map((quote) => (
-        <figure
-          key={quote.quote}
-          author={quote.author}
-          house={quote.house}
-          className="card-body"
-        >
-          <blockquote>{quote.quote}</blockquote>
-        </figure>
-      ));
-      const max = this.props.quotes.length - 1;
-      const random = Math.floor(Math.random() * (max - 0 + 1)) + 0;
+    //const quotes = this.prop.initialQuotes;
+    // if (quotes == undefined) {
+    //   return <ContainerNoData />;
+    // } else {
+  //   const listItems = quotes.map((quotes) => (
+  //     <figure
+  //       key={quotes.quote}
+  //       author={quotes.author}
+  //       house={quotes.house}
+  //       className="card-body"
+  //     >
+  //       <blockquote>{quotes.quote}</blockquote>
+  //     </figure>
+  //   )
+  // );
+      // const max = this.props.quotes.length - 1;
+      // const random = Math.floor(Math.random() * (max - 0 + 1)) + 0;
       return (
         <div className="container">
           <div className="column1"></div>
           <Card className="boxquoute" id="quote-box">
             <div className="message">
               <i className="quote left icon"></i>
-              <Message id="text" message={listItems[random].key} />
+              {/* <Message id="text" message={listItems[random].key} /> */}
               <i className="quote right icon"></i>
             </div>
             <div className="main"></div>
             <div className="author">
-              <Author id="author" author={listItems[random].props.author} />
+              {/* <Author id="author" author={listItems[random].props.author} /> */}
             </div>
             <div className="buttonsshare ">
               <div
@@ -189,7 +95,7 @@ class Container extends React.Component {
 
               <div
                 className="buttondivision buttondivision--share"
-                onClick={this.sharingTelegram}
+                //onClick={() => dispatch(orderQuoteAsc(this.state))}
                 id="tg-share-button"
               >
                 <div className="buttonEffect">
@@ -270,6 +176,7 @@ class Container extends React.Component {
 
             <div id="new-quote"></div>
           </Card>
+          {/* 
           <div className="column2"></div>
           <div className="butttonleft">
             <div className="bleft1"></div>
@@ -315,10 +222,10 @@ class Container extends React.Component {
             <h4>Made with:</h4>
             <Logo className="react" />
           </div>
-          <div className="column6"></div>
+          <div className="column6"></div> */}
         </div>
       );
-    }
+    //}
   }
 }
 

@@ -8,5 +8,4 @@ const Message = ({ id, message}) => {
       );
   }
 
-
 export default Message;

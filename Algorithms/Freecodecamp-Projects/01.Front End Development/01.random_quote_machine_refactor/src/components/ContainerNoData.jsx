@@ -1,17 +1,17 @@
 import React from 'react';
-import Card from './Card';
-import Message from './Message';
-import Author from './Author';
-import Button from './Button';
-import Image from './Image';
+import Card from './ComponentsContainer/Card';
+import Message from './ComponentsContainer/Message';
+import Author from './ComponentsContainer/Author';
+import Button from './ComponentsContainer/Button';
+import Image from './ComponentsContainer/Image';
 
 class ContainerNoData extends React.Component {
 
 render(){
     return (
         <div className="container">
-          <div></div>
-          <div></div>
+          <div>ContainerNoData</div>
+          {/* <div></div>
           <div></div>
           <div></div>
           <div>
@@ -52,7 +52,7 @@ render(){
               <div></div>
             </Card>
           </div>
-          <div></div>
+          <div></div> */}
         </div>
         );
     }

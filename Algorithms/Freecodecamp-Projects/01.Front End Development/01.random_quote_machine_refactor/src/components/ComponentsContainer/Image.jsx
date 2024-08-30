@@ -1,13 +1,13 @@
 import React from 'react';
-import Stark from '../svgs/Stark';
-import Targaryen from '../svgs/Targaryen';
-import Lannister from '../svgs/Lannister';
-import Baratheon from '../svgs/Baratheon';
-import Martell from '../svgs/Martell';
-import Tyrell from '../svgs/Tyrell';
-import Arryn from '../svgs/Arryn';
-import Greyjoy from '../svgs/Greyjoy';
-import Tully from '../svgs/Tully';
+import Stark from '../Svgs/Houses/Stark';
+import Targaryen from '../Svgs/Houses/Targaryen';
+import Lannister from '../Svgs/Houses/Lannister';
+import Baratheon from '../Svgs/Houses/Baratheon';
+import Martell from '../Svgs/Houses/Martell';
+import Tyrell from '../Svgs/Houses/Tyrell';
+import Arryn from '../Svgs/Houses/Arryn';
+import Greyjoy from '../Svgs/Houses/Greyjoy';
+import Tully from '../Svgs/Houses/Tully';
 
 class Image extends React.Component {
 
