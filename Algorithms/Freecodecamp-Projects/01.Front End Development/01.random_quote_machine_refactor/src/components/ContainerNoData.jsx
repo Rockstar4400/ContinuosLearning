@@ -10,8 +10,7 @@ class ContainerNoData extends React.Component {
 render(){
     return (
         <div className="container">
-          <div>ContainerNoData</div>
-          {/* <div></div>
+          <div></div>
           <div></div>
           <div></div>
           <div>
@@ -52,7 +51,7 @@ render(){
               <div></div>
             </Card>
           </div>
-          <div></div> */}
+          <div></div>
         </div>
         );
     }

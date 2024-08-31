@@ -12,7 +12,7 @@ const quotesSlice = createSlice ({
     name: 'quotes',
     initialState: [],
     reducers: {
-        loadQuotes(state, action){
+        setProps(state, action){
             state.push({
                 id: nanoid(),
                 data: action.payload,
@@ -20,9 +20,17 @@ const quotesSlice = createSlice ({
                 font: (document.body.style.fontFamily = divStyles.FontFace),
                 house: null
             });
+        },
+        editProps(state, action){
+            const { back, font, id } = action.payload;
+            const quotes = state.find(q => q.id === id);
+            if (quotes){
+                quotes.back = back;
+                quotes.font = font;
+            }
         }
     }
 });
 
-export const { loadQuotes } = quotesSlice.actions;
+export const { setProps, editProps } = quotesSlice.actions;
 export const quoteReducer = quotesSlice.reducer;

@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+import { setProps } from "../../../store";
 
 
 export const clickHandler = () => {
@@ -13,14 +15,17 @@ export const clickHandler = () => {
       background: `linear-gradient(to right, ${color1}, ${color2})`,
       FontFace: fontRandom,
     };
-    if (this.props.quotes !== undefined) {
-      this.setState({
-        back: (document.body.style.background = divStyles.background),
-        font: (document.body.style.fontFamily = divStyles.FontFace),
-        quotes: this.props.quotes,
-        house: "",
-      });
-    }
+    
+    const setQuotes = (quote) => {
+      dispatch(setProps(quote));
+    };
+
+    //   this.setState({
+    //     back: (document.body.style.background = divStyles.background),
+    //     font: (document.body.style.fontFamily = divStyles.FontFace),
+    //     quotes: this.props.quotes,
+    //     house: "",
+    //   });
   }
 
   export const sharingFacebook = () => {

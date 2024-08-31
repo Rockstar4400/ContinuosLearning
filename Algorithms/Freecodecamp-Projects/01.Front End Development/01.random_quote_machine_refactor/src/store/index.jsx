@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { quoteReducer, loadQuotes } from './slices/quoutesSlice';
+import { quoteReducer, setProps, editProps } from './slices/quoutesSlice';
 
 const store = configureStore({
     reducer: {
@@ -7,4 +7,4 @@ const store = configureStore({
     }
 });
 
-export { store, loadQuotes };
+export { store, setProps, editProps };
