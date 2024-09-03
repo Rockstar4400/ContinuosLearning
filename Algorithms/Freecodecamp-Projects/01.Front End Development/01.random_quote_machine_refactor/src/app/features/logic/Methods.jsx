@@ -1,32 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setProps } from "../../../store";
-
-
-export const clickHandler = () => {
-    // Random colors
-    const color1 = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    const color2 = "#" + Math.floor(Math.random() * 16777215).toString(16);
-
-    //Random fonts
-    const fonts = ["Beau Rivage", "Cinzel", "Kaushan Script", "Nanum Myeongjo"];
-    const fontRandom = fonts[Math.floor(Math.random() * fonts.length)];
-
-    const divStyles = {
-      background: `linear-gradient(to right, ${color1}, ${color2})`,
-      FontFace: fontRandom,
-    };
-    
-    const setQuotes = (quote) => {
-      dispatch(setProps(quote));
-    };
-
-    //   this.setState({
-    //     back: (document.body.style.background = divStyles.background),
-    //     font: (document.body.style.fontFamily = divStyles.FontFace),
-    //     quotes: this.props.quotes,
-    //     house: "",
-    //   });
-  }
+import { editProps } from "../../../store";
 
   export const sharingFacebook = () => {
     var fbButton = document.getElementById("fb-share-button");

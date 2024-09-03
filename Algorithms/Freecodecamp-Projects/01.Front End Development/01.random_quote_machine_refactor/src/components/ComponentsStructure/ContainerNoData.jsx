@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from './ComponentsContainer/Card';
-import Message from './ComponentsContainer/Message';
-import Author from './ComponentsContainer/Author';
-import Button from './ComponentsContainer/Button';
-import Image from './ComponentsContainer/Image';
+import Card from '../ComponentsElements/Card';
+import Message from '../ComponentsElements/Message';
+import Author from '../ComponentsElements/Author';
+import ButtonGeneral from '../ComponentsElements/ButtonGeneral';
+import Image from '../ComponentsElements/Image';
 
 class ContainerNoData extends React.Component {
 
@@ -29,19 +29,19 @@ render(){
           </div>
           <div></div>
           <div className="button">
-            <Button passclass="button_left" clickHandler={this.clickHandler}>
+            <ButtonGeneral passclass="button_left" clickHandler={this.clickHandler}>
               <i className="fast backward icon"></i>
-            </Button>
+            </ButtonGeneral>
           </div>
           <div></div>
           <div className="button">
-            <Button
+            <ButtonGeneral
               passclass="button_right"
               quotes={this.props.quotes}
               clickHandler={this.clickHandler}
             >
               <i className="fast forward icon"></i>
-            </Button>
+            </ButtonGeneral>
           </div>
           <div></div>
           <div>

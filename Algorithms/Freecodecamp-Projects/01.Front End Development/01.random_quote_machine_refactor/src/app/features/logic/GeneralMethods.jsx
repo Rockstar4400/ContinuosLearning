@@ -9,20 +9,38 @@ export const useSelMethod = () => {
         return state.quotes;
       });
 
-    const setQuotes = (quote) => {
-        dispatch(setProps(quote));
+    const setQuotes = (data) => {
+        dispatch(setProps(data));
     };
     
     useEffect(() => {
         fetch(
-          "https://gist.githubusercontent.com/Rockstar4400/" +
-            "7678c57b0cebc5f740973ecb7a2691d0/raw/4cf729b3f97f292b803508dc0c2e"+
-            "d57e8dd15261/" +
-            "quotes.json"
+          "https://gist.githubusercontent.com/Rockstar4400/7678c57b0cebc5f740973ecb7a2691d0/raw/" +
+          "281b63ab43589d538a75cae2d9f9ab35e632e789/quotes.json"
         )
           .then((response) => response.json())
-          .then((data) => setQuotes(data));
+          .then((data) => setQuotes(data))
       }, []);
 
     return selectQuotes;
+};
+
+export const useEditMethod = () => {
+  const dispatch = useDispatch();
+
+  const color1 = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  const color2 = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+  const fonts = ["Beau Rivage", "Cinzel", "Kaushan Script", "Nanum Myeongjo"];
+  const fontRandom = fonts[Math.floor(Math.random() * fonts.length)];
+
+  const divStyles = {
+    background: `linear-gradient(to right, ${color1}, ${color2})`,
+    FontFace: fontRandom,
+  };
+  
+  const editFeatures = (data) => {
+    dispatch(editProps(data));
+  };
+
 };

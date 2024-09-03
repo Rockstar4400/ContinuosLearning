@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const color1 = "#" + Math.floor(Math.random() * 16777215).toString(16);
 const color2 = "#" + Math.floor(Math.random() * 16777215).toString(16);
@@ -14,11 +14,9 @@ const quotesSlice = createSlice ({
     reducers: {
         setProps(state, action){
             state.push({
-                id: nanoid(),
                 data: action.payload,
                 back: (document.body.style.background = divStyles.background),
                 font: (document.body.style.fontFamily = divStyles.FontFace),
-                house: null
             });
         },
         editProps(state, action){

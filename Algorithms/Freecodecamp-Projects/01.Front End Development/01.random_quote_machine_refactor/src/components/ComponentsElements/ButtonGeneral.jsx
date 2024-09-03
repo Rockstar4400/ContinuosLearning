@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Button extends React.Component {
+class ButtonGeneral extends React.Component {
 
   render(){
     //console.log(this.state)
@@ -16,4 +16,4 @@ class Button extends React.Component {
   }
 };
 
-export default Button;
+export default ButtonGeneral;

@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import "semantic-ui-css/semantic.min.css";
-import ContainerNoData from "./ContainerNoData";
-import Container from "./Container";
-import "../Styles/App.scss";
+import ContainerNoData from "./ComponentsStructure/ContainerNoData";
+import Container from "./ComponentsStructure/Container";
+//import "../Styles/App.scss";
+import "../styles/AppChange.scss"
 import { useSelMethod } from "../app/features/logic/GeneralMethods";
-
-
-// Help Links: https://www.pluralsight.com/guides/fetching-data-updating-state-react-class
-// Source help: https://blog.logrocket.com/using-localstorage-react-hooks/
 
 function App() {
   
