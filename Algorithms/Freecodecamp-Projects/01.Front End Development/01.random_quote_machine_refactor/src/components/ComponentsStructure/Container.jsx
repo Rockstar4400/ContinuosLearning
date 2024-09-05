@@ -1,14 +1,26 @@
 import TopMiddle from "./TopMiddle";
 import ButtonMiddle from "./ButtomMiddle";
 import ButtonGeneral from "../ComponentsElements/ButtonGeneral";
+import { useSelector } from "react-redux";
 
 function Container () {
+
+  const allProps = useSelector((state) => {
+    return state.quotes;
+  });
+  
+  const max = allProps[0].data.quotes.length - 1;
+  const random = Math.floor(Math.random() * (max - 0 + 1)) + 0;
+  
+  const action = (id) => {
+    useEditMethod({ id: id });
+  };
   
   return (
     <div className="container">
           
           <div className="column1"></div>
-          <TopMiddle className="topmiddle"/>
+          <TopMiddle />
           <div className="column3"></div>
           <div className="butttonleft">
             <div className="bleft1"></div>
@@ -42,7 +54,7 @@ function Container () {
             <div className="bright2"></div>
           </div>
           <div className="column7"></div>
-          <ButtonMiddle className="buttonmiddle" />
+          <ButtonMiddle />
           <div className="column9"></div>
 
     </div>

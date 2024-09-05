@@ -4,7 +4,7 @@ import Logo from "../ComponentsElements/Logo";
 import Image from "../ComponentsElements/Image";
 
 function ButtonMiddle() {
-    
+
     return(<div>
         <div className="column2"></div>
           
