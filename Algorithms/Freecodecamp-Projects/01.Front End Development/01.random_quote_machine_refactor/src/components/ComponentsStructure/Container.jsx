@@ -20,7 +20,7 @@ function Container () {
     <div className="container">
           
           <div className="column1"></div>
-          <TopMiddle />
+          <TopMiddle className="topmiddle" random={random}/>
           <div className="column3"></div>
           <div className="butttonleft">
             <div className="bleft1"></div>
@@ -54,7 +54,7 @@ function Container () {
             <div className="bright2"></div>
           </div>
           <div className="column7"></div>
-          <ButtonMiddle />
+          <ButtonMiddle className="buttonmiddle" random={random}/>
           <div className="column9"></div>
 
     </div>

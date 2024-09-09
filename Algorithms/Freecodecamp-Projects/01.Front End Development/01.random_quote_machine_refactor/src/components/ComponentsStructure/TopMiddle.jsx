@@ -4,31 +4,31 @@ import Author from "../ComponentsElements/Author";
 import ButtonShare from "../ComponentsElements/ButtonShare";
 import CopyButton from "../Svgs/Buttons/Copy";
 import DoneButton from "../Svgs/Buttons/Done";
+import { useSelector } from "react-redux";
 
-function TopMiddle() {
+function TopMiddle(props) {
+
+  const allProps = useSelector((state) => {
+    return state.quotes;
+  });
 
   return (
-    <div className="topmiddle">
-      <div className="column1"></div>
-      <div className="column2"></div>
-      <div className="column3"></div>
-      <div className="column4"></div>
-      <Card className="boxquoute" id="quote-box">
+      <Card className={props.className} id="quote-box">
         <div className="message">
           <i className="quote left icon"></i>
           <Message id="text" 
-          //message={allProps[0].data.quotes[random].quote} 
+          message={allProps[0].data.quotes[props.random].quote} 
           />
           <i className="quote right icon"></i>
         </div>
         <div className="main"></div>
         <div className="author">
           <Author id="author" 
-          //author={allProps[0].data.quotes[random].author} 
+          author={allProps[0].data.quotes[props.random].author} 
           />
         </div>
         <div className="bshare">
-          <div
+          <div 
             className="bdivision bdivision--share"
             //onClick={this.copyButton}
           >
@@ -127,14 +127,7 @@ function TopMiddle() {
             </div>
           </div>
         </div>
-
-        {/* <div id="new-quote"></div> */}
       </Card>
-      <div className="column6"></div>
-      <div className="column7"></div>
-      <div className="column8"></div>
-      <div className="column9"></div>
-    </div>
   );
 }
 

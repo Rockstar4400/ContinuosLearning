@@ -1,5 +1,5 @@
 
-//*{border : 2px red solid !important;
+*{border : 2px red solid !important;}
 
 $svg-bg-color: rgba(255, 255, 255, 0.178);
 
@@ -17,15 +17,7 @@ html {
        "butttonleft column5 buttonright"
        "column7 buttonmiddle column9";
      grid-gap: 10px;
-    .topmiddle {
-        display: grid;
-        grid-template-columns: 0.25fr auto 0.25fr;
-        grid-template-areas:
-       "column1 column2 column3"
-       "column4 boxquoute column6"
-       "column7 column8 column9";
-       grid-gap: 10px;
-       .boxquoute {
+       .topmiddle {
         display: grid;
         grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
         grid-template-rows: auto;
@@ -41,6 +33,7 @@ html {
         padding: 20px;
         font-size: 150%;
         background-color: rgba(255, 255, 255, 0.178);
+        
         .message {
           grid-area: message;
           color: black;
@@ -64,7 +57,7 @@ html {
   
         .bshare {
           display: flex;
-          grid-area: buttonsshare;
+          grid-area: bshare;
           gap: 20px;
           justify-content: center;
           align-items: center;
@@ -167,7 +160,6 @@ html {
           }
         }
       }
-    }
 
     .butttonleft {
       display: grid;
