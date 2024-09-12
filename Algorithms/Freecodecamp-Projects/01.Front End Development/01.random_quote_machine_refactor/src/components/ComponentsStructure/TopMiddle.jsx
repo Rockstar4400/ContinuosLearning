@@ -35,9 +35,8 @@ function TopMiddle(props) {
             <div className="bEffect">
               <div className="bc3"></div>
               <ButtonShare className="bmessage">
-                <div className="b-icon" id="btn-copy">
+                <div className="b-icon">
                     <CopyButton id="copy-logo"/>
-                    <DoneButton id="done-logo"/>
                 </div>
                 <div className="b-name">
                   <p>Copy</p>

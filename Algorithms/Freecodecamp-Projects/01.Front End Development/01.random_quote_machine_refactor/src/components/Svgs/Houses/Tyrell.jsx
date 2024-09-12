@@ -94,11 +94,11 @@ import React from 'react';
           <path d="M91.51,80.37a2.9,2.9,0,0,0-.41.27.19.19,0,0,0,.19.32c.15-.07.28-.16.42-.24S91.73,80.24,91.51,80.37Z" transform="translate(-5.61 -6.92)" fill="url(#Tyrell)" fillRule="evenodd"/>
         </g>
           <linearGradient id="Tyrell" x1="100%" y1="100%">
-              <stop offset="0%" stopColor="black" stopOpacity="0">
-              <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+              <stop offset="0%" stopColor="black" stopOpacity="1">
+              <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
               </stop>
               <stop offset="100%" stopColor="black" stopOpacity="1">
-              <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+              <animate attributeName="stop-color" values="black;purple;yellow;yellow;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
               <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
               </stop>
           </linearGradient>

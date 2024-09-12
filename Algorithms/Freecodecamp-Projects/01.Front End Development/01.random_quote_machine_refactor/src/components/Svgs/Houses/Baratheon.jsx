@@ -64,11 +64,11 @@ const Baratheon = (props)  => {
           <path d="M103.77,96.94c-5.75.85-1.8-6-.71-7.68a.09.09,0,0,0-.16-.1c-1,1.51-4.92,8.89,0,8.18,1.63-.23-.92,4.61-1.2,5.17-.65,1.36-1.27,2.72-1.79,4.14s-.8,3.07.58,3.95c.09.06.21-.08.12-.15-3.23-2.54,3.23-10,3.38-13.38C104,97,103.86,96.93,103.77,96.94Z" transform="translate(-7.84 -5.68)" fill="url(#Baratheon)" fillRule="evenodd"/>
         </g>
           <linearGradient id="Baratheon" x1="100%" y1="100%">
-                                    <stop offset="0%" stopColor="black" stopOpacity="0">
-                                    <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                                    <stop offset="0%" stopColor="black" stopOpacity="1">
+                                    <animate attributeName="stop-color" values="black;yellow;yellow;darkblue;black;purple;black" dur="14s" repeatCount="indefinite" />
                                     </stop>
                                     <stop offset="100%" stopColor="black" stopOpacity="1">
-                                    <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                                    <animate attributeName="stop-color" values="black;yellow;yellow;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                                     <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                                     </stop>
           </linearGradient>

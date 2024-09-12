@@ -178,11 +178,11 @@ const Targaryen = (props)  => {
                 <path d="M203.48,60.57a.24.24,0,0,0,0,.47A.24.24,0,0,0,203.48,60.57Z" fill="url(#Targaryen)" fillRule="evenodd"/>
                 </g>
                 <linearGradient id="Targaryen" x1="100%" y1="100%">
-                        <stop offset="0%" stopColor="black" stopOpacity="0">
-                        <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                        <stop offset="0%" stopColor="black" stopOpacity="1">
+                        <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
                         </stop>
                         <stop offset="100%" stopColor="black" stopOpacity="1">
-                        <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                        <animate attributeName="stop-color" values="black;yellow;yellow;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                         <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                         </stop>
                 </linearGradient>

@@ -1,7 +1,7 @@
 const CopyButton = (props)  => {
     return (
-<i id={props.id}>
-<svg viewBox="0 0 64 64" fill="white" width="35">
+<i>
+<svg viewBox="0 0 64 64" fill="white" width="35" id={props.id}>
 <g>
 <path
 d="M51.51,18.001c-0.006-0.085-0.022-0.167-0.05-0.248c-0.012-0.034-0.02-0.067-0.035-0.1

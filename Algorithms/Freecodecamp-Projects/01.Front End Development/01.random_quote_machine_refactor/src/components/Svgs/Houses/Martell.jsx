@@ -220,11 +220,11 @@ import React from 'react';
           <path d="M84,187.62A15,15,0,0,1,84,185.5c0-.09-.12-.13-.14,0a7.15,7.15,0,0,0-.22,2.16A.14.14,0,0,0,84,187.62Z" transform="translate(-4.82 -5.75)" fill="url(#Martell)" fillRule="evenodd"/>
         </g>
           <linearGradient id="Martell" x1="100%" y1="100%">
-                                          <stop offset="0%" stopColor="black" stopOpacity="0">
-                                          <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                                          <stop offset="0%" stopColor="black" stopOpacity="1">
+                                          <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
                                           </stop>
                                           <stop offset="100%" stopColor="black" stopOpacity="1">
-                                          <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                                          <animate attributeName="stop-color" values="black;yellow;yellow;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                                           <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                                           </stop>
           </linearGradient>

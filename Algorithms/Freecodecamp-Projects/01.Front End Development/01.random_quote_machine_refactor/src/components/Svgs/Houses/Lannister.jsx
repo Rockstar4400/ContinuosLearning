@@ -156,11 +156,11 @@ const Lannister = (props)  => {
           <path d="M176.74,45.17c2.16.58,2.4,3.22,3.87,4.55.11.09.29,0,.2-.15a25.25,25.25,0,0,0-2.64-3.88,3.32,3.32,0,0,0-1.59-.84,2.4,2.4,0,0,1-1.94-1.47c0-.09-.19,0-.15.06C175,44.66,175.55,44.84,176.74,45.17Z" transform="translate(-4.43 -9.72)" fill="url(#Lannister)" fillRule="evenodd"/>
         </g>
           <linearGradient id="Lannister" x1="100%" y1="100%">
-                              <stop offset="0%" stopColor="black" stopOpacity="0">
-                              <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                              <stop offset="0%" stopColor="black" stopOpacity="1">
+                              <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
                               </stop>
                               <stop offset="100%" stopColor="black" stopOpacity="1">
-                              <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                              <animate attributeName="stop-color" values="black;yellow;yellow;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                               <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                               </stop>
           </linearGradient>

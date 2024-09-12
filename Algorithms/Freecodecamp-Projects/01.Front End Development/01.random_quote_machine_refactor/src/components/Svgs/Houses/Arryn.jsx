@@ -73,11 +73,11 @@ const Arryn = (props)  => {
           <path d="M107.86,119.17c-.89-.33-.85-1-.62-1.78a.14.14,0,0,0-.26-.08c-.3.88-.29,1.92.85,2C107.93,119.34,107.94,119.2,107.86,119.17Z" transform="translate(-7.76 -4.13)" fill="url(#Arryn)" fillRule="evenodd"/>
         </g>
           <linearGradient id="Arryn" x1="100%" y1="100%">
-                                          <stop offset="0%" stopColor="black" stopOpacity="0">
-                                          <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                                          <stop offset="0%" stopColor="black" stopOpacity="1">
+                                          <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
                                           </stop>
                                           <stop offset="100%" stopColor="black" stopOpacity="1">
-                                          <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                                          <animate attributeName="stop-color" values="black;yellow;yellow;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                                           <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                                           </stop>
           </linearGradient>

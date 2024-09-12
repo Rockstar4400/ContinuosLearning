@@ -175,11 +175,11 @@ const Tully = (props)  => {
           <path d="M253.5,92.14a3.69,3.69,0,0,0-1.68-.16c-.24,0-.34.39-.07.45.56.12,1.1.28,1.66.35C253.8,92.83,253.83,92.25,253.5,92.14Z" transform="translate(-3.4 -2.82)" fill="url(#Tully)" fillRule="evenodd"/>
         </g>
             <linearGradient id="Tully" x1="100%" y1="100%">
-                                          <stop offset="0%" stopColor="black" stopOpacity="0">
-                                          <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                                          <stop offset="0%" stopColor="black" stopOpacity="1">
+                                          <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
                                           </stop>
                                           <stop offset="100%" stopColor="black" stopOpacity="1">
-                                          <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                                          <animate attributeName="stop-color" values="black;yellow;yellow;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                                           <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                                           </stop>
           </linearGradient>

@@ -90,11 +90,11 @@ const Greyjoy = (props)  => {
           <path d="M117.36,183.09a2.89,2.89,0,0,0-.19-.86,0,0,0,0,0,0,0,3.55,3.55,0,0,1,.16,1.33c0,.05,0,.05.08,0s.07,0,.07,0a3.55,3.55,0,0,1,.16-1.33s0,0,0,0A2.61,2.61,0,0,0,117.36,183.09Z" transform="translate(-2.9 -5.28)" fill="url(#Greyjoy)" fillRule="evenodd"/>
         </g>
           <linearGradient id="Greyjoy" x1="100%" y1="100%">
-                                          <stop offset="0%" stopColor="black" stopOpacity="0">
-                                          <animate attributeName="stop-color" values="black;darkblue;red;red;black;red;red;purple;black" dur="14s" repeatCount="indefinite" />
+                                          <stop offset="0%" stopColor="black" stopOpacity="1">
+                                          <animate attributeName="stop-color" values="black;darkblue;yellow;yellow;black;purple;black" dur="14s" repeatCount="indefinite" />
                                           </stop>
                                           <stop offset="100%" stopColor="black" stopOpacity="1">
-                                          <animate attributeName="stop-color" values="black;red;red;purple;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
+                                          <animate attributeName="stop-color" values="black;purple;yellow;yellow;black;purple;purple;blue;black" dur="14s" repeatCount="indefinite" />
                                           <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite" />
                                           </stop>
           </linearGradient>
