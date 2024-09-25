@@ -7,7 +7,6 @@ function ButtonGeneral (props) {
     <div
       id={props.id}
       className={props.passclass}
-      //onClick={props.clickHandler}
     >
       {props.children}
     </div>

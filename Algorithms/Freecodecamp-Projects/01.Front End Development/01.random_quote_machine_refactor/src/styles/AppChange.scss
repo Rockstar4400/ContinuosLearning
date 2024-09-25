@@ -7,7 +7,8 @@ html {
   padding: 0;
   height: auto;
 
-
+  body{
+  background-color: rebeccapurple;
   .container {
     display: grid;
     grid-template-columns: 0.25fr auto 0.25fr;
@@ -31,7 +32,7 @@ html {
       border-radius: 5px;
       margin-top: 10px;
       padding: 20px;
-      font-size: 150%;
+      font-size: 160%;
       background-color: rgba(255, 255, 255, 0.178);
 
       .message {
@@ -412,6 +413,7 @@ html {
           margin: auto;
         }
       }
+    }
     }
   }
 }

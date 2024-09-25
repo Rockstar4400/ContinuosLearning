@@ -26,21 +26,5 @@ export const useSelMethod = () => {
 };
 
 export const useEditMethod = () => {
-  const dispatch = useDispatch();
-
-  const color1 = "#" + Math.floor(Math.random() * 16777215).toString(16);
-  const color2 = "#" + Math.floor(Math.random() * 16777215).toString(16);
-
-  const fonts = ["Beau Rivage", "Cinzel", "Kaushan Script", "Nanum Myeongjo"];
-  const fontRandom = fonts[Math.floor(Math.random() * fonts.length)];
-
-  const divStyles = {
-    background: `linear-gradient(to right, ${color1}, ${color2})`,
-    FontFace: fontRandom,
-  };
-  
-  const editFeatures = (data) => {
-    dispatch(editProps(data));
-  };
 
 };

@@ -20,11 +20,11 @@ const quotesSlice = createSlice ({
             });
         },
         editProps(state, action){
-            const { back, font, id } = action.payload;
+            const { back, font, id } = action.payload.data;
             const quotes = state.find(q => q.id === id);
             if (quotes){
-                quotes.back = back;
-                quotes.font = font;
+                quotes.back = (document.body.style.background = back);
+                quotes.font = (document.body.style.fontFamily = font);
             }
         }
     }
