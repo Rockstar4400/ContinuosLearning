@@ -29,10 +29,10 @@ function TopMiddle(props) {
         </div>
         <div className="bshare">
           <div 
-            className="bdivision bdivision--share"
+            className="bEffect bEffect--share"
             //onClick={this.copyButton}
           >
-            <div className="bEffect">
+            <div className="bDivision">
               <div className="bc3"></div>
               <ButtonShare className="bmessage">
                 <div className="b-icon">
@@ -47,11 +47,11 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bdivision bdivision--share"
+            className="bEffect bEffect--share"
             //onClick={() => dispatch(orderQuoteAsc(this.state))}
             id="tg-share-button"
           >
-            <div className="bEffect">
+            <div className="bDivision">
               <div className="bc3"></div>
               <ButtonShare className="bmessage">
                 <div className="b-icon">
@@ -66,11 +66,11 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bdivision bdivision--share"
+            className="bEffect bEffect--share"
             //onClick={this.sharingFacebook}
             id="fb-share-button"
           >
-            <div className="bEffect">
+            <div className="bDivision">
               <div className="bc3"></div>
               <ButtonShare className="bmessage">
                 <div className="b-icon">
@@ -85,11 +85,11 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bdivision bdivision--share"
+            className="bEffect bEffect--share"
             //onClick={this.sharingTwitter}
             id="tw-share-button"
           >
-            <div className="bEffect">
+            <div className="bDivision">
               <div className="bc3"></div>
               <ButtonShare className="bmessage">
                 <div className="b-icon">
@@ -108,11 +108,11 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bdivision bdivision--share"
+            className="bEffect bEffect--share"
             //onClick={this.sharingGithub}
             id="gh-share-button"
           >
-            <div className="bEffect">
+            <div className="bDivision">
               <div className="bc3"></div>
               <ButtonShare className="bmessage">
                 <div className="b-icon">

@@ -1,40 +1,84 @@
-//*{border : 2px red solid !important;}
-
 $svg-bg-color: rgba(255, 255, 255, 0.178);
+$body-bg-color: rebeccapurple;
 
-html {
+@mixin html-features{
   margin: 0;
   padding: 0;
   height: auto;
+}
+@mixin button-features{
+  pointer-events: auto;
+  cursor: pointer;
+  background: #e7e7e7;
+  border: none;
+  padding: 1.5rem 3rem; // BUG
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  width: 100%; //?
+}
+@mixin container-features{
+  display: grid;
+  grid-template-columns: 0.25fr auto 0.25fr;
+  grid-template-areas:
+    "column1 topmiddle column3"
+    "butttonleft column5 buttonright"
+    "column7 buttonmiddle column9";
+  grid-gap: 10px;
+}
+@mixin topmiddle-features{
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "message message message message message"
+    "main main main main author"
+    "bshare bshare bshare bshare bshare";
+  grid-gap: 10px;
+  gap: 20px;
+  color: black;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 20px;
+  font-size: 160%;
+  background-color: rgba(255, 255, 255, 0.178);
+}
+@mixin buttonmiddle-features{
+  display: grid;
+  grid-template-columns: 0.25fr auto 0.25fr;
+  grid-template-areas:
+    "column1 imagesvg column3"
+    "column4 imagesvg column6"
+    "column7 logo column9";
+  grid-gap: 10px;
+}
+@mixin imagesvg-features{
+        grid-area: imagesvg;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "svgside1 svgside2 svgside3";
+        grid-gap: 10px;
+        gap: 10px;
+        height: auto;
+}
+@mixin svgimages-feature{
+  display: block;
+  margin: auto;
+  background-color: $svg-bg-color;
+}
 
+html {
+  @include html-features;
   body{
-  background-color: rebeccapurple;
+  background-color: $body-bg-color;
   .container {
-    display: grid;
-    grid-template-columns: 0.25fr auto 0.25fr;
-    grid-template-areas:
-      "column1 topmiddle column3"
-      "butttonleft column5 buttonright"
-      "column7 buttonmiddle column9";
-    grid-gap: 10px;
-
+    @include container-features;
     .topmiddle {
-      display: grid;
-      grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
-      grid-template-rows: auto;
-      grid-template-areas:
-        "message message message message message"
-        "main main main main author"
-        "bshare bshare bshare bshare bshare";
-      grid-gap: 10px;
-      gap: 20px;
-      color: black;
-      border-radius: 5px;
-      margin-top: 10px;
-      padding: 20px;
-      font-size: 160%;
-      background-color: rgba(255, 255, 255, 0.178);
-
+      @include topmiddle-features;
       .message {
         grid-area: message;
         color: black;
@@ -64,8 +108,7 @@ html {
         justify-content: center;
         align-items: center;
         column-gap: 20px;
-
-        .bdivision {
+        .bEffect {
           pointer-events: auto;
           cursor: pointer;
           background: #e7e7e7;
@@ -77,7 +120,7 @@ html {
           color: #fff;
           width: 100%;
 
-          .bEffect {
+          .bDivision {
             display: grid;
             grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
             grid-template-rows: auto;
@@ -122,8 +165,8 @@ html {
           }
         }
 
-        .bdivision::before,
-        .bdivision::after {
+        .bEffect::before,
+        .bEffect::after {
           position: absolute;
           top: 0;
           left: 0;
@@ -131,29 +174,29 @@ html {
           height: 100% !important;
         }
 
-        .bdivision--share {
+        .bEffect--share {
           background: none;
           font-family: "Cinzel";
           padding: 0.7em 2.5em;
         }
 
-        .bdivision--share div {
+        .bEffect--share div {
           display: inline-block;
           position: relative;
           color: #fff;
         }
 
-        .bdivision--share::before {
+        .bEffect--share::before {
           content: "";
           background: #000;
           transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
         }
 
-        .bdivision--share:hover::before {
+        .bEffect--share:hover::before {
           transform: scale3d(0.9, 0.8, 1);
         }
 
-        .bdivision--share::after {
+        .bEffect--share::after {
           content: "";
           border: 1px solid #fff;
           transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
@@ -162,7 +205,7 @@ html {
           z-index: -1;
         }
 
-        .bdivision--share:hover::after {
+        .bEffect--share:hover::after {
           transform: scale3d(1, 1, 1);
         }
       }
@@ -177,18 +220,7 @@ html {
 
       .butleft {
         .button {
-          pointer-events: auto;
-          cursor: pointer;
-          background: #e7e7e7;
-          border: none;
-          padding: 1.5rem 3rem; // BUG
-          margin: 0;
-          font-family: inherit;
-          font-size: inherit;
-          position: relative;
-          display: inline-block;
-          color: #fff;
-          width: 100%; //?
+          @include button-features;
         }
 
         .button::before,
@@ -251,18 +283,7 @@ html {
 
       .butright {
         .button {
-          pointer-events: auto;
-          cursor: pointer;
-          background: #e7e7e7;
-          border: none;
-          padding: 1.5rem 3rem; // BUG
-          margin: 0;
-          font-family: inherit;
-          font-size: inherit;
-          position: relative;
-          display: inline-block;
-          color: #fff;
-          width: 100%; //?
+          @include button-features
         }
 
         .button::before,
@@ -316,86 +337,53 @@ html {
     }
 
     .buttonmiddle {
-      display: grid;
-      grid-template-columns: 0.25fr auto 0.25fr;
-      grid-template-areas:
-        "column1 imagesvg column3"
-        "column4 imagesvg column6"
-        "column7 logo column9";
-      grid-gap: 10px;
-
+      @include buttonmiddle-features;
       .imagesvg {
-        grid-area: imagesvg;
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
-        grid-template-areas: "svgside1 svgside2 svgside3";
-        grid-gap: 10px;
-        gap: 10px;
-        height: auto;
-
+        @include imagesvg-features;
         .svgside2 {
           .Tully {
             transform: scale(2.2);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Tyrell {
             transform: scale(1.6);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Martell {
             transform: scale(1.2);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Stark {
             transform: scale(1.8);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Lannister {
             transform: scale(1.3);
-            display: block;
-            margin: 0;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Greyjoy {
             transform: scale(1.7);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Baratheon {
             transform: scale(1.3);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Arryn {
             transform: scale(1.6);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
 
           .Targaryen {
             transform: scale(1);
-            display: block;
-            margin: auto;
-            background-color: $svg-bg-color;
+            @include svgimages-feature;
           }
         }
       }
