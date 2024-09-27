@@ -5,8 +5,7 @@ function ButtonGeneral (props) {
 
   return (
     <div
-      id={props.id}
-      className={props.passclass}
+      className={props.className}
     >
       {props.children}
     </div>

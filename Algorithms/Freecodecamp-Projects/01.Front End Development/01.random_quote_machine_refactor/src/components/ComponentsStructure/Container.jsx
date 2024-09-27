@@ -1,9 +1,9 @@
-import TopMiddle from "./TopMiddle";
-import ButtonMiddle from "./ButtomMiddle";
-import ButtonGeneral from "../ComponentsElements/ButtonGeneral";
+import Top from "./Top";
+import Buttom from './Buttom';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { editProps } from "../../store";
+import Middle from "./Middle";
 
 function Container () {
 
@@ -39,39 +39,21 @@ function Container () {
     <div className="container">
           
           <div className="column1"></div>
-          <TopMiddle className="topmiddle" random={random}/>
+          <Top 
+          className="Top" 
+          random={random}
+          />
           <div className="column3"></div>
-          <div className="butttonleft">
-            <div className="bleft1"></div>
-            <div className="butleft" onClick={clickHandler}>
-              <ButtonGeneral
-                passclass="button button--antheleft"
-              >
-                <span>
-                  <i className="angle left icon big"></i>
-                </span>
-              </ButtonGeneral>
-            </div>
-            <div className="bleft2"></div>
-          </div>
-          
-          <div className="column5"></div>
-          <div className="buttonright">
-            <div className="bright1"></div>
-            <div className="butright" onClick={clickHandler}>
-              <ButtonGeneral
-                passclass="button button--antheright"
-                //quotes={this.props.quotes}
-              >
-                <span>
-                  <i className="angle right icon big"></i>
-                </span>
-              </ButtonGeneral>
-            </div>
-            <div className="bright2"></div>
-          </div>
+
+          <Middle 
+          className="Middle"
+          />
+
           <div className="column7"></div>
-          <ButtonMiddle className="buttonmiddle" random={random}/>
+          <Buttom 
+          className="Buttom" 
+          random={random}
+          />
           <div className="column9"></div>
 
     </div>
