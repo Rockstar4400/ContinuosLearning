@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function ButtonGeneral (props) {
+function BottonGeneral (props) {
 
   return (
     <div
@@ -12,4 +12,4 @@ function ButtonGeneral (props) {
     )
 }
 
-export default ButtonGeneral;
+export default BottonGeneral;

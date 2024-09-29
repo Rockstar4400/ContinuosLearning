@@ -1,5 +1,5 @@
 import Top from "./Top";
-import Buttom from './Buttom';
+import Bottom from './Bottom';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { editProps } from "../../store";
@@ -50,8 +50,8 @@ function Container () {
           />
 
           <div className="column7"></div>
-          <Buttom 
-          className="Buttom" 
+          <Bottom 
+          className="Bottom" 
           random={random}
           />
           <div className="column9"></div>

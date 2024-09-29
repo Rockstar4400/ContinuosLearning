@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ButtonShare = (props) => {
+const BottonShare = (props) => {
 return (
         <div 
           className={props.className} 
@@ -10,4 +10,4 @@ return (
   );
 };
 
-export default ButtonShare;
+export default BottonShare;

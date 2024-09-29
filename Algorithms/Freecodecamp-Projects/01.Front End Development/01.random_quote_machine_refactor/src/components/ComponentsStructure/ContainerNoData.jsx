@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../ComponentsElements/Card';
 import Message from '../ComponentsElements/Message';
 import Author from '../ComponentsElements/Author';
-import ButtonGeneral from '../ComponentsElements/ButtonGeneral';
+import BottonGeneral from '../ComponentsElements/BottonGeneral';
 import Image from '../ComponentsElements/Image';
 
 class ContainerNoData extends React.Component {
@@ -29,19 +29,19 @@ render(){
           </div>
           <div></div>
           <div className="button">
-            <ButtonGeneral passclass="button_left" clickHandler={this.clickHandler}>
+            <BottonGeneral passclass="button_left" clickHandler={this.clickHandler}>
               <i className="fast backward icon"></i>
-            </ButtonGeneral>
+            </BottonGeneral>
           </div>
           <div></div>
           <div className="button">
-            <ButtonGeneral
+            <BottonGeneral
               passclass="button_right"
               quotes={this.props.quotes}
               clickHandler={this.clickHandler}
             >
               <i className="fast forward icon"></i>
-            </ButtonGeneral>
+            </BottonGeneral>
           </div>
           <div></div>
           <div>

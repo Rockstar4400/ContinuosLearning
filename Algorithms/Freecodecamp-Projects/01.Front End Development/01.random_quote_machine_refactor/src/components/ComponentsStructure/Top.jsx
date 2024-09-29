@@ -1,9 +1,9 @@
 import Message from "../ComponentsElements/Message";
 import Card from "../ComponentsElements/Card";
 import Author from "../ComponentsElements/Author";
-import ButtonShare from "../ComponentsElements/ButtonShare";
-import CopyButton from "../Svgs/Buttons/Copy";
-import DoneButton from "../Svgs/Buttons/Done";
+import BottonShare from "../ComponentsElements/BottonShare";
+import CopyBotton from "../Svgs/Bottons/CopyBotton";
+import DoneBotton from "../Svgs/Bottons/DoneButton";
 import { useSelector } from "react-redux";
 
 function TopMiddle(props) {
@@ -34,14 +34,14 @@ function TopMiddle(props) {
           >
             <div className="bDivision">
               <div className="bc3"></div>
-              <ButtonShare className="bmessage">
+              <BottonShare className="bmessage">
                 <div className="b-icon">
-                    <CopyButton id="copy-logo"/>
+                    <CopyBotton id="copy-logo"/>
                 </div>
                 <div className="b-name">
                   <p>Copy</p>
                 </div>
-              </ButtonShare>
+              </BottonShare>
               <div className="bc4"></div>
             </div>
           </div>
@@ -53,14 +53,14 @@ function TopMiddle(props) {
           >
             <div className="bDivision">
               <div className="bc3"></div>
-              <ButtonShare className="bmessage">
+              <BottonShare className="bmessage">
                 <div className="b-icon">
                   <i className="telegram plane icon"></i>
                 </div>
                 <div className="b-name">
                   <p>Telegram</p>
                 </div>
-              </ButtonShare>
+              </BottonShare>
               <div className="bc4"></div>
             </div>
           </div>
@@ -72,14 +72,14 @@ function TopMiddle(props) {
           >
             <div className="bDivision">
               <div className="bc3"></div>
-              <ButtonShare className="bmessage">
+              <BottonShare className="bmessage">
                 <div className="b-icon">
                   <i className="facebook icon"></i>
                 </div>
                 <div className="b-name">
                   <p>Facebook</p>
                 </div>
-              </ButtonShare>
+              </BottonShare>
               <div className="bc4"></div>
             </div>
           </div>
@@ -91,7 +91,7 @@ function TopMiddle(props) {
           >
             <div className="bDivision">
               <div className="bc3"></div>
-              <ButtonShare className="bmessage">
+              <BottonShare className="bmessage">
                 <div className="b-icon">
                   <a
                     id="tweet-quote"
@@ -102,7 +102,7 @@ function TopMiddle(props) {
                 <div className="b-name">
                   <p>Twitter</p>
                 </div>
-              </ButtonShare>
+              </BottonShare>
               <div className="bc4"></div>
             </div>
           </div>
@@ -114,14 +114,14 @@ function TopMiddle(props) {
           >
             <div className="bDivision">
               <div className="bc3"></div>
-              <ButtonShare className="bmessage">
+              <BottonShare className="bmessage">
                 <div className="b-icon">
                   <i className="github square icon"></i>
                 </div>
                 <div className="b-name">
                   <p>Github</p>
                 </div>
-              </ButtonShare>
+              </BottonShare>
               <div className="bc4"></div>
             </div>
           </div>

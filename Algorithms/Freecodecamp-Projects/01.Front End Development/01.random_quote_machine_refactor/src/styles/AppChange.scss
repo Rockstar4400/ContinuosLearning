@@ -1,12 +1,28 @@
+/*
+FIXED:
+
+BUG_01: It has problems with the bottons right/left because his position was on 
+relative.
+Solution: I removed the property of display: inline-block; in the botton and I used
+the propertyi instead grid-template-columns: .40fr .50fr .50fr;
+
+*/
+
+
 $svg-bg-color: rgba(255, 255, 255, 0.178);
 $body-bg-color: rebeccapurple;
 
-@mixin html-features{
-  margin: 0;
-  padding: 0;
-  height: auto;
+@mixin bottommiddle-features{
+  display: grid;
+  grid-template-columns: 0.25fr auto 0.25fr;
+  grid-template-areas:
+    "column1 imagesvg column3"
+    "column4 imagesvg column6"
+    "column7 logo column9";
+  grid-gap: 10px;
 }
-@mixin button-features{
+
+@mixin botton-features{
   pointer-events: auto;
   cursor: pointer;
   background: #e7e7e7;
@@ -18,16 +34,106 @@ $body-bg-color: rebeccapurple;
   position: relative;
   color: #fff;
 
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
 }
+
+@mixin bottonLeft--effect-features{
+  font-family: bely-display, sans-serif;
+  color: #fff;
+  background: none;
+
+  &::before {
+    content: "";
+    background: #000;
+    -webkit-clip-path: polygon(100% 0%,
+        0% 0%,
+        0% 50%,
+        0% 100%,
+        100% 100%);
+    clip-path: polygon(100% 0%, 0% 0%, 0% 50%, 0% 100%, 100% 100%);
+    transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
+      -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
+  }
+
+  &:hover::before {
+    background: #fff;
+    -webkit-clip-path: polygon(100% 0%,
+        25% 0%,
+        0% 50%,
+        25% 100%,
+        100% 100%);
+    clip-path: polygon(100% 0%, 25% 0%, 0% 50%, 25% 100%, 100% 100%);
+  }
+
+  & span {
+    display: block;
+    mix-blend-mode: difference;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
+  }
+  
+  &:hover span {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@mixin bottonRight--effect-features{
+  font-family: bely-display, sans-serif;
+  color: #fff;
+  background: none;
+  
+
+  &::before {
+  content: "";
+  background: #000;
+  -webkit-clip-path: polygon(0% 0%,
+      100% 0,
+      100% 50%,
+      100% 100%,
+      0% 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
+  transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
+    -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
+  }
+
+  &:hover::before {
+  background: #fff;
+  -webkit-clip-path: polygon(0% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      0% 100%);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  }
+
+  & span {
+  display: block;
+  mix-blend-mode: difference;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
+  }
+
+  &:hover span {
+  transform: translate3d(-10px, 0, 0);
+  }
+}
+
 @mixin container-features{
   display: grid;
   grid-template-columns: 0.25fr auto 0.25fr;
   grid-template-areas:
     "column1 topmiddle column3"
     "Middle Middle Middle"
-    "column7 buttonmiddle column9";
+    "column7 bottonsmiddle column9";
   grid-gap: 10px;
 }
+
 @mixin topmiddle-features{
   display: grid;
   grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
@@ -45,15 +151,7 @@ $body-bg-color: rebeccapurple;
   font-size: 160%;
   background-color: rgba(255, 255, 255, 0.178);
 }
-@mixin buttonmiddle-features{
-  display: grid;
-  grid-template-columns: 0.25fr auto 0.25fr;
-  grid-template-areas:
-    "column1 imagesvg column3"
-    "column4 imagesvg column6"
-    "column7 logo column9";
-  grid-gap: 10px;
-}
+
 @mixin imagesvg-features{
         grid-area: imagesvg;
         display: grid;
@@ -64,6 +162,7 @@ $body-bg-color: rebeccapurple;
         gap: 10px;
         height: auto;
 }
+
 @mixin svgimages-feature{
   display: block;
   margin: auto;
@@ -71,7 +170,9 @@ $body-bg-color: rebeccapurple;
 }
 
 html {
-  @include html-features;
+  margin: 0;
+  padding: 0;
+  height: auto;
   body{
   background-color: $body-bg-color;
   .container {
@@ -216,138 +317,49 @@ html {
       grid-template-columns: 0.25fr auto 0.25fr;
       grid-template-rows: 100px;
       grid-template-areas:
-      "butttonleft SB buttonright";
+      "botttonleft SB bottonright";
       grid-gap: 10px;
-      .butttonleft {
+      .botttonleft {
         display: grid;
         grid-template-columns: .40fr .50fr .50fr;
         grid-template-rows: auto;
-        grid-template-areas: "butleft bleft1 bleft2";
-        grid-area: butttonleft;
+        grid-template-areas: "botleft bleft1 bleft2";
+        grid-area: botttonleft;
 
-        .butleft {
-          grid-area: butleft;
-          .button {
-            @include button-features; 
+        .botleft {
+          grid-area: botleft;
+          .botton {
+            @include botton-features; 
           }
           
-          .button::before,
-          .button::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          }
-
-          //Left
-          .button--antheleft {
-            font-family: bely-display, sans-serif;
-            color: #fff;
-            background: none;
-          }
-
-          .button--antheleft::before {
-            content: "";
-            background: #000;
-            -webkit-clip-path: polygon(100% 0%,
-                0% 0%,
-                0% 50%,
-                0% 100%,
-                100% 100%);
-            clip-path: polygon(100% 0%, 0% 0%, 0% 50%, 0% 100%, 100% 100%);
-            transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
-              -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-          }
-
-          .button--antheleft:hover::before {
-            background: #fff;
-            -webkit-clip-path: polygon(100% 0%,
-                25% 0%,
-                0% 50%,
-                25% 100%,
-                100% 100%);
-            clip-path: polygon(100% 0%, 25% 0%, 0% 50%, 25% 100%, 100% 100%);
-          }
-
-          .button--antheleft span {
-            display: block;
-            mix-blend-mode: difference;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-          }
-
-          .button--antheleft:hover span {
-            transform: translate3d(10px, 0, 0);
-          }
+          .botton--effect {
+            @include bottonLeft--effect-features;
+          }  
         }
       }
 
-      .buttonright {
+      .bottonright {
         display: grid;
-        grid-template-columns: .50fr .50fr .40fr; // Solution BUG
+        grid-template-columns: .50fr .50fr .40fr;
         grid-template-rows: auto;
-        grid-template-areas: "butright1 butright2 butright";
-        grid-area: buttonright;
+        grid-template-areas: "botright1 botright2 botright";
+        grid-area: bottonright;
         
-        .butright {
-          grid-area: butright;
-          .button {
-            @include button-features;
+        .botright {
+          grid-area: botright;
+          .botton {
+            @include botton-features;
           }
 
-          .button::before,
-          .button::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          }
-
-          .button--antheright {
-            font-family: bely-display, sans-serif;
-            color: #fff;
-            background: none;
-          }
-
-          .button--antheright::before {
-            content: "";
-            background: #000;
-            -webkit-clip-path: polygon(0% 0%,
-                100% 0,
-                100% 50%,
-                100% 100%,
-                0% 100%);
-            clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
-            transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
-              -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-          }
-
-          .button--antheright:hover::before {
-            background: #fff;
-            -webkit-clip-path: polygon(0% 0%,
-                75% 0%,
-                100% 50%,
-                75% 100%,
-                0% 100%);
-            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-          }
-
-          .button--antheright span {
-            display: block;
-            mix-blend-mode: difference;
-            transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-          }
-
-          .button--antheright:hover span {
-            transform: translate3d(-10px, 0, 0);
+          .botton--effect {
+            @include bottonRight--effect-features;
           }
         }
       }
     }
 
-    .Buttom {
-      @include buttonmiddle-features;
+    .Bottom {
+      @include bottommiddle-features;
       .imagesvg {
         @include imagesvg-features;
         .svgside2 {

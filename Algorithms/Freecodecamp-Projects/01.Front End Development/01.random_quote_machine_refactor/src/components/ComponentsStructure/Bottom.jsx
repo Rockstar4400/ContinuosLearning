@@ -1,10 +1,9 @@
-import ButtonGeneral from "../ComponentsElements/ButtonGeneral";
 import Card from "../ComponentsElements/Card";
 import Logo from "../ComponentsElements/Logo";
 import Image from "../ComponentsElements/Image";
 import { useSelector } from "react-redux";
 
-function ButtonMiddle(props) {
+function BottonMiddle(props) {
 
   const allProps = useSelector((state) => {
     return state.quotes;
@@ -37,4 +36,4 @@ function ButtonMiddle(props) {
     )
 }
 
-export default ButtonMiddle;
+export default BottonMiddle;

@@ -1,4 +1,4 @@
-const CopyButton = (props)  => {
+const CopyBotton = (props)  => {
     return (
 <i>
 <svg viewBox="0 0 64 64" fill="white" width="35" id={props.id}>
@@ -24,4 +24,4 @@ v21.616C49.524,43.26,47.429,45.355,44.855,45.355z"
     );
 }
 
-export default CopyButton;
+export default CopyBotton;

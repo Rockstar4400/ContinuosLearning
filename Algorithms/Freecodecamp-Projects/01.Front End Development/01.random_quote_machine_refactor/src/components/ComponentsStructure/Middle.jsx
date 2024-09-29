@@ -1,24 +1,24 @@
 
-import ButtonGeneral from "../ComponentsElements/ButtonGeneral";
+import BottonGeneral from "../ComponentsElements/BottonGeneral";
 
 function Middle (props) {
         return(
         <div className={props.className}>
 
             <div
-            className="butttonleft"
+            className="botttonleft"
             >
 
-                <ButtonGeneral className="butleft" //onClick={clickHandler}
+                <BottonGeneral className="botleft" //onClick={clickHandler}
                 >
-                <div className="button button--antheleft">
+                <div className="botton botton--effect">
                 <span>
                 <i
                 className="angle left icon big"
                 ></i>
                 </span>
                 </div>
-                </ButtonGeneral>
+                </BottonGeneral>
 
                 <div
                 className="bleft1"></div>
@@ -27,22 +27,22 @@ function Middle (props) {
 
             <div className="SB"></div>
 
-            <div className="buttonright">
+            <div className="bottonright">
 
-                <div className="butright1"></div>
-                <div className="butright2"></div>
+                <div className="botright1"></div>
+                <div className="botright2"></div>
                 <div
                 className="bright"
                 
                 >
-                <ButtonGeneral className="butright" //onClick={clickHandler}
+                <BottonGeneral className="botright" //onClick={clickHandler}
                 >
-                <div className="button button--antheright">
+                <div className="botton botton--effect">
                 <span>
                     <i className="angle right icon big"></i>
                 </span>
                 </div>
-                </ButtonGeneral>
+                </BottonGeneral>
             </div>
             
             </div>
