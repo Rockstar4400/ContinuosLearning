@@ -8,123 +8,24 @@ the propertyi instead grid-template-columns: .40fr .50fr .50fr;
 
 */
 
-
 $svg-bg-color: rgba(255, 255, 255, 0.178);
 $body-bg-color: rebeccapurple;
+$houses: ("Tully": 2.2,"Tyrell": 1.6, "Martell": 1.2,
+"Stark": 1.8,"Lannister": 1.3,"Greyjoy": 1.7,"Baratheon": 1.3,
+"Arryn": 1.6,"Targaryen": 1);
+$bottons: (
+"left" ".40fr" ".50fr" 
+"100% 0%,0% 0%,0% 50%,0% 100%,100% 100%" 
+"100% 0%, 0% 0%, 0% 50%, 0% 100%, 100% 100%" 
+"100% 0%,25% 0%,0% 50%,25% 100%,100% 100%" 
+"100% 0%, 25% 0%, 0% 50%, 25% 100%, 100% 100%" 10px, 
+"right" ".50fr" ".40fr" 
+"0% 0%,100% 0%,100% 50%,100% 100%,0% 100%"
+"0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%"
+"0% 0%,75% 0%,100% 50%,75% 100%,0% 100%"
+"0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%" -10px);
 
-@mixin bottommiddle-features{
-  display: grid;
-  grid-template-columns: 0.25fr auto 0.25fr;
-  grid-template-areas:
-    "column1 imagesvg column3"
-    "column4 imagesvg column6"
-    "column7 logo column9";
-  grid-gap: 10px;
-}
-
-@mixin botton-features{
-  pointer-events: auto;
-  cursor: pointer;
-  background: #e7e7e7;
-  border: none;
-  padding: 1.5rem 3rem; // BUG
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  position: relative;
-  color: #fff;
-
-  &::before,
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-}
-
-@mixin bottonLeft--effect-features{
-  font-family: bely-display, sans-serif;
-  color: #fff;
-  background: none;
-
-  &::before {
-    content: "";
-    background: #000;
-    -webkit-clip-path: polygon(100% 0%,
-        0% 0%,
-        0% 50%,
-        0% 100%,
-        100% 100%);
-    clip-path: polygon(100% 0%, 0% 0%, 0% 50%, 0% 100%, 100% 100%);
-    transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
-      -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-  }
-
-  &:hover::before {
-    background: #fff;
-    -webkit-clip-path: polygon(100% 0%,
-        25% 0%,
-        0% 50%,
-        25% 100%,
-        100% 100%);
-    clip-path: polygon(100% 0%, 25% 0%, 0% 50%, 25% 100%, 100% 100%);
-  }
-
-  & span {
-    display: block;
-    mix-blend-mode: difference;
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-  }
-  
-  &:hover span {
-    transform: translate3d(10px, 0, 0);
-  }
-}
-
-@mixin bottonRight--effect-features{
-  font-family: bely-display, sans-serif;
-  color: #fff;
-  background: none;
-  
-
-  &::before {
-  content: "";
-  background: #000;
-  -webkit-clip-path: polygon(0% 0%,
-      100% 0,
-      100% 50%,
-      100% 100%,
-      0% 100%);
-  clip-path: polygon(0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%);
-  transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
-    -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-  }
-
-  &:hover::before {
-  background: #fff;
-  -webkit-clip-path: polygon(0% 0%,
-      75% 0%,
-      100% 50%,
-      75% 100%,
-      0% 100%);
-  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-  }
-
-  & span {
-  display: block;
-  mix-blend-mode: difference;
-  transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
-  }
-
-  &:hover span {
-  transform: translate3d(-10px, 0, 0);
-  }
-}
-
-@mixin container-features{
+@mixin Container-features {
   display: grid;
   grid-template-columns: 0.25fr auto 0.25fr;
   grid-template-areas:
@@ -134,7 +35,7 @@ $body-bg-color: rebeccapurple;
   grid-gap: 10px;
 }
 
-@mixin topmiddle-features{
+@mixin Topmiddle-features {
   display: grid;
   grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
   grid-template-rows: auto;
@@ -150,280 +51,284 @@ $body-bg-color: rebeccapurple;
   padding: 20px;
   font-size: 160%;
   background-color: rgba(255, 255, 255, 0.178);
-}
 
-@mixin imagesvg-features{
-        grid-area: imagesvg;
+  &--message {
+    grid-area: message;
+    color: black;
+    border-radius: 5px;
+    font-size: 180%;
+    line-height: 120%;
+    word-wrap: break-word;
+
+    i {
+      margin: 20px;
+    }
+  }
+
+  &--author {
+    grid-area: author;
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    word-wrap: break-word;
+  }
+
+  &--bshare {
+    display: flex;
+    grid-area: bshare;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+
+    &--bEffect {
+      pointer-events: auto;
+      cursor: pointer;
+      background: #e7e7e7;
+      border: none;
+      margin: 0;
+      font-family: inherit;
+      font-size: 150%;
+      position: relative;
+      color: #fff;
+      width: 100%;
+
+      .bDivision {
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
         grid-template-rows: auto;
-        grid-template-areas: "svgside1 svgside2 svgside3";
-        grid-gap: 10px;
-        gap: 10px;
-        height: auto;
+        grid-template-areas: "bc3 bmessage bmessage bc4";
+        pointer-events: auto;
+        cursor: pointer;
+        font-size: 12px;
+
+        .bmessage {
+          display: grid;
+          grid-template-columns: auto;
+          grid-template-rows: auto;
+          grid-template-areas: "b-icon b-name";
+
+          .b-icon {
+            grid-area: b-icon;
+            margin-top: -5px;
+
+            i {
+              width: auto;
+              height: 0;
+              margin: 0;
+              margin-right: 10px;
+              font-size: 22px;
+            }
+
+            #copy-logo {
+              margin: 0;
+              margin-bottom: -13px;
+              margin-top: -20px;
+              margin-right: -10px;
+              transform: scale(.8);
+            }
+          }
+
+          .b-name {
+            grid-area: b-name;
+            margin-top: -8px;
+            font-size: 160%;
+          }
+        }
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      &--share {
+        background: none;
+        font-family: "Cinzel";
+        padding: 0.7em 2.5em;
+      }
+      
+      &--share div {
+        display: inline-block;
+        position: relative;
+        color: #fff;
+      }
+
+      &--share::before {
+        content: "";
+        background: #000;
+        transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
+      }
+      
+      &--share:hover::before {
+        transform: scale3d(0.9, 0.8, 1);
+      }
+
+      &--share::after {
+        content: "";
+        border: 1px solid #fff;
+        transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
+        border-radius: 0px;
+        transform: scale3d(0.85, 0.65, 1);
+        z-index: -1;
+      }
+      
+      &--share:hover::after {
+        transform: scale3d(1, 1, 1);
+      }
+    }  
+  }
 }
 
-@mixin svgimages-feature{
-  display: block;
-  margin: auto;
-  background-color: $svg-bg-color;
+@mixin Middle-features {
+  grid-area: Middle;
+  display: grid;
+  grid-template-columns: 0.25fr auto 0.25fr;
+  grid-template-rows: 100px;
+  grid-template-areas:
+    "botttonleft SB bottonright";
+  grid-gap: 10px;
+
+  @each $name, $pl1, $pl2, $p1, $p2, $p3, $p4, $tran in $bottons {
+    &--#{$name} {
+      display: grid;
+      grid-template-columns: #{$pl1} .50fr #{$pl2};
+      grid-template-rows: auto;
+      grid-template-areas: "bot#{$name} b#{$name}1 b#{$name}2";
+      grid-area: bottton#{$name};
+
+      &--inside {
+        grid-area: bot#{$name};
+
+        &--bot {
+          pointer-events: auto;
+          cursor: pointer;
+          background: #e7e7e7;
+          border: none;
+          padding: 1.5rem 3rem;
+          margin: 0;
+          font-family: inherit;
+          font-size: inherit;
+          position: relative;
+          color: #fff;
+
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+
+          &--effect {
+            font-family: bely-display, sans-serif;
+            color: #fff;
+            background: none;
+
+            &::before {
+              content: "";
+              background: #000;
+              -webkit-clip-path: polygon(#{$p1});
+              clip-path: polygon(#{$p2});
+              transition: clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1),
+                -webkit-clip-path 0.4s cubic-bezier(0.2, 1, 0.8, 1);
+            }
+
+            &:hover::before {
+              background: #fff;
+              -webkit-clip-path: polygon(#{$p3});
+              clip-path: polygon(#{$p4});
+            }
+
+            & span {
+              display: block;
+              mix-blend-mode: difference;
+              transition: transform 0.4s cubic-bezier(0.2, 1, 0.8, 1);
+            }
+
+            &:hover span {
+              transform: translate3d(#{$tran}, 0, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin Bottommiddle-features {
+  display: grid;
+  grid-template-columns: 0.25fr auto 0.25fr;
+  grid-template-areas:
+    "column1 imagesvg column3"
+    "column4 imagesvg column6"
+    "column7 logo column9";
+  grid-gap: 10px;
+
+  &--imagesvg{
+    grid-area: imagesvg;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "svgLeft svgside svgRight";
+    grid-gap: 10px;
+    gap: 10px;
+    height: auto;
+    &--svgside {
+      @each $house, $scale in $houses {
+        .#{$house} {
+          transform: scale($scale);
+          display: block;
+          margin: auto;
+          background-color: $svg-bg-color;
+        }
+      }
+    }
+  }
+
+  &--logo {
+    margin-top: 70px;
+    h4 {
+      text-align: center;
+    }
+
+  &--react {
+    width: 30%;
+    height: 30%;
+    display: block;
+    margin: auto;
+  }
+  }
 }
 
 html {
   margin: 0;
   padding: 0;
   height: auto;
-  body{
-  background-color: $body-bg-color;
-  .container {
-    @include container-features;
-    .Top {
-      @include topmiddle-features;
-      .message {
-        grid-area: message;
-        color: black;
-        border-radius: 5px;
-        font-size: 180%;
-        line-height: 120%;
-        word-wrap: break-word;
 
-        i {
-          margin: 20px;
-        }
+  body {
+    background-color: $body-bg-color;
+
+    .Container {
+      @include Container-features;
+
+      &--Top {
+        @include Topmiddle-features;  
       }
 
-      .author {
-        grid-area: author;
-        color: black;
-        border-radius: 5px;
-        padding: 20px;
-        font-size: 150%;
-        word-wrap: break-word;
+      &--Middle {
+        @include Middle-features;
       }
 
-      .bshare {
-        display: flex;
-        grid-area: bshare;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-        column-gap: 20px;
-        .bEffect {
-          pointer-events: auto;
-          cursor: pointer;
-          background: #e7e7e7;
-          border: none;
-          margin: 0;
-          font-family: inherit;
-          font-size: 150%;
-          position: relative;
-          color: #fff;
-          width: 100%;
-
-          .bDivision {
-            display: grid;
-            grid-template-columns: 0.25fr 0.25fr 0.25fr 0.25fr;
-            grid-template-rows: auto;
-            grid-template-areas: "bc3 bmessage bmessage bc4";
-            pointer-events: auto;
-            cursor: pointer;
-            font-size: 12px;
-
-            .bmessage {
-              display: grid;
-              grid-template-columns: auto;
-              grid-template-rows: auto;
-              grid-template-areas: "b-icon b-name";
-
-              .b-icon {
-                grid-area: b-icon;
-                margin-top: -5px;
-
-                i {
-                  width: auto;
-                  height: 0;
-                  margin: 0;
-                  margin-right: 10px;
-                  font-size: 22px;
-                }
-
-                #copy-logo {
-                  margin: 0;
-                  margin-bottom: -13px;
-                  margin-top: -20px;
-                  margin-right: -10px;
-                  transform: scale(.8);
-                }
-              }
-
-              .b-name {
-                grid-area: b-name;
-                margin-top: -8px;
-                font-size: 160%;
-              }
-            }
-          }
-        }
-
-        .bEffect::before,
-        .bEffect::after {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100% !important;
-          height: 100% !important;
-        }
-
-        .bEffect--share {
-          background: none;
-          font-family: "Cinzel";
-          padding: 0.7em 2.5em;
-        }
-
-        .bEffect--share div {
-          display: inline-block;
-          position: relative;
-          color: #fff;
-        }
-
-        .bEffect--share::before {
-          content: "";
-          background: #000;
-          transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
-        }
-
-        .bEffect--share:hover::before {
-          transform: scale3d(0.9, 0.8, 1);
-        }
-
-        .bEffect--share::after {
-          content: "";
-          border: 1px solid #fff;
-          transition: transform 0.3s cubic-bezier(0.2, 1, 0.7, 1);
-          border-radius: 0px;
-          transform: scale3d(0.85, 0.65, 1);
-          z-index: -1;
-        }
-
-        .bEffect--share:hover::after {
-          transform: scale3d(1, 1, 1);
-        }
-      }
-    }
-
-    .Middle{
-      grid-area: Middle;
-      display: grid;
-      grid-template-columns: 0.25fr auto 0.25fr;
-      grid-template-rows: 100px;
-      grid-template-areas:
-      "botttonleft SB bottonright";
-      grid-gap: 10px;
-      .botttonleft {
-        display: grid;
-        grid-template-columns: .40fr .50fr .50fr;
-        grid-template-rows: auto;
-        grid-template-areas: "botleft bleft1 bleft2";
-        grid-area: botttonleft;
-
-        .botleft {
-          grid-area: botleft;
-          .botton {
-            @include botton-features; 
-          }
-          
-          .botton--effect {
-            @include bottonLeft--effect-features;
-          }  
-        }
-      }
-
-      .bottonright {
-        display: grid;
-        grid-template-columns: .50fr .50fr .40fr;
-        grid-template-rows: auto;
-        grid-template-areas: "botright1 botright2 botright";
-        grid-area: bottonright;
-        
-        .botright {
-          grid-area: botright;
-          .botton {
-            @include botton-features;
-          }
-
-          .botton--effect {
-            @include bottonRight--effect-features;
-          }
-        }
-      }
-    }
-
-    .Bottom {
-      @include bottommiddle-features;
-      .imagesvg {
-        @include imagesvg-features;
-        .svgside2 {
-          .Tully {
-            transform: scale(2.2);
-            @include svgimages-feature;
-          }
-
-          .Tyrell {
-            transform: scale(1.6);
-            @include svgimages-feature;
-          }
-
-          .Martell {
-            transform: scale(1.2);
-            @include svgimages-feature;
-          }
-
-          .Stark {
-            transform: scale(1.8);
-            @include svgimages-feature;
-          }
-
-          .Lannister {
-            transform: scale(1.3);
-            @include svgimages-feature;
-          }
-
-          .Greyjoy {
-            transform: scale(1.7);
-            @include svgimages-feature;
-          }
-
-          .Baratheon {
-            transform: scale(1.3);
-            @include svgimages-feature;
-          }
-
-          .Arryn {
-            transform: scale(1.6);
-            @include svgimages-feature;
-          }
-
-          .Targaryen {
-            transform: scale(1);
-            @include svgimages-feature;
-          }
-        }
-      }
-
-      .logo {
-        margin-top: 70px;
-        h4 {
-          text-align: center;
-        }
-
-        .react {
-          width: 30%;
-          height: 30%;
-          display: block;
-          margin: auto;
-        }
-      }
-    }
+      &--Bottom {
+        @include Bottommiddle-features;
+      } 
     }
   }
 }

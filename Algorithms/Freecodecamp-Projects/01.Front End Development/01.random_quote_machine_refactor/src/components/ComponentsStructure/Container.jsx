@@ -36,22 +36,22 @@ function Container () {
   };
 
   return (
-    <div className="container">
+    <div className="Container">
           
           <div className="column1"></div>
           <Top 
-          className="Top" 
+          className="Container--Top" 
           random={random}
           />
           <div className="column3"></div>
 
           <Middle 
-          className="Middle"
+          className="Container--Middle"
           />
 
           <div className="column7"></div>
           <Bottom 
-          className="Bottom" 
+          className="Container--Bottom" 
           random={random}
           />
           <div className="column9"></div>

@@ -14,7 +14,7 @@ function TopMiddle(props) {
 
   return (
       <Card className={props.className} id="quote-box">
-        <div className="message">
+        <div className="Container--Top--message">
           <i className="quote left icon"></i>
           <Message id="text" 
           message={allProps[0].data.quotes[props.random].quote} 
@@ -22,14 +22,15 @@ function TopMiddle(props) {
           <i className="quote right icon"></i>
         </div>
         <div className="main"></div>
-        <div className="author">
+        <div className="Container--Top--author">
           <Author id="author" 
           author={allProps[0].data.quotes[props.random].author} 
           />
         </div>
-        <div className="bshare">
+        <div className="Container--Top--bshare">
           <div 
-            className="bEffect bEffect--share"
+            className="Container--Top--bshare--bEffect
+            Container--Top--bshare--bEffect--share"
             //onClick={this.copyButton}
           >
             <div className="bDivision">
@@ -47,7 +48,8 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bEffect bEffect--share"
+            className="Container--Top--bshare--bEffect
+            Container--Top--bshare--bEffect--share"
             //onClick={() => dispatch(orderQuoteAsc(this.state))}
             id="tg-share-button"
           >
@@ -66,7 +68,8 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bEffect bEffect--share"
+            className="Container--Top--bshare--bEffect
+            Container--Top--bshare--bEffect--share"
             //onClick={this.sharingFacebook}
             id="fb-share-button"
           >
@@ -85,7 +88,8 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bEffect bEffect--share"
+            className="Container--Top--bshare--bEffect
+            Container--Top--bshare--bEffect--share"
             //onClick={this.sharingTwitter}
             id="tw-share-button"
           >
@@ -108,7 +112,8 @@ function TopMiddle(props) {
           </div>
 
           <div
-            className="bEffect bEffect--share"
+            className="Container--Top--bshare--bEffect
+            Container--Top--bshare--bEffect--share"
             //onClick={this.sharingGithub}
             id="gh-share-button"
           >
