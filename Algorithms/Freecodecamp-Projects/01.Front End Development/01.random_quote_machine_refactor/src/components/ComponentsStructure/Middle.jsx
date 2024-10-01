@@ -10,12 +10,13 @@ function Middle (props) {
             >
 
                 <BottonGeneral 
-                className="Container--Middle--left--inside" 
-                //onClick={clickHandler}
+                className="Container--Middle--left--inside"
+               
                 >
                 <div 
                 className="Container--Middle--left--inside--bot 
-                Container--Middle--left--inside--bot--effect">
+                Container--Middle--left--inside--bot--effect"
+                onClick={()=>props.clickHandler()}>
                 <span>
                 <i
                 className="angle left icon big"
@@ -41,11 +42,11 @@ function Middle (props) {
                 >
                 <BottonGeneral 
                 className="Container--Middle--right--inside" 
-                //onClick={clickHandler}
                 >
                 <div 
                 className="Container--Middle--right--inside--bot
-                Container--Middle--right--inside--bot--effect">
+                Container--Middle--right--inside--bot--effect"
+                onClick={()=>props.clickHandler()}>
                 <span>
                     <i className="angle right icon big"></i>
                 </span>

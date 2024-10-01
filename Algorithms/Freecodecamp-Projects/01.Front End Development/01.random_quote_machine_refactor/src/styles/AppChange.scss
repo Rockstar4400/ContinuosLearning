@@ -8,22 +8,16 @@ the propertyi instead grid-template-columns: .40fr .50fr .50fr;
 
 */
 
+// variables
 $svg-bg-color: rgba(255, 255, 255, 0.178);
 $body-bg-color: rebeccapurple;
-$houses: ("Tully": 2.2,"Tyrell": 1.6, "Martell": 1.2,
-"Stark": 1.8,"Lannister": 1.3,"Greyjoy": 1.7,"Baratheon": 1.3,
-"Arryn": 1.6,"Targaryen": 1);
-$bottons: (
-"left" ".40fr" ".50fr" 
-"100% 0%,0% 0%,0% 50%,0% 100%,100% 100%" 
-"100% 0%, 0% 0%, 0% 50%, 0% 100%, 100% 100%" 
-"100% 0%,25% 0%,0% 50%,25% 100%,100% 100%" 
-"100% 0%, 25% 0%, 0% 50%, 25% 100%, 100% 100%" 10px, 
-"right" ".50fr" ".40fr" 
-"0% 0%,100% 0%,100% 50%,100% 100%,0% 100%"
-"0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%"
-"0% 0%,75% 0%,100% 50%,75% 100%,0% 100%"
-"0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%" -10px);
+$l1: "100% 0%,0% 0%,0% 50%,0% 100%,100% 100%"; $l2: "100% 0%, 0% 0%, 0% 50%, 0% 100%, 100% 100%";
+$l3: "100% 0%,25% 0%,0% 50%,25% 100%,100% 100%"; $l4: "100% 0%, 25% 0%, 0% 50%, 25% 100%, 100% 100%";
+$r1: "0% 0%,100% 0%,100% 50%,100% 100%,0% 100%"; $r2: "0% 0%, 100% 0, 100% 50%, 100% 100%, 0% 100%";
+$r3: "0% 0%,75% 0%,100% 50%,75% 100%,0% 100%"; $r4: "0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%";
+// lists
+$houses: ("Tully": 2.2,"Tyrell": 1.6, "Martell": 1.2,"Stark": 1.8,"Lannister": 1.3,"Greyjoy": 1.7,"Baratheon": 1.3,"Arryn": 1.6,"Targaryen": 1);
+$bottons: ("left" ".40fr" ".50fr" $l1 $l2 $l3 $l4 10px, "right" ".50fr" ".40fr" $r1 $r2 $r3 $r4 -10px);
 
 @mixin Container-features {
   display: grid;
@@ -191,7 +185,7 @@ $bottons: (
   grid-template-columns: 0.25fr auto 0.25fr;
   grid-template-rows: 100px;
   grid-template-areas:
-    "botttonleft SB bottonright";
+    "bottonleft SB bottonright";
   grid-gap: 10px;
 
   @each $name, $pl1, $pl2, $p1, $p2, $p3, $p4, $tran in $bottons {
@@ -200,7 +194,6 @@ $bottons: (
       grid-template-columns: #{$pl1} .50fr #{$pl2};
       grid-template-rows: auto;
       grid-template-areas: "bot#{$name} b#{$name}1 b#{$name}2";
-      grid-area: bottton#{$name};
 
       &--inside {
         grid-area: bot#{$name};
@@ -280,7 +273,6 @@ $bottons: (
     grid-gap: 10px;
     gap: 10px;
     height: auto;
-    &--svgside {
       @each $house, $scale in $houses {
         .#{$house} {
           transform: scale($scale);
@@ -289,12 +281,11 @@ $bottons: (
           background-color: $svg-bg-color;
         }
       }
-    }
   }
 
   &--logo {
-    margin-top: 70px;
-    h4 {
+    transform: scale(.2);
+    h1 {
       text-align: center;
     }
 

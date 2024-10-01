@@ -30,7 +30,6 @@ function Container () {
     dispatch(editProps({data}));
   };
   
-
   const clickHandler = () => {
     useEditMethod();
   };
@@ -47,6 +46,7 @@ function Container () {
 
           <Middle 
           className="Container--Middle"
+          clickHandler={clickHandler}
           />
 
           <div className="column7"></div>
