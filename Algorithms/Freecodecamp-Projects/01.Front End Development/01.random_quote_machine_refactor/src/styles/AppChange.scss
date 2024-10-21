@@ -27,6 +27,17 @@ $bottons: ("left" ".40fr" ".50fr" $l1 $l2 $l3 $l4 10px, "right" ".50fr" ".40fr" 
     "Middle Middle Middle"
     "column7 bottonsmiddle column9";
   grid-gap: 10px;
+  &--Top {
+        @include Topmiddle-features;  
+      }
+
+  &--Middle {
+    @include Middle-features;
+  }
+
+  &--Bottom {
+        @include Bottommiddle-features;
+      } 
 }
 
 @mixin Topmiddle-features {
@@ -68,6 +79,11 @@ $bottons: ("left" ".40fr" ".50fr" $l1 $l2 $l3 $l4 10px, "right" ".50fr" ".40fr" 
     word-wrap: break-word;
   }
 
+  
+  //@debug calc(.Container);
+  // @if {
+
+  // }
   &--bshare {
     display: flex;
     grid-area: bshare;
@@ -308,18 +324,6 @@ html {
 
     .Container {
       @include Container-features;
-
-      &--Top {
-        @include Topmiddle-features;  
-      }
-
-      &--Middle {
-        @include Middle-features;
-      }
-
-      &--Bottom {
-        @include Bottommiddle-features;
-      } 
     }
   }
 }
