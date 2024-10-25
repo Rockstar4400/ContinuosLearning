@@ -26,18 +26,17 @@
 #include "ble_compatibility_test.h"
 
 #define DEBUG_ON                                0
-
 #if DEBUG_ON
 #define EXAMPLE_DEBUG ESP_LOGI
 #else
 #define EXAMPLE_DEBUG(tag, format, ...)
 #endif
 
-#define EXAMPLE_TAG                             "Using Bluetooth"
+#define EXAMPLE_TAG                             "ESP32_Bluetooth"
 #define PROFILE_NUM                             1
 #define PROFILE_APP_IDX                         0
 #define ESP_APP_ID                              0x55
-#define SAMPLE_DEVICE_NAME                      "ESP32 Bluetooth"
+#define SAMPLE_DEVICE_NAME                      "ESP32 Bluetooth®"
 #define SVC_INST_ID                             0
 
 /* The max length of characteristic value. When the gatt client write or prepare write,
@@ -55,7 +54,6 @@
 #define SCAN_RSP_CONFIG_FLAG (1 << 1)
 
 static uint8_t adv_config_done = 0;
-
 uint16_t gatt_db_handle_table[HRS_IDX_NB];
 
 typedef struct
@@ -76,7 +74,7 @@ static uint8_t raw_adv_data[] = {
     /* Service UUID */
     0x03, ESP_BLE_AD_TYPE_16SRV_CMPL, 0xFF, 0x00,
     /* Device Name */
-    0x0E, ESP_BLE_AD_TYPE_NAME_CMPL, 'U', 'S', 'I', 'N', 'G', 'B', 'L', 'U', 'E', 'T', 'O', 'O', 'T','H'};
+    0x0E, ESP_BLE_AD_TYPE_NAME_CMPL, 'E', 'S', 'P', '3', '2', '_', 'B', 'L', 'U', 'E', 'T', 'O', 'O', 'T','H', 169};
 
 static uint8_t raw_scan_rsp_data[] = {
     /* Flags */
@@ -85,7 +83,6 @@ static uint8_t raw_scan_rsp_data[] = {
     0x02, ESP_BLE_AD_TYPE_TX_PWR, 0xeb,
     /* Service UUID */
     0x03, ESP_BLE_AD_TYPE_16SRV_CMPL, 0xFF, 0x00};
-
 #else
 static uint8_t service_uuid[16] = {
     /* LSB <--------------------------------------------------------------------------------> MSB */
@@ -223,48 +220,111 @@ static const esp_gatts_attr_db_t gatt_db[HRS_IDX_NB] =
 {
     // Service Declaration
     [IDX_SVC] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&primary_service_uuid, ESP_GATT_PERM_READ, sizeof(uint16_t), sizeof(GATTS_SERVICE_UUID_TEST), (uint8_t *)&GATTS_SERVICE_UUID_TEST}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&primary_service_uuid, 
+        ESP_GATT_PERM_READ, 
+        sizeof(uint16_t), 
+        sizeof(GATTS_SERVICE_UUID_TEST),
+        (uint8_t *)&GATTS_SERVICE_UUID_TEST}},
 
     /* Characteristic Declaration */
     [IDX_CHAR_A] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_declaration_uuid, ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE, (uint8_t *)&char_prop_read_write}},
+        {{ESP_GATT_AUTO_RSP},
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_declaration_uuid, 
+        ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE, 
+        CHAR_DECLARATION_SIZE, 
+        (uint8_t *)&char_prop_read_write}},
 
     /* Characteristic Value */
     [IDX_CHAR_VAL_A] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&CHAR_1_SHORT_WR, ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE | ESP_GATT_PERM_READ_ENC_MITM, SHORT_CHAR_VAL_LEN, sizeof(char_value), (uint8_t *)char_value}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&CHAR_1_SHORT_WR, 
+        ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE | ESP_GATT_PERM_READ_ENC_MITM, 
+        SHORT_CHAR_VAL_LEN, 
+        sizeof(char_value), 
+        (uint8_t *)char_value}},
 
     /* Characteristic User Descriptor */
     [IDX_CHAR_CFG_A] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_user_description, ESP_GATT_PERM_READ, sizeof(char1_name), sizeof(char1_name), (uint8_t *)char1_name}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_user_description, 
+        ESP_GATT_PERM_READ, 
+        sizeof(char1_name), 
+        sizeof(char1_name), 
+        (uint8_t *)char1_name}},
 
     /* Characteristic Declaration */
     [IDX_CHAR_B] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_declaration_uuid, ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE, (uint8_t *)&char_prop_read_write}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_declaration_uuid, 
+        ESP_GATT_PERM_READ, 
+        CHAR_DECLARATION_SIZE, 
+        CHAR_DECLARATION_SIZE, 
+        (uint8_t *)&char_prop_read_write}},
 
     /* Characteristic Value */
     [IDX_CHAR_VAL_B] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&CHAR_2_LONG_WR, ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, LONG_CHAR_VAL_LEN, sizeof(char_value), (uint8_t *)char_value}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&CHAR_2_LONG_WR, 
+        ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
+        LONG_CHAR_VAL_LEN, sizeof(char_value), 
+        (uint8_t *)char_value}},
 
     /* Characteristic User Descriptor */
     [IDX_CHAR_CFG_B] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_user_description, ESP_GATT_PERM_READ, sizeof(char2_name), sizeof(char2_name), (uint8_t *)char2_name}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_user_description, 
+        ESP_GATT_PERM_READ, 
+        sizeof(char2_name), 
+        sizeof(char2_name), 
+        (uint8_t *)char2_name}},
 
     /* Characteristic Declaration */
     [IDX_CHAR_C] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_declaration_uuid, ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE, (uint8_t *)&char_prop_notify}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_declaration_uuid, 
+        ESP_GATT_PERM_READ, 
+        CHAR_DECLARATION_SIZE, 
+        CHAR_DECLARATION_SIZE, 
+        (uint8_t *)&char_prop_notify}},
 
     /* Characteristic Value */
     [IDX_CHAR_VAL_C] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&CHAR_3_SHORT_NOTIFY, 0, LONG_CHAR_VAL_LEN, sizeof(char_value), (uint8_t *)char_value}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&CHAR_3_SHORT_NOTIFY, 
+        0, 
+        LONG_CHAR_VAL_LEN, 
+        sizeof(char_value), 
+        (uint8_t *)char_value}},
 
     /* Characteristic User Descriptor */
     [IDX_CHAR_CFG_C] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_user_description, ESP_GATT_PERM_READ, sizeof(char3_name), sizeof(char3_name), (uint8_t *)char3_name}},
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_user_description, 
+        ESP_GATT_PERM_READ, 
+        sizeof(char3_name), 
+        sizeof(char3_name), 
+        (uint8_t *)char3_name}},
 
     /* Characteristic Client Configuration Descriptor */
     [IDX_CHAR_CFG_C_2] =
-        {{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t *)&character_client_config_uuid, ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, sizeof(uint16_t), sizeof(char_ccc), (uint8_t *)char_ccc}},
-
+        {{ESP_GATT_AUTO_RSP}, 
+        {ESP_UUID_LEN_16, 
+        (uint8_t *)&character_client_config_uuid, 
+        ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, 
+        sizeof(uint16_t), 
+        sizeof(char_ccc), 
+        (uint8_t *)char_ccc}},
 };
 
 static void show_bonded_devices(void)
@@ -758,56 +818,83 @@ void app_main(void)
     ret = esp_bt_controller_init(&bt_cfg);
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "%s enable controller failed: %s", __func__, esp_err_to_name(ret));
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "%s enable controller failed: %s", 
+            __func__, 
+            esp_err_to_name(ret));
         return;
     }
 
     ret = esp_bt_controller_enable(ESP_BT_MODE_BLE);
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "%s enable controller failed: %s", __func__, esp_err_to_name(ret));
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "%s enable controller failed: %s", 
+            __func__, 
+            esp_err_to_name(ret));
         return;
     }
 
     ret = esp_bluedroid_init();
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "%s init bluetooth failed: %s", __func__, esp_err_to_name(ret));
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "%s init bluetooth failed: %s", 
+            __func__, 
+            esp_err_to_name(ret));
         return;
     }
 
     ret = esp_bluedroid_enable();
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "%s enable bluetooth failed: %s", __func__, esp_err_to_name(ret));
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "%s enable bluetooth failed: %s", 
+            __func__, 
+            esp_err_to_name(ret));
         return;
     }
 
     ret = esp_ble_gatts_register_callback(gatts_event_handler);
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "gatts register error, error code = %x", ret);
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "gatts register error => error code = %x", 
+            ret);
         return;
     }
 
     ret = esp_ble_gap_register_callback(gap_event_handler);
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "gap register error, error code = %x", ret);
+        ESP_LOGE(EXAMPLE_TAG,
+         "gap register error => error code = %x",
+          ret);
         return;
     }
 
     ret = esp_ble_gatts_app_register(ESP_APP_ID);
     if (ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "gatts app register error, error code = %x", ret);
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "gatts app register error => error code = %x",
+             ret);
         return;
     }
 
     esp_err_t local_mtu_ret = esp_ble_gatt_set_local_mtu(33);
     if (local_mtu_ret)
     {
-        ESP_LOGE(EXAMPLE_TAG, "set local  MTU failed, error code = %x", local_mtu_ret);
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "set local  MTU failed => error code = %x", 
+            local_mtu_ret);
     }
 
     /* set the security iocap & auth_req & key size & init key response key parameters to the stack*/
@@ -816,17 +903,35 @@ void app_main(void)
     uint8_t key_size =                                          16;                                      // the key size should be 7~16 bytes
     uint8_t init_key =                                          ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
     uint8_t rsp_key =                                           ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
-    uint32_t passkey =                                          777777;
+    uint32_t passkey =                                          55555;
 
-    esp_ble_gap_set_security_param(ESP_BLE_SM_SET_STATIC_PASSKEY, &passkey, sizeof(uint32_t));
-    esp_ble_gap_set_security_param(ESP_BLE_SM_AUTHEN_REQ_MODE, &auth_req, sizeof(uint8_t));
-    esp_ble_gap_set_security_param(ESP_BLE_SM_IOCAP_MODE, &iocap, sizeof(uint8_t));
-    esp_ble_gap_set_security_param(ESP_BLE_SM_MAX_KEY_SIZE, &key_size, sizeof(uint8_t));
+    esp_ble_gap_set_security_param(
+        ESP_BLE_SM_SET_STATIC_PASSKEY, 
+        &passkey, 
+        sizeof(uint32_t));
+    esp_ble_gap_set_security_param(
+        ESP_BLE_SM_AUTHEN_REQ_MODE, 
+        &auth_req, 
+        sizeof(uint8_t));
+    esp_ble_gap_set_security_param(
+        ESP_BLE_SM_IOCAP_MODE, 
+        &iocap, 
+        sizeof(uint8_t));
+    esp_ble_gap_set_security_param(
+        ESP_BLE_SM_MAX_KEY_SIZE, 
+        &key_size, 
+        sizeof(uint8_t));
 
     /* If your BLE device act as a Slave, the init_key means you hope which types of key of the master should distribute to you,
     and the response key means which key you can distribute to the Master;
     If your BLE device act as a master, the response key means you hope which types of key of the slave should distribute to you,
     and the init key means which key you can distribute to the slave. */
-    esp_ble_gap_set_security_param(ESP_BLE_SM_SET_INIT_KEY, &init_key, sizeof(uint8_t));
-    esp_ble_gap_set_security_param(ESP_BLE_SM_SET_RSP_KEY, &rsp_key, sizeof(uint8_t));
+    esp_ble_gap_set_security_param(
+        ESP_BLE_SM_SET_INIT_KEY, 
+        &init_key, 
+        sizeof(uint8_t));
+    esp_ble_gap_set_security_param(
+        ESP_BLE_SM_SET_RSP_KEY, 
+        &rsp_key, 
+        sizeof(uint8_t));
 }
