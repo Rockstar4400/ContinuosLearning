@@ -903,7 +903,7 @@ void app_main(void)
     uint8_t key_size =                                          16;                                      // the key size should be 7~16 bytes
     uint8_t init_key =                                          ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
     uint8_t rsp_key =                                           ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
-    uint32_t passkey =                                          55555;
+    uint32_t passkey =55555;
 
     esp_ble_gap_set_security_param(
         ESP_BLE_SM_SET_STATIC_PASSKEY, 
