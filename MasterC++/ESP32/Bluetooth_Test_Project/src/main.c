@@ -32,7 +32,7 @@
 #define EXAMPLE_DEBUG(tag, format, ...)
 #endif
 
-#define EXAMPLE_TAG                             "ESP32_Bluetooth"
+#define EXAMPLE_TAG                             "ESP32 Bluetooth®"
 #define PROFILE_NUM                             1
 #define PROFILE_APP_IDX                         0
 #define ESP_APP_ID                              0x55
@@ -626,17 +626,17 @@ static void gatts_profile_event_handler(
         adv_config_done |= SCAN_RSP_CONFIG_FLAG;
 #else
         // config adv data
-        esp_err_t ret = esp_ble_gap_config_adv_data(&adv_data);
-        if (ret)
+        esp_err_t returned_error = esp_ble_gap_config_adv_data(&adv_data);
+        if (returned_error)
         {
-            ESP_LOGE(EXAMPLE_TAG, "config adv data failed, error code = %x", ret);
+            ESP_LOGE(EXAMPLE_TAG, "config adv data failed, error code = %x", returned_error);
         }
         adv_config_done |= ADV_CONFIG_FLAG;
         // config scan response data
-        ret = esp_ble_gap_config_adv_data(&scan_rsp_data);
-        if (ret)
+        returned_error = esp_ble_gap_config_adv_data(&scan_rsp_data);
+        if (returned_error)
         {
-            ESP_LOGE(EXAMPLE_TAG, "config scan response data failed, error code = %x", ret);
+            ESP_LOGE(EXAMPLE_TAG, "config scan response data failed, error code = %x", returned_error);
         }
         adv_config_done |= SCAN_RSP_CONFIG_FLAG;
 #endif
@@ -801,90 +801,91 @@ static void gatts_event_handler(
 
 void app_main(void)
 {
-    esp_err_t ret;
+    esp_err_t returned_error;
 
-    /* Initialize NVS. */
-    ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES)
+    returned_error = nvs_flash_init();
+    if (returned_error == ESP_ERR_NVS_NO_FREE_PAGES)
     {
         ESP_ERROR_CHECK(nvs_flash_erase());
-        ret = nvs_flash_init();
+        returned_error = nvs_flash_init();
     }
-    ESP_ERROR_CHECK(ret);
 
+    ESP_ERROR_CHECK(returned_error);
     ESP_ERROR_CHECK(esp_bt_controller_mem_release(ESP_BT_MODE_CLASSIC_BT));
 
-    esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
-    ret = esp_bt_controller_init(&bt_cfg);
-    if (ret)
+    // Inicialization
+    esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT(); // WHY ONE PROPERTY IS MISSING?
+
+    returned_error = esp_bt_controller_init(&bt_cfg);
+    if (returned_error)
     {
         ESP_LOGE(
             EXAMPLE_TAG, 
-            "%s enable controller failed: %s", 
+            "%s enable controller failed: esp_bt_controller_init -> %s", 
+            __func__,
+            esp_err_to_name(returned_error));
+        return;
+    }
+
+    returned_error = esp_bt_controller_enable(ESP_BT_MODE_BLE);
+    if (returned_error)
+    {
+        ESP_LOGE(
+            EXAMPLE_TAG, 
+            "%s enable controller failed: esp_bt_controller_enable -> %s", 
             __func__, 
-            esp_err_to_name(ret));
+            esp_err_to_name(returned_error));
         return;
     }
 
-    ret = esp_bt_controller_enable(ESP_BT_MODE_BLE);
-    if (ret)
+    returned_error = esp_bluedroid_init();
+    if (returned_error)
     {
         ESP_LOGE(
             EXAMPLE_TAG, 
-            "%s enable controller failed: %s", 
+            "%s init bluetooth failed: esp_bluedroid_init -> %s", 
             __func__, 
-            esp_err_to_name(ret));
+            esp_err_to_name(returned_error));
         return;
     }
 
-    ret = esp_bluedroid_init();
-    if (ret)
+    returned_error = esp_bluedroid_enable();
+    if (returned_error)
     {
         ESP_LOGE(
             EXAMPLE_TAG, 
-            "%s init bluetooth failed: %s", 
+            "%s enable bluetooth failed: esp_bluedroid_enable -> %s", 
             __func__, 
-            esp_err_to_name(ret));
+            esp_err_to_name(returned_error));
         return;
     }
 
-    ret = esp_bluedroid_enable();
-    if (ret)
+    returned_error = esp_ble_gatts_register_callback(gatts_event_handler);
+    if (returned_error)
     {
         ESP_LOGE(
             EXAMPLE_TAG, 
-            "%s enable bluetooth failed: %s", 
-            __func__, 
-            esp_err_to_name(ret));
+            "esp_ble_gatts_register_callback => error code = %x", 
+            returned_error);
         return;
     }
 
-    ret = esp_ble_gatts_register_callback(gatts_event_handler);
-    if (ret)
-    {
-        ESP_LOGE(
-            EXAMPLE_TAG, 
-            "gatts register error => error code = %x", 
-            ret);
-        return;
-    }
-
-    ret = esp_ble_gap_register_callback(gap_event_handler);
-    if (ret)
+    returned_error = esp_ble_gap_register_callback(gap_event_handler);
+    if (returned_error)
     {
         ESP_LOGE(EXAMPLE_TAG,
-         "gap register error => error code = %x",
-          ret);
+         "esp_ble_gap_register_callback => error code = %x",
+          returned_error);
         return;
     }
 
-    ret = esp_ble_gatts_app_register(ESP_APP_ID);
-    if (ret)
+    returned_error = esp_ble_gatts_app_register(ESP_APP_ID);
+    if (returned_error)
     {
         ESP_LOGE(
             EXAMPLE_TAG, 
-            "gatts app register error => error code = %x",
-             ret);
+            "esp_ble_gatts_app_register => error code = %x",
+             returned_error);
         return;
     }
 
@@ -893,7 +894,7 @@ void app_main(void)
     {
         ESP_LOGE(
             EXAMPLE_TAG, 
-            "set local  MTU failed => error code = %x", 
+            "esp_ble_gatt_set_local_mtu => error code = %x", 
             local_mtu_ret);
     }
 
@@ -903,7 +904,7 @@ void app_main(void)
     uint8_t key_size =                                          16;                                      // the key size should be 7~16 bytes
     uint8_t init_key =                                          ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
     uint8_t rsp_key =                                           ESP_BLE_ENC_KEY_MASK | ESP_BLE_ID_KEY_MASK;
-    uint32_t passkey =55555;
+    uint32_t passkey =                                          (55555);
 
     esp_ble_gap_set_security_param(
         ESP_BLE_SM_SET_STATIC_PASSKEY, 
