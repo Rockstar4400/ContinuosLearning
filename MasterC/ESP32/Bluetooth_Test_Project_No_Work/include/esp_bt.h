@@ -203,6 +203,7 @@ the advertising packet will be discarded until the memory is restored. */
     .pcm_role = CONFIG_BTDM_CTRL_PCM_ROLE_EFF,                             \
     .pcm_polar = CONFIG_BTDM_CTRL_PCM_POLAR_EFF,                           \
     .hli = BTDM_CTRL_HLI,                                                  \
+    .pcm_fsyncshp = CONFIG_BTDM_CTRL_PCM_FSYNCSHP_EFF,                     \
     .dup_list_refresh_period = SCAN_DUPL_CACHE_REFRESH_PERIOD,             \
     .ble_scan_backoff = BTDM_CTRL_SCAN_BACKOFF_UPPERLIMITMAX,              \
     .magic = ESP_BT_CONTROLLER_CONFIG_MAGIC_VAL,                           \
