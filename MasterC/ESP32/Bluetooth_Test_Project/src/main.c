@@ -597,6 +597,7 @@ void example_exec_write_event_env(
     prepare_write_env->prepare_len = 0;
 }
 
+// BUG
 static void gatts_profile_event_handler(
                             esp_gatts_cb_event_t event, 
                             esp_gatt_if_t gatts_if, 
