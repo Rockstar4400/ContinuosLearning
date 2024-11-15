@@ -1,4 +1,7 @@
 /*
+
+-It's good
+
 Several people are standing in a row and need to be divided into 
 two teams. The first person goes into team 1, the second goes into 
 team 2, the third goes into team 1 again, the fourth into team 2, 
@@ -57,3 +60,14 @@ char * helloWorld(char * name) {
 arr_integer solution(arr_integer a) {
 
 }
+
+/*
+Test cases:
+
+1.a: [50, 60, 60, 45, 70] = [180, 105]
+2.a: [100, 50] = [100, 50]
+3.a: [80] = 80, 0]
+4.a: [100, 50, 50, 100] = [150, 150]
+5.a: [100, 51, 50, 100] = [150, 151]
+
+*/
