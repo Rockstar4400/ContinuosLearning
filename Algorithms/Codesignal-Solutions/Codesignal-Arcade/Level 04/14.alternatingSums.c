@@ -1,15 +1,13 @@
 /*
 
--It's good
-
-Several people are standing in a row and need to be divided into 
-two teams. The first person goes into team 1, the second goes into 
-team 2, the third goes into team 1 again, the fourth into team 2, 
+Several people are standing in a row and need to be divided into
+two teams. The first person goes into team 1, the second goes into
+team 2, the third goes into team 1 again, the fourth into team 2,
 and so on.
 
-You are given an array of positive integers - the weights of the 
-people. Return an array of two integers, where the first element 
-is the total weight of team 1, and the second element is the total 
+You are given an array of positive integers - the weights of the
+people. Return an array of two integers, where the first element
+is the total weight of team 1, and the second element is the total
 weight of team 2 after the division is complete.
 
 Example
@@ -45,22 +43,27 @@ char * helloWorld(char * name) {
 
 */
 
+#include <stdio.h>
 // Arrays are already defined with this interface:
-// typedef struct arr_##name {
-//   int size;
-//   type *arr;
-// } arr_##name;
-//
+typedef struct arr_integer {
+  int size;
+  int *arr;
+} arr_integer;
+
 // arr_##name alloc_arr_##name(int len) {
 //   arr_##name a = {len, len > 0 ? malloc(sizeof(type) * len) : NULL};
 //   return a;
 // }
 //
 //
-arr_integer solution(arr_integer a) {
-
+arr_integer solution(const arr_integer a) {
+    return a;
 }
-
+int main(void)
+{
+    printf("Hello World!\r\n");
+    return 0;
+}
 /*
 Test cases:
 
