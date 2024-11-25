@@ -1,17 +1,25 @@
 /*
 NOT LIKED
 
-You've been studying trees a lot lately, and became an expert in caterpillar trees. Now that you know everything about them, you're ready to climb one. However, in order to climb such tree you need a special ladder that you call a mobius ladder.
+You've been studying trees a lot lately, and became an expert in caterpillar trees. 
+Now that you know everything about them, you're ready to climb one. However, in order to climb 
+such tree you need a special ladder that you call a mobius ladder.
 
-A mobius ladder is a slightly modified proper ladder. Firstly, let's define what proper ladder is: a proper ladder is a ladder that can be represented by a graph containing two chains of vertices with n vertices in each one, where the ith vertex of the first chain is connected to the ith vertex of the second chain. For example, a proper ladder with 8 vertices looks like this:
+A mobius ladder is a slightly modified proper ladder. Firstly, let's define what proper ladder 
+is: a proper ladder is a ladder that can be represented by a graph containing two chains of vertices 
+with n vertices in each one, where the ith vertex of the first chain is connected to the ith vertex 
+of the second chain. For example, a proper ladder with 8 vertices looks like this:
 
 
 
-A mobius ladder is a proper ladder with two more connections: the first vertex of the first chain is connected to the last vertex of the second chain, and last vertex of the first chain is connected to the first vertex of the second chain. For example, here is a mobius ladder with 8 vertices:
+A mobius ladder is a proper ladder with two more connections: the first vertex of the first chain is 
+connected to the last vertex of the second chain, and last vertex of the first chain is connected 
+to the first vertex of the second chain. For example, here is a mobius ladder with 8 vertices:
 
 
 
-You found a ladder that can be represented by n vertices in the attic. Now you need to check if it is a mobius ladder, to make sure it can be used to climb a caterpillar tree.
+You found a ladder that can be represented by n vertices in the attic. Now you need to check if it 
+is a mobius ladder, to make sure it can be used to climb a caterpillar tree.
 
 Example
 
