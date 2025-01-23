@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -23,8 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   error = null;
   errorSub = '';
  
-  constructor( private postService: PostService
-             ) {}
+  constructor( private postService: PostService) {}
 
   ngOnInit() {
     this.postService.error.subscribe(errorMessage => {
@@ -45,8 +42,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onCreatePost(postData: Post) {
-    // CREATE Http request
+    // Create and update the list on the view
     this.postService.createAndStorePost( postData.title, postData.content );
+    this.onFetchPosts();
   }
 
   onFetchPosts() {

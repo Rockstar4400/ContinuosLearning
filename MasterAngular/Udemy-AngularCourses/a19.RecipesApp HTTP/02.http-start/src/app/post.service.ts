@@ -27,9 +27,10 @@ export class PostService {
         }
       )
       .subscribe({
-          next: responseData => console.log(responseData.body),
-          error: error => console.error(error.message),
-          //complete: () => console.log('Created!')
+          next: responseData => 
+            console.log(responseData.body),
+          error: error => 
+            console.error(error.message),
         });
   }
 
@@ -56,7 +57,6 @@ export class PostService {
           return postsArray;
         }),
         catchError((errorRes) => {
-          //Send to analitics server
           return throwError(() => errorRes);
         })
       );
