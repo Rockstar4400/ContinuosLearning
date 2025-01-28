@@ -7,8 +7,9 @@ import {
 import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-
 import { Post } from './post.model';
+
+const Firebase_URL = 'https://comisionfederal-188703.firebaseio.com/posts.json';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
@@ -20,7 +21,7 @@ export class PostService {
     const postData: Post = { title: title, content: content };
     this.http
       .post<{ name: string }>(
-        'https://comisionfederal-188703.firebaseio.com/posts.json',
+        Firebase_URL,
         postData,
         {
           observe: 'response',
@@ -40,7 +41,7 @@ export class PostService {
     searchParams = searchParams.append('custom', 'key');
     return this.http
       .get<{ [key: string]: Post }>(
-        'https://comisionfederal-188703.firebaseio.com/posts.json',
+        Firebase_URL,
         {
           headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
           params: searchParams,
@@ -64,7 +65,7 @@ export class PostService {
 
   deletePosts() {
     return this.http
-      .delete('https://comisionfederal-188703.firebaseio.com/posts.json', {
+      .delete(Firebase_URL, {
         observe: 'events',
         responseType: 'text',
       })
