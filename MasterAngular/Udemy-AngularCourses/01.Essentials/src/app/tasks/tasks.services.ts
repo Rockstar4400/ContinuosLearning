@@ -31,6 +31,9 @@ private tasks = [
       ];
 
     constructor(){
+
+      // Option to reset the tasks
+      localStorage.clear();
       const tasks = localStorage.getItem('tasks');
 
       if(tasks) {
@@ -56,7 +59,7 @@ private tasks = [
 
     removeTask(id: string){
         this.tasks = this.tasks
-    .filter((task) => task.id === id);
+    .filter((task) => task.id !== id);
     this.saveTasks();
     }
 
