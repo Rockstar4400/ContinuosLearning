@@ -5,4 +5,4 @@ export class Actor {
       public skill: string,
       public studio?: string,
     ) {}
-}
+  }
