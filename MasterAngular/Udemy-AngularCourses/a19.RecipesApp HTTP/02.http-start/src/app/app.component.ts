@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { Post } from './post.model';
 import { PostService } from './post.service';
+import { nextTick } from 'node:process';
 
 // Help link: https://stackoverflow.com/questions/77483538/angular-17-http-client-injection
 
@@ -50,14 +51,14 @@ export class AppComponent implements OnInit, OnDestroy {
   onFetchPosts() {
     // READ Http request
     this.isFetching = true;
-    this.postService.fetchPosts().subscribe(posts => {
-      this.isFetching = false;
-      this.loadedPosts = posts;
-    }, error => {
-
-      this.isFetching = false;
-      this.error = error.message;
-    });
+    this.postService.fetchPosts().subscribe({
+          next: responseData => 
+            this.loadedPosts = responseData,
+          error: error => 
+            console.error(error.message),
+          complete: () =>
+            this.isFetching = false
+        });
   }
 
   onClearPosts() {
