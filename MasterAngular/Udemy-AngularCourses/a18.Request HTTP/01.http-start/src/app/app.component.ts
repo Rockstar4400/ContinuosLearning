@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Post } from './post.model';
 import { PostService } from './posts.service';
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private errorSub: Subscription;
 
   constructor(
-    private http: HttpClient,
     private postService: PostService, 
     ) {
       this.errorSub = Subscription.EMPTY;
@@ -31,12 +29,14 @@ export class AppComponent implements OnInit, OnDestroy {
       this.error = errorMessage;
     });
     this.isFetching = true;
-    this.postService.fetchPosts().subscribe(posts => {
-      this.isFetching = false;
-      this.loadedPosts = posts;
-    }, error => {
-      this.isFetching = false;
-      this.error= error.message;
+    
+    this.postService.fetchPosts().subscribe({
+      next: responseData =>
+        this.loadedPosts = responseData,
+      error: error =>
+        console.log(error.message),
+      complete: () =>
+        this.isFetching = false
     });
   }
 
