@@ -1,7 +1,16 @@
 # ContinuosLearning
-Practices to learn and courses
+Practices to learn and exercises from courses
 
+-- Algorithms
+-- Next
+-- Typescript
+-- Java
+-- Android
 -- C
 -- C++
--- JavaScript
--- Java
+-- Javascript
+-- Kotlin
+-- Linux
+-- .Net
+-- Node JS
+-- React

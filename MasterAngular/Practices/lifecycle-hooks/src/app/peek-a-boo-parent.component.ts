@@ -1,26 +1,14 @@
 import { Component } from '@angular/core';
 
 import { LoggerService } from './logger.service';
+import { PeekABooComponent } from './peek-a-boo.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'peek-a-boo-parent',
-  template: `
-  <div class="parent">
-    <h2>Peek-A-Boo</h2>
-
-    <button (click)="toggleChild()">
-      {{hasChild ? 'Destroy' : 'Create'}} PeekABooComponent
-    </button>
-    <button (click)="updateHero()" [hidden]="!hasChild">Update Hero</button>
-
-    <peek-a-boo *ngIf="hasChild" [name]="heroName">
-    </peek-a-boo>
-
-    <h4>-- Lifecycle Hook Log --</h4>
-    <div *ngFor="let msg of hookLog">{{msg}}</div>
-  </div>
-  `,
+  templateUrl: './peek-a-boo-parent.component.html',
   styles: ['.parent {background: moccasin}'],
+  imports: [PeekABooComponent, CommonModule],
   providers:  [ LoggerService ]
 })
 export class PeekABooParentComponent {

@@ -11,9 +11,11 @@ import {
 } from '@angular/core';
 import { Component, Input } from '@angular/core';
 import { LoggerService }    from './logger.service';
+import { Injectable } from '@angular/core';
 
 let nextId = 1;
 
+@Injectable()
 export class PeekABoo implements OnInit {
   constructor(private logger: LoggerService) { }
 
@@ -27,7 +29,7 @@ export class PeekABoo implements OnInit {
 
 @Component({
   selector: 'peek-a-boo',
-  template: '<p>Now you see my hero, {{name}}</p>',
+  templateUrl: './peek-a-boo.component.html',
   styles: ['p {background: LightYellow; padding: 8px}']
 })
 // Don't HAVE to mention the Lifecycle Hook interfaces
@@ -37,8 +39,8 @@ export class PeekABooComponent extends PeekABoo implements
              AfterContentInit, AfterContentChecked,
              AfterViewInit, AfterViewChecked,
              OnDestroy {
-  @Input()  name: string;
-
+              
+  @Input() name: string = '';
   private verb = 'initialized';
 
   constructor(logger: LoggerService) {

@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { PeekABooParentComponent } from './peek-a-boo-parent.component';
+import { LoggerService } from './logger.service';
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  imports: [PeekABooParentComponent],
+  providers: [LoggerService]
 })
 export class AppComponent { }
 
