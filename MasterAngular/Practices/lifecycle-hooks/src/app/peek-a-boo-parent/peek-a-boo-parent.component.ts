@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { LoggerService } from './logger.service';
+import { LoggerService } from '../services/logger.service';
 import { PeekABooComponent } from './peek-a-boo.component';
 import { CommonModule } from '@angular/common';
 

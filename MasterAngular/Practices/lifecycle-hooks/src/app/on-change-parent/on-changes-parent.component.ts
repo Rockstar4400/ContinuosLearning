@@ -1,8 +1,9 @@
-/* tslint:disable:forin */
+import { CommonModule } from '@angular/common';
 import {
   Component, Input, OnChanges,
   SimpleChanges, ViewChild
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 class Hero {
   constructor(public name: string) {}
@@ -10,22 +11,16 @@ class Hero {
 
 @Component({
   selector: 'on-changes',
-  template: `
-  <div class="hero">
-    <p>{{hero.name}} can {{power}}</p>
-
-    <h4>-- Change Log --</h4>
-    <div *ngFor="let chg of changeLog">{{chg}}</div>
-  </div>
-  `,
+  templateUrl: './on-changes.component.html',
   styles: [
     '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
     'p {background: Yellow; padding: 8px; margin-top: 8px}'
-  ]
+  ],
+  imports: [CommonModule]
 })
 export class OnChangesComponent implements OnChanges {
-  @Input() hero: Hero;
-  @Input() power: string;
+  @Input() hero: Hero = { name: ''};
+  @Input() power: string = '';
 
   changeLog: string[] = [];
 
@@ -44,13 +39,15 @@ export class OnChangesComponent implements OnChanges {
 @Component({
   selector: 'on-changes-parent',
   templateUrl: './on-changes-parent.component.html',
-  styles: ['.parent {background: Lavender;}']
+  styles: ['.parent {background: Lavender;}'],
+  imports: [OnChangesComponent, FormsModule]
 })
 export class OnChangesParentComponent {
-  hero: Hero;
-  power: string;
+  hero: Hero = { name: ''};
+  power: string = '';
+
   title = 'OnChanges';
-  @ViewChild(OnChangesComponent) childView: OnChangesComponent;
+  @ViewChild(OnChangesComponent) childView!: OnChangesComponent;
 
   constructor() {
     this.reset();

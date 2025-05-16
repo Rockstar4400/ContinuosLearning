@@ -1,11 +1,14 @@
 import { AfterViewChecked, AfterViewInit, Component, ViewChild } from '@angular/core';
 
-import { LoggerService }  from './logger.service';
+import { LoggerService }  from '../services/logger.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 //////////////////
 @Component({
   selector: 'app-child-view',
-  template: '<input [(ngModel)]="hero">'
+  templateUrl: '../after-content-parent/app-child-view.html',
+  imports: [FormsModule]
 })
 export class ChildViewComponent {
   hero = 'Magneta';
@@ -14,21 +17,14 @@ export class ChildViewComponent {
 //////////////////////
 @Component({
   selector: 'after-view',
-  template: `
-    <div>-- child view begins --</div>
-      <app-child-view></app-child-view>
-    <div>-- child view ends --</div>`
-   + `
-    <p *ngIf="comment" class="comment">
-      {{comment}}
-    </p>
-  `
+  templateUrl: './after-view.component.html',
+  imports: [CommonModule, FormsModule,ChildViewComponent]
 })
 export class AfterViewComponent implements  AfterViewChecked, AfterViewInit {
   private prevHero = '';
 
   // Query for a VIEW child of type `ChildViewComponent`
-  @ViewChild(ChildViewComponent) viewChild: ChildViewComponent;
+  @ViewChild(ChildViewComponent) viewChild!: ChildViewComponent;
 
   constructor(private logger: LoggerService) {
     this.logIt('AfterView constructor');
@@ -73,19 +69,10 @@ export class AfterViewComponent implements  AfterViewChecked, AfterViewInit {
 //////////////
 @Component({
   selector: 'after-view-parent',
-  template: `
-  <div class="parent">
-    <h2>AfterView</h2>
-
-    <after-view  *ngIf="show"></after-view>
-
-    <h4>-- AfterView Logs --</h4>
-    <p><button (click)="reset()">Reset</button></p>
-    <div *ngFor="let msg of logger.logs">{{msg}}</div>
-  </div>
-  `,
+  templateUrl: './after-view-parent.component.html',
   styles: ['.parent {background: burlywood}'],
-  providers: [LoggerService]
+  providers: [LoggerService],
+  imports: [AfterViewComponent, CommonModule]
 })
 export class AfterViewParentComponent {
   show = true;

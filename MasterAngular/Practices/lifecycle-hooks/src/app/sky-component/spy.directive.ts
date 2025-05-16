@@ -1,6 +1,6 @@
 import { Directive, OnInit, OnDestroy } from '@angular/core';
 
-import { LoggerService } from './logger.service';
+import { LoggerService } from '../services/logger.service';
 
 let nextId = 1;
 

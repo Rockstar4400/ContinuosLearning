@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { LoggerService }  from './logger.service';
+import { LoggerService }  from '../services/logger.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'spy-parent',
@@ -9,6 +11,7 @@ import { LoggerService }  from './logger.service';
      '.parent {background: khaki;}',
      '.heroes {background: LightYellow; padding: 0 8px}'
   ],
+  imports: [FormsModule, CommonModule],
   providers:  [LoggerService]
 })
 export class SpyParentComponent {

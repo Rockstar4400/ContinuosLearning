@@ -1,5 +1,7 @@
 /* tslint:disable:forin */
+import { CommonModule } from '@angular/common';
 import { Component, DoCheck, Input, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 class Hero {
   constructor(public name: string) {}
@@ -7,22 +9,16 @@ class Hero {
 
 @Component({
   selector: 'do-check',
-  template: `
-  <div class="hero">
-    <p>{{hero.name}} can {{power}}</p>
-
-    <h4>-- Change Log --</h4>
-    <div *ngFor="let chg of changeLog">{{chg}}</div>
-  </div>
-  `,
+  templateUrl: './do-check.component.html',
   styles: [
     '.hero {background: LightYellow; padding: 8px; margin-top: 8px}',
     'p {background: Yellow; padding: 8px; margin-top: 8px}'
-  ]
+  ],
+  imports:[CommonModule]
 })
 export class DoCheckComponent implements DoCheck {
-  @Input() hero: Hero;
-  @Input() power: string;
+  @Input() hero: Hero = { name: ''};
+  @Input() power: string = '';
 
   changeDetected = false;
   changeLog: string[] = [];
@@ -72,13 +68,14 @@ export class DoCheckComponent implements DoCheck {
 @Component({
   selector: 'do-check-parent',
   templateUrl: './do-check-parent.component.html',
-  styles: ['.parent {background: Lavender}']
+  styles: ['.parent {background: Lavender}'],
+  imports: [DoCheckComponent, FormsModule]
 })
 export class DoCheckParentComponent {
-  hero: Hero;
-  power: string;
+  hero: Hero = { name: ''};
+  power: string = '';
   title = 'DoCheck';
-  @ViewChild(DoCheckComponent) childView: DoCheckComponent;
+  @ViewChild(DoCheckComponent) childView!: DoCheckComponent;
 
   constructor() { this.reset(); }
 

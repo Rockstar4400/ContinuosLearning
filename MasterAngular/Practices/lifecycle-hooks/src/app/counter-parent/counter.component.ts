@@ -3,22 +3,17 @@ import {
   OnChanges, SimpleChanges,
 } from '@angular/core';
 
-import { LoggerService }  from './logger.service';
+import { LoggerService }  from '../services/logger.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-counter',
-  template: `
-  <div class="counter">
-    Counter = {{counter}}
-
-    <h5>-- Counter Change Log --</h5>
-    <div *ngFor="let chg of changeLog" mySpy>{{chg}}</div>
-  </div>
-  `,
-  styles: ['.counter {background: LightYellow; padding: 8px; margin-top: 8px}']
+  templateUrl: './app-counter.component.html',
+  styles: ['.counter {background: LightYellow; padding: 8px; margin-top: 8px}'],
+  imports: [CommonModule]
 })
 export class MyCounterComponent implements OnChanges {
-  @Input() counter: number;
+  @Input() counter: number = 0;
   changeLog: string[] = [];
 
   ngOnChanges(changes: SimpleChanges) {
@@ -39,24 +34,13 @@ export class MyCounterComponent implements OnChanges {
 
 @Component({
   selector: 'counter-parent',
-  template: `
-   <div class="parent">
-    <h2>Counter Spy</h2>
-
-    <button (click)="updateCounter()">Update counter</button>
-    <button (click)="reset()">Reset Counter</button>
-
-    <app-counter [counter]="value"></app-counter>
-
-    <h4>-- Spy Lifecycle Hook Log --</h4>
-    <div *ngFor="let msg of spyLog">{{msg}}</div>
-   </div>
-  `,
+  templateUrl: './counter-parent.component.html',
   styles: ['.parent {background: gold;}'],
-  providers: [LoggerService]
+  providers: [LoggerService],
+  imports: [MyCounterComponent, CommonModule]
 })
 export class CounterParentComponent {
-  value: number;
+  value: number = 0;
   spyLog: string[] = [];
 
   private logger: LoggerService;
@@ -78,8 +62,6 @@ export class CounterParentComponent {
     this.logger.tick();
   }
 }
-
-
 
 /*
 Copyright 2017-2018 Google Inc. All Rights Reserved.

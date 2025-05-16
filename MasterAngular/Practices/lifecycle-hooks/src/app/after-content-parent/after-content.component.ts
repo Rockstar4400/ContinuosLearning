@@ -1,11 +1,14 @@
 import { AfterContentChecked, AfterContentInit, Component, ContentChild } from '@angular/core';
 
-import { LoggerService }  from './logger.service';
+import { LoggerService }  from '../services/logger.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 //////////////////
 @Component({
   selector: 'app-child',
-  template: '<input [(ngModel)]="hero">'
+  template: '<input [(ngModel)]="hero">',
+  imports: [FormsModule]
 })
 export class ChildComponent {
   hero = 'Magneta';
@@ -14,22 +17,15 @@ export class ChildComponent {
 //////////////////////
 @Component({
   selector: 'after-content',
-  template: `
-    <div>-- projected content begins --</div>
-      <ng-content></ng-content>
-    <div>-- projected content ends --</div>`
-   + `
-    <p *ngIf="comment" class="comment">
-      {{comment}}
-    </p>
-  `
+  templateUrl: './after-content.component.html',
+  imports: [CommonModule]
 })
 export class AfterContentComponent implements AfterContentChecked, AfterContentInit {
   private prevHero = '';
   comment = '';
 
   // Query for a CONTENT child of type `ChildComponent`
-  @ContentChild(ChildComponent) contentChild: ChildComponent;
+  @ContentChild(ChildComponent) contentChild!: ChildComponent;
 
   constructor(private logger: LoggerService) {
     this.logIt('AfterContent constructor');
@@ -68,23 +64,10 @@ export class AfterContentComponent implements AfterContentChecked, AfterContentI
 //////////////
 @Component({
   selector: 'after-content-parent',
-  template: `
-  <div class="parent">
-    <h2>AfterContent</h2>
-
-    <div *ngIf="show">` +
-     `<after-content>
-        <app-child></app-child>
-      </after-content>`
-+ `</div>
-
-    <h4>-- AfterContent Logs --</h4>
-    <p><button (click)="reset()">Reset</button></p>
-    <div *ngFor="let msg of logger.logs">{{msg}}</div>
-  </div>
-  `,
+  templateUrl: './after-content-parent.component.html',
   styles: ['.parent {background: burlywood}'],
-  providers: [LoggerService]
+  providers: [LoggerService],
+  imports: [ChildComponent, AfterContentComponent, CommonModule]
 })
 export class AfterContentParentComponent {
   show = true;
