@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-
+import { Component, OnChanges, OnInit } from "@angular/core";
+import { input } from "@angular/core";
 @Component({
   selector: "temperature-converter",
   templateUrl: "./temperatureConverter.component.html",
@@ -7,6 +7,8 @@ import { Component, OnInit } from "@angular/core";
 })
 export class TemperatureConverter implements OnInit {
   
+  celsius = input('');
+
   ngOnInit() {}
 
 }
