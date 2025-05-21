@@ -1,45 +1,107 @@
-<h1 id="event-binding">Event Binding</h1>
+<h1 class="display-1" id="event-binding">Event Binding</h1>
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">Target event</h3>
+    <button 
+      class="btn btn-primary" 
+      type="button" 
+      (click)="onSave($event)">
+      Save
+    </button>
 
-<div class="group">
-  <h3>Target event</h3>
-  <button type="button" (click)="onSave($event)">Save</button>
+    <button 
+      class="btn btn-secondary" 
+      type="button" 
+      on-enter="onSave()">
+      on-click Save
+    </button>
+  </div>
+</div>
 
-  <button type="button" on-enter="onSave()">on-click Save</button>
+<br/>
 
+<div class="card">
+  <div class="card-body">
   <h4>myClick is an event on the custom ClickDirective:</h4>
-  <button type="button" (myClick)="clickMessage=$event" clickable>click with myClick</button>
-  {{clickMessage}}
+  <button
+    class="btn btn-success"
+    type="button"
+    (myClick)="clickMessage = $event"
+    clickable
+  >
+    click with myClick
+  </button>
+  {{ clickMessage }}
 
+  </div>
 </div>
 
-<div class="group">
-  <h3>$event and event handling statements</h3>
-  <h4>Result: {{currentItem.name}}</h4>
+<br/>
 
-  <input [value]="currentItem.name"
-         (input)="currentItem.name=getValue($event)">
-  without NgModel
+<div class="card">
+  <div class="card-body">
+    <h3>$event and event handling statements</h3>
+    <input
+      class="form-control"
+      [value]="currentItem.name"
+      (input)="currentItem.name = getValue($event)"
+    />
+    <h4>Result: {{ currentItem.name }}</h4>
+    (without NgModel)
+  </div>
 </div>
 
-<div class="group">
-  <h3>Binding to a nested component</h3>
+<br/>
+
+<div class="card">
+  <div class="card-body">
+<h3>Binding to a nested component</h3>
   <h4>Custom events with EventEmitter</h4>
-  <app-item-detail (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-item-detail>
-
-  <h4>Click to see event target class:</h4>
-
-
-<div class="parent-div" (click)="onClickMe($event)" clickable>Click me (parent)
-  <div class="child-div">Click me too! (child) </div>
+  <app-item-detail
+    (deleteRequest)="deleteItem($event)"
+    [item]="currentItem"
+  ></app-item-detail>
+  </div>
 </div>
 
-<h3>Saves only once:</h3>
-<div (click)="onSave()" clickable>
-  <button type="button" (click)="onSave($event)">Save, no propagation</button>
+<br/>
+
+<div class="card">
+  <div class="card-body">
+    <h4>Click to see event target class:</h4>
+
+    <div (click)="onClickMe($event)" clickable>
+      Click me (parent)
+      <div class="btn btn-success">Click me too! (child)</div>
+    </div>
+  </div>
 </div>
 
-<h3>Saves twice:</h3>
-<div (click)="onSave()" clickable>
-  <button type="button" (click)="onSave()">Save with propagation</button>
+<br/>
+
+<div class="card">
+  <div class="card-body">
+  
+    <h3>Saves only once:</h3>
+    <div (click)="onSave()" clickable>
+      <button 
+        class="btn btn-primary" 
+        type="button" 
+        (click)="onSave($event)">
+        Save, no propagation
+      </button>
+    </div>
+
+    <h3>Saves twice:</h3>
+    <div (click)="onSave()" clickable>
+      <button 
+        class="btn btn-secondary" 
+        type="button" 
+        (click)="onSave()">
+        Save with propagation
+      </button>
+    </div>
+  </div>
 </div>
 
+<br/>

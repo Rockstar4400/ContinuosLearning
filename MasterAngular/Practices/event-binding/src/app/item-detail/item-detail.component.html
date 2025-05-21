@@ -1,7 +1,12 @@
-<div class="detail">
+<div class="detail" class="form-control">
   <p>This is the ItemDetailComponent</p>
-  <img src="{{itemImageUrl}}" alt="{{item.name}}" [style.display]="displayNone">
-  <span [style.text-decoration]="lineThrough">{{ item.name }}
-  </span>
-  <button type="button" (click)="delete()">Delete</button>
+  <img
+    src="{{ itemImageUrl }}"
+    alt="{{ item.name }}"
+    [style.display]="displayNone"
+  />
+  <span [style.text-decoration]="lineThrough">{{ item.name }} </span>
+  <button class="btn btn-danger" type="button" (click)="delete()">
+    Delete
+  </button>
 </div>
