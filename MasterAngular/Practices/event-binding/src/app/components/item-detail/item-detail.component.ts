@@ -1,22 +1,20 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
-import {Item} from '../item';
+import { Item } from '../../models/item';
 
 @Component({
   standalone: true,
-  selector: 'app-item-detail',
+  selector: 'item-detail',
   styleUrls: ['./item-detail.component.css'],
   templateUrl: './item-detail.component.html',
 })
 export class ItemDetailComponent {
+  @Output() deleteRequest = new EventEmitter<Item>();
   @Input() item!: Item;
+  @Input() prefix = '';
   itemImageUrl = 'assets/teapot.svg';
   lineThrough = '';
   displayNone = '';
-  @Input() prefix = '';
-
-  // This component makes a request but it can't actually delete a hero.
-  @Output() deleteRequest = new EventEmitter<Item>();
 
   delete() {
     this.deleteRequest.emit(this.item);
