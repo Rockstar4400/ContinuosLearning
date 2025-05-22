@@ -1,5 +1,5 @@
 <div class="card-body">
-    <h3 class="card-title">Target event</h3>
+    <h3 class="card-title">Target event (Mouse event)</h3>
     <button 
       class="btn btn-primary" 
       type="button" 
@@ -13,4 +13,26 @@
       on-enter="save()">
       no (click) and no $event
     </button>
+
+    <hr />
+
+    <h3>Saves button only once and div clickable:</h3>
+    <div class="p-2 border border-dark" (click)="save()" clickable>
+      <button 
+        class="btn btn-primary" 
+        type="button" 
+        (click)="save($event)">
+        Save, no propagation
+      </button>
+    </div>
+
+    <h3>Saves twice button and div clickable:</h3>
+    <div class="p-2 border border-dark" (click)="save()" clickable >
+      <button 
+        class="btn btn-secondary" 
+        type="button" 
+        (click)="save()">
+        Save with propagation
+      </button>
+    </div>
   </div>

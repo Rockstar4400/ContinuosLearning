@@ -1,12 +1,17 @@
-<div class="detail" class="form-control">
-  <p>This is the ItemDetailComponent</p>
-  <img
-    src="{{ itemImageUrl }}"
-    alt="{{ item.name }}"
-    [style.display]="displayNone"
-  />
-  <span [style.text-decoration]="lineThrough">{{ item.name }} </span>
-  <button class="btn btn-danger" type="button" (click)="delete()">
-    Delete
-  </button>
+<div class="card-body">
+  <h3>Binding to a nested component</h3>
+  <h4>Custom events with EventEmitter</h4>
+
+  <div class="detail" class="form-control">
+    <p>This is the ItemDetailComponent</p>
+    <img
+      src="{{ itemImageUrl }}"
+      alt="{{ item.name }}"
+      [style.display]="displayNone"
+    />
+    <span [style.text-decoration]="lineThrough">{{ item.name }} </span>
+    <button class="btn btn-danger" type="button" (click)="delete()">
+      Delete
+    </button>
+  </div>
 </div>

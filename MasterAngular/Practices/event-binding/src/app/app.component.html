@@ -1,7 +1,8 @@
 <h1 class="display-1" id="event-binding">Event Binding</h1>
 
-<target-event (saveRequest)="onSave($event)" class="card"/>
-
+<target-event class="card" (saveRequest)="onSave($event)" />
+<br/>
+<click-event class="card" (clickRequest)="onClickMe($event)"/>
 <br/>
 
 <div class="card">
@@ -34,54 +35,7 @@
 </div>
 
 <br/>
-
-<div class="card">
-  <div class="card-body">
-  <h3>Binding to a nested component</h3>
-  <h4>Custom events with EventEmitter</h4>
-  <item-detail (deleteRequest)="deleteItem($event)" 
-  [item]="currentItem" />
-  </div>
-</div>
-
+<item-detail class="card" (deleteRequest)="deleteItem($event)" [item]="currentItem" />
 <br/>
 
-<div class="card">
-  <div class="card-body">
-    <h4>Click to see event target class:</h4>
 
-    <div (click)="onClickMe($event)" clickable>
-      Click me (parent)
-      <div class="btn btn-success">Click me too! (child)</div>
-    </div>
-  </div>
-</div>
-
-<br/>
-
-<div class="card">
-  <div class="card-body">
-  
-    <h3>Saves only once:</h3>
-    <!-- <div (click)="onSave()" clickable>
-      <button 
-        class="btn btn-primary" 
-        type="button" 
-        (click)="onSave($event)">
-        Save, no propagation
-      </button>
-    </div> -->
-
-    <h3>Saves twice:</h3>
-    <!-- <div (click)="onSave()" clickable>
-      <button 
-        class="btn btn-secondary" 
-        type="button" 
-        (click)="onSave()">
-        Save with propagation
-      </button>
-    </div> -->
-  </div>
-</div>
-
-<br/>

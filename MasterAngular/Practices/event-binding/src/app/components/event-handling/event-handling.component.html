@@ -1,0 +1,8 @@
+<h3>$event and event handling statements</h3>
+    <input
+      class="form-control"
+      [value]="item.name"
+      (input)="item.name = get($event)"
+    />
+    <h4>Result: {{ item.name }}</h4>
+    (without NgModel)
