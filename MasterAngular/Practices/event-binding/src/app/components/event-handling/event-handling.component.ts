@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Input, Output } from '@angular/core';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'event-handling',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './event-handling.component.css'
 })
 export class EventHandlingComponent {
+  @Input() item!: Item;
 
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
 }

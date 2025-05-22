@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Item } from './models/item';
 
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
-import { ClickDirective } from './directives/click.directive';
 import { TargetEventComponent } from './components/target-event/target-event.component';
 import { ClickEventComponent } from './components/click-event/click-event.component';
+import { EventDirectiveComponent } from './components/event-directive/event-directive.component';
+import { EventHandlingComponent } from './components/event-handling/event-handling.component';
 
 @Component({
   standalone: true,
@@ -13,13 +14,13 @@ import { ClickEventComponent } from './components/click-event/click-event.compon
   styleUrls: ['./app.component.css'],
   imports: [
     ItemDetailComponent, 
-    ClickDirective, 
     TargetEventComponent,
-    ClickEventComponent
+    ClickEventComponent,
+    EventDirectiveComponent,
+    EventHandlingComponent
   ],
 })
 export class AppComponent {
-  // Instantiation
   mouseEventData: MouseEvent | null = null;
   mouseEventClick: MouseEvent | null = null;
   currentItem = { name: 'teapot' };
@@ -39,10 +40,6 @@ export class AppComponent {
     }
   }
 
-  deleteItem(item: Item) {
-    alert(`Delete the ${item.name}.`);
-  }
-
   onClickMe(event: MouseEvent) {
     // Equalizing to the parameter
     this.mouseEventClick = event;
@@ -51,6 +48,10 @@ export class AppComponent {
       ? ' Event target class is ' + 
       (event.target as HTMLElement).className : '';
     alert('Click me.' + evtMsg);
+  }
+
+  deleteItem(item: Item) {
+    alert(`Delete the ${item.name}.`);
   }
 
   getValue(event: Event): string {

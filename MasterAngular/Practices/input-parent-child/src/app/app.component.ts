@@ -9,12 +9,13 @@ import { ChildComponent } from './components/child/child.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+  inputValue = ''
   handleInput(event: Event) {
     console.log('Input event from child:', event);
   }
 
   onInput(event: Event) {
+    this.inputValue = (<HTMLInputElement>event.target).value
     console.log('Input event from parent:', event);
   }
 }

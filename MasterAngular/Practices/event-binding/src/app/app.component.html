@@ -4,36 +4,10 @@
 <br/>
 <click-event class="card" (clickRequest)="onClickMe($event)"/>
 <br/>
-
-<div class="card">
-  <div class="card-body">
-  <h4>myClick is an event on the custom ClickDirective:</h4>
-  <button
-    class="btn btn-success"
-    type="button"
-    (myClick)="clickMessage = $event"
-  >
-    click with myClick
-  </button>
-  <br/>
-  <h4>{{ clickMessage }}</h4>
-</div>
-</div>
-
+<event-directive class="card" [message]="clickMessage"/>
 <br/>
 
-<div class="card">
-  <div class="card-body">
-    <h3>$event and event handling statements</h3>
-    <input
-      class="form-control"
-      [value]="currentItem.name"
-      (input)="currentItem.name = getValue($event)"
-    />
-    <h4>Result: {{ currentItem.name }}</h4>
-    (without NgModel)
-  </div>
-</div>
+<event-handling class="card" [item]="currentItem" (getRequest)="getValue($event)"/>
 
 <br/>
 <item-detail class="card" (deleteRequest)="deleteItem($event)" [item]="currentItem" />

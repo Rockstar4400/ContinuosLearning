@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ChildComponent {
   @Input() inputHandler!: (event: Event) => void;
-    
+  
   onInputChange(event: Event) {
     this.inputHandler(event);
   }

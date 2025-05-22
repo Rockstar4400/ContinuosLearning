@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ClickDirective } from '../../directives/click.directive';
 
 @Component({
-  selector: 'app-event-directive',
-  imports: [],
+  selector: 'event-directive',
+  imports: [ClickDirective],
   templateUrl: './event-directive.component.html',
   styleUrl: './event-directive.component.css'
 })
 export class EventDirectiveComponent {
-
+  @Input() message: string = '';
 }

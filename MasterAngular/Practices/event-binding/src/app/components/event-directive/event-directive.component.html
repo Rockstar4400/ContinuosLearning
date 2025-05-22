@@ -1,1 +1,12 @@
-<p>event-directive works!</p>
+<div class="card-body">
+    <h4>myClick is an event on the custom ClickDirective:</h4>
+    <button
+      class="btn btn-success"
+      type="button"
+      (myClick)="message = $event"
+    >
+      click with myClick
+    </button>
+    <br/>
+    <h4>{{ message }}</h4>
+  </div>
