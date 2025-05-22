@@ -9,5 +9,5 @@ import {Item} from '../item';
   styleUrls: ['./item-detail.component.css'],
 })
 export class ItemDetailComponent {
-  @Input() item!: Item;
+  @Input() item!: Item | null;
 }

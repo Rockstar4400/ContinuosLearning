@@ -10,23 +10,24 @@ import {Item} from './item';
 import {ItemDetailComponent} from './item-detail/item-detail.component';
 import {ItemSwitchComponents} from './item-switch.component';
 import {StoutItemComponent} from './item-switch.component';
+import { NgModelComponent } from './components/ng-model/ng-model.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
-    NgIf, // <-- import into the component
-    NgFor, // <-- import into the component
-    NgStyle, // <-- import into the component
-    NgSwitch, // <-- import into the component
+    NgIf, 
+    NgFor, 
+    NgStyle, 
+    NgSwitch,
     NgSwitchCase,
     NgSwitchDefault,
-    NgClass, // <-- import into the component
-    FormsModule, // <--- import into the component
+    NgClass,
+    FormsModule,
     JsonPipe,
     ItemDetailComponent,
     ItemSwitchComponents,
-    StoutItemComponent,
+    StoutItemComponent
   ],
 })
 export class AppComponent implements OnInit {
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit {
   itemIdIncrement = 1;
   currentClasses: Record<string, boolean> = {};
   currentStyles: Record<string, string> = {};
+  
   ngOnInit() {
     this.resetItems();
     this.setCurrentClasses();

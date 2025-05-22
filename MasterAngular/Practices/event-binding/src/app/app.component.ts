@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Item } from './models/item';
 
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
-import { ClickDirective } from './click.directive';
+import { ClickDirective } from './directives/click.directive';
 import { TargetEventComponent } from './components/target-event/target-event.component';
 import { ClickEventComponent } from './components/click-event/click-event.component';
 
