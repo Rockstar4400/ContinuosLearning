@@ -4,11 +4,11 @@ import { Item } from '../../models/item';
 
 @Component({
   standalone: true,
-  selector: 'item-detail',
-  styleUrls: ['./item-detail.component.css'],
-  templateUrl: './item-detail.component.html',
+  selector: 'custom-event',
+  styleUrls: ['./custom-event.component.css'],
+  templateUrl: './custom-event.component.html',
 })
-export class ItemDetailComponent {
+export class CustomEventComponent {
   @Output() deleteRequest = new EventEmitter<Item>();
   @Input() item!: Item;
   @Input() prefix = '';

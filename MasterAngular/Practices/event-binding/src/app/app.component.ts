@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Item } from './models/item';
 
-import { ItemDetailComponent } from './components/item-detail/item-detail.component';
+import { CustomEventComponent } from './components/custom-event/custom-event.component';
 import { TargetEventComponent } from './components/target-event/target-event.component';
 import { ClickEventComponent } from './components/click-event/click-event.component';
 import { EventDirectiveComponent } from './components/event-directive/event-directive.component';
@@ -13,7 +13,7 @@ import { EventHandlingComponent } from './components/event-handling/event-handli
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
-    ItemDetailComponent, 
+    CustomEventComponent, 
     TargetEventComponent,
     ClickEventComponent,
     EventDirectiveComponent,

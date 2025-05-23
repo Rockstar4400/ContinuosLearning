@@ -6,11 +6,13 @@
 <br/>
 <event-directive class="card" [message]="clickMessage"/>
 <br/>
-
-<event-handling class="card" [item]="currentItem" (getRequest)="getValue($event)"/>
-
+<event-handling class="card" 
+    [item]="currentItem" 
+    (getRequest)="getValue($event)"/>
 <br/>
-<item-detail class="card" (deleteRequest)="deleteItem($event)" [item]="currentItem" />
+<custom-event class="card" 
+    (deleteRequest)="deleteItem($event)" 
+    [item]="currentItem" />
 <br/>
 
 
