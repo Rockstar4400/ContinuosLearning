@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ServersService } from './servers.service';
+import { ServersService } from '../services/servers.service';
 import { ServerComponent } from './server/server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     ServerComponent, 
     EditServerComponent,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css']

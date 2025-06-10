@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ServersService } from '../servers.service';
-import { ObjServer } from './server.model';
+import { ServersService } from '../../services/servers.service';
+import { ObjServer } from '../../models/server.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
