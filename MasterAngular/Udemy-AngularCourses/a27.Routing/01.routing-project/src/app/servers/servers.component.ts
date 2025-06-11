@@ -4,6 +4,7 @@ import { ServerComponent } from './server/server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ObjServer } from '../models/server.model';
 
 @Component({
   selector: 'app-servers',
@@ -18,7 +19,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-  public servers: {id: number, name: string, status: string}[] = [];
+  servers = [ObjServer];
 
   constructor(
     private serversService: ServersService,
@@ -31,7 +32,9 @@ export class ServersComponent implements OnInit {
   }
 
   onReload(){
-    this.router.navigate(['servers'], {relativeTo: this.route});
+    this.router
+    .navigate(['servers'], 
+    {relativeTo: this.route});
   }
 
 }
