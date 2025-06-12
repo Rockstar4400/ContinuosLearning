@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServersService } from '../../services/servers.service';
 import { ObjServer } from '../../models/server.model';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -19,10 +19,12 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
   allowEdit = false;
+  changesSaved = true;
 
   constructor(
     private serversService: ServersService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(
@@ -42,6 +44,16 @@ export class EditServerComponent implements OnInit {
     this.serversService
     .updateServer(this.server!.id, 
       { name: this.serverName!, status: this.serverStatus!});
+      this.changesSaved = true;
+      this.router.navigate(['../'], { relativeTo: this.route});
   }
+
+      
+checkChangeSaved (): boolean{
+  if(this.changesSaved){
+    confirm('Logged?')
+  }
+  return true;
+}
 
 }
