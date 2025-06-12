@@ -3,7 +3,11 @@ import { ServersService } from '../services/servers.service';
 import { ServerComponent } from './server/server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { 
+  ActivatedRoute, 
+  Router, 
+  RouterModule 
+} from '@angular/router';
 import { ObjServer } from '../models/server.model';
 
 @Component({

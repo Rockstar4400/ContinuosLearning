@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../../services/servers.service';
 import { ObjServer } from '../../models/server.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { 
+  ActivatedRoute, 
+  Params, 
+  Router 
+} from '@angular/router';
 
 @Component({
   selector: 'app-server',
@@ -15,7 +19,8 @@ export class ServerComponent implements OnInit {
 
   constructor(
     private serversService: ServersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -27,5 +32,11 @@ export class ServerComponent implements OnInit {
         .getServer(+params['id']);
       }
     )
+  }
+  
+  onEdit(){
+    this.router.navigate(['edit'], 
+      { relativeTo: this.route, 
+        queryParamsHandling: 'preserve' })
   }
 }
