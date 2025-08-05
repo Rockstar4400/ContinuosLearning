@@ -17,6 +17,8 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
   @ViewChild('form') form?: ElementRef<HTMLFormElement>;
   // private form = viewChild
   // .required<ElementRef<HTMLFormElement>>('form');
+  enteredTitle = '';
+  enteredText = '';
   add = output<{title: string, text: string}>();
 
   ngOnInit(): void {

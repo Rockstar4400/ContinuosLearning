@@ -4,14 +4,15 @@ textInput.value)"
 #form
 >
     <app-control label="Title">
-        <input name="title" id="title" #titleInput 
-        #input/>
+        <input name="title" id="title" #titleInput #input [(ngModel)]="enteredTitle")] 
+        />
     </app-control>
     <app-control label="Request">
         <textarea 
         name="request" 
         id="request"
-        rows="3" #textInput #input>
+        rows="3" #textInput #input [(ngModel)]="enteredText
+        ")]>
         </textarea>
     </app-control>
     <p>
