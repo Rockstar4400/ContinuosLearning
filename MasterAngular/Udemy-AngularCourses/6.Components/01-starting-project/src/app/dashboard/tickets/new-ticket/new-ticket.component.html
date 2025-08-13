@@ -1,6 +1,5 @@
 <form 
-(ngSubmit)="onSubmit(titleInput.value, 
-textInput.value)"
+(ngSubmit)="onSubmit()"
 #form
 >
     <app-control label="Title">
@@ -11,8 +10,7 @@ textInput.value)"
         <textarea 
         name="request" 
         id="request"
-        rows="3" #textInput #input [(ngModel)]="enteredText
-        ")]>
+        rows="3" #textInput #input [(ngModel)]="enteredText">
         </textarea>
     </app-control>
     <p>
