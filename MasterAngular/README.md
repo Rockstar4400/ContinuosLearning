@@ -3,7 +3,8 @@
 
 ## Udemy - Angular Courses
 
-### - Angular - The complete guide: 36.5 total hours
+### - Angular - The complete guide: 56 total hours
+## Updated
 
 ![alt text](https://github.com/Rockstar4400/ContinuosLearning/blob/main/MasterAngular/Udemy-AngularCourses/Certificates/UC-067f36e3-0c1a-4ef4-a59b-4e0cce00a72a.jpg?raw=true)
 
