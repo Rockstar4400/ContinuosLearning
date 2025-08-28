@@ -4,9 +4,10 @@ import App from './App.jsx'
 import './index.css'
 import { store } from './store/index.jsx'
 import { Provider } from 'react-redux';
-import { useDispatch, useSelector } from 'react-redux'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(
+  document.getElementById('root'))
+  .render(
   <React.StrictMode>
     <Provider store={store}>
     <App />

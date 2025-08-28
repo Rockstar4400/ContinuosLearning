@@ -12,12 +12,12 @@ const moviesSlice = createSlice({
             const index = state.indexOf(action.payload);
             state.splice(index, 1);
         },
-        reset(state, action) {
+        reset() {
             return [];
         }
     },
     extraReducers(builder){
-        builder.addCase(reset, (state, action) => {
+        builder.addCase(reset, ( ) => {
             return [];
         })
     }

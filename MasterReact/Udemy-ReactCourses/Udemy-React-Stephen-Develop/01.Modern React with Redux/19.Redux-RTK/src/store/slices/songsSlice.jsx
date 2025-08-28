@@ -14,7 +14,7 @@ const songsSlice = createSlice({
         }
     },
     extraReducers(builder){
-        builder.addCase(reset,(state, action) =>{
+        builder.addCase(reset,() =>{
             return [];
         });
     }
