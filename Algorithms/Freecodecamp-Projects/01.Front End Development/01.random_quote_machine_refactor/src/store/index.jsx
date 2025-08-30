@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { quoteReducer, setProps, editProps } from './slices/quoutesSlice';
+import { quoteReducer, setProps, editProps } from './reducers/quotesReducers';
 
 const store = configureStore({
     reducer: {

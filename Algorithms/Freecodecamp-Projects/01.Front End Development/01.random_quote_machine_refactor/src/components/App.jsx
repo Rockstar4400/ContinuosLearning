@@ -4,11 +4,11 @@ import ContainerNoData from "./ComponentsStructure/ContainerNoData";
 import Container from "./ComponentsStructure/Container";
 //import "../Styles/App.scss";
 import "../styles/AppChange.scss"
-import { useSelMethod } from "../app/features/logic/GeneralMethods";
+import { getQoutes } from "../app/features/logic/GeneralMethods";
 
 function App() {
   
-  const quotes = useSelMethod();
+  const quotes = getQoutes();
 
   if (quotes.length == 0) {
     return <ContainerNoData />;

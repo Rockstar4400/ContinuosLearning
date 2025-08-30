@@ -29,7 +29,8 @@ render(){
           </div>
           <div></div>
           <div className="button">
-            <BottonGeneral passclass="button_left" clickHandler={this.clickHandler}>
+            <BottonGeneral passclass="button_left" 
+            clickHandler={this.clickHandler}>
               <i className="fast backward icon"></i>
             </BottonGeneral>
           </div>
