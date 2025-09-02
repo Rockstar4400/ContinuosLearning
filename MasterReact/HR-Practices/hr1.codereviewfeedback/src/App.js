@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import "h8k-components";
+import "../node_modules/h8k-components/dist/h8k-components";
 import FeedbackSystem from "./CodeReviewFeedback";
 
 const title = "Code Review Feedback";

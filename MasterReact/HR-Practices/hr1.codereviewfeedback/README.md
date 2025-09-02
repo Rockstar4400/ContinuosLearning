@@ -4,7 +4,7 @@ Your task is to create a React application called "Code Review Feedback" that tr
 and manages feedback on various aspects of code quality. The component should have 
 upvote and downvote functionality for each aspect, and it must meet all specified requirements.
 
-![alt text]()
+![alt text](https://s3.amazonaws.com/hr-assets/0/1729722211-95d9063039-ReactApp-GoogleChrome2024-09-1200-53-27-ezgif.com-video-to-gif-converter.gif)
 
 ## Detailed Requirements
 
