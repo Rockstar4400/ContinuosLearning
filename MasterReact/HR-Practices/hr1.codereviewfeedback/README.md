@@ -8,8 +8,13 @@ upvote and downvote functionality for each aspect, and it must meet all specifie
 
 ## Detailed Requirements
 
-1.The CodeReviewFeedback component displays five aspects: Readability, 
-Performance, Security, Documentation, and Testing.
+1.The CodeReviewFeedback component displays five aspects: 
+Readability 
+Performance 
+Security
+Documentation 
+Testing
+
 2.Each aspect has two buttons labeled "Upvote" and "Downvote" to allow users to vote.
 3.The initial count for upvotes and downvotes for each aspect is set to zero.
 4.Clicking the "Upvote" button should increment the upvote count for that aspect by 1.
