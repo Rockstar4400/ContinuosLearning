@@ -10,17 +10,21 @@ Source Help:
 https://www.geeksforgeeks.org/set-in-java/
 https://www.tutorialspoint.com/Java-String-substring-Method-example
 
-Given a string, find the number of different non-empty substrings in it.
+Given a string, find the number of different non-empty substrings in 
+it.
 
-A string that appears within another string. In other words, s is considered a substring
-of t if all the characters of s appear in t in the same order, with no other elements in between.
+A string that appears within another string. In other words, s is 
+considered a substring
+of t if all the characters of s appear in t in the same order, with
+ no other elements in between.
 
 Examples:
 
 cat is a substring of scatter
 rest is a substring of arrest
-implied is not a substring of simplified because there are other characters in between
-happy is not a substring of happiest because they contain different characters
+implied is not a substring of simplified because there are other 
+characters in between happy is not a substring of happiest 
+because they contain different characters
 
 Example
 
