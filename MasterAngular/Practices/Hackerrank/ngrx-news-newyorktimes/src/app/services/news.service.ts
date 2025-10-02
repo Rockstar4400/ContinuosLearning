@@ -13,7 +13,9 @@ export class NewsService {
 
   apiURL: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   /**
    * Getting section news via http call
@@ -21,7 +23,9 @@ export class NewsService {
    */
   getSectionNews(section: any): Observable<NewsInfo> {
     console.log(section)
-    this.apiURL = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=315a5a51483b469a918246dc2753b339`;
+    this.apiURL = 
+    `https://api.nytimes.com/svc/topstories/v2/${section}.json?`
+    + `api-key=315a5a51483b469a918246dc2753b339`;
     console.log(this.apiURL)
     return this.http.get<NewsInfo>(this.apiURL)
       .pipe(
