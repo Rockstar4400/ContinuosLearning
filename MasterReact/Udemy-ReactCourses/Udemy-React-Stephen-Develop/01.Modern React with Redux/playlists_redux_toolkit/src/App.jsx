@@ -1,15 +1,17 @@
-import "../styles/style.css";
-import MoviePlaylist from "../components/MoviePlaylist";
-import SongPlaylist from "../components/SongPlaylist";
+import "../src/styles/style.css";
+import MoviePlaylist from "./components/MoviePlaylist";
+import SongPlaylist from "./components/SongPlaylist";
 
 export default function App() {
   const handleResetClick = () => {
-    //
+    return [];
   };
 
   return (
     <div className="container is-fluid">
-      <button onClick={() => handleResetClick()} className="button is-danger">
+      <button onClick={() => 
+        handleResetClick()} 
+        className="button is-danger">
         Reset Both Playlists
       </button>
       <hr />

@@ -1,5 +1,5 @@
 import ReactDom from 'react-dom/client';
-import App from './components/App';
+import App from './App';
 import { store } from './store';
 import { Provider } from 'react-redux';
 import "bulma/css/bulma.css";
