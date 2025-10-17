@@ -1,10 +1,9 @@
-import { useDispatch } from "react-redux";
-import "../src/styles/style.css";
-import MoviePlaylist from "./components/MoviePlaylist";
-import SongPlaylist from "./components/SongPlaylist";
-import { reset } from "./store";
+import { useDispatch } from 'react-redux'
+import { reset } from './store'
+import SongPlaylist from './components/SongPlaylist'
+import MoviePlaylist from './components/MoviePlaylist'
 
-export default function App() {
+function App() {
 
   const dispatch = useDispatch();
 
@@ -15,8 +14,8 @@ export default function App() {
   return (
     <div className="container is-fluid">
       <button onClick={() => 
-        handleResetClick()} 
-        className="button is-danger">
+      handleResetClick()} 
+      className="button is-danger">
         Reset Both Playlists
       </button>
       <hr />
@@ -24,5 +23,7 @@ export default function App() {
       <hr />
       <SongPlaylist />
     </div>
-  );
+  )
 }
+
+export default App
