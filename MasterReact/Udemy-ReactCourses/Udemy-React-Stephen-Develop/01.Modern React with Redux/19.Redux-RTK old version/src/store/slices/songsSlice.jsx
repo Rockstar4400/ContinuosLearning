@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reset } from "../actions";
+import { reset } from "../../../../19.playlists_redux_toolkit/src/store/actions";
 
 const songsSlice = createSlice({
     name: 'song',

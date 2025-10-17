@@ -3,6 +3,7 @@ import {
     createSlice 
 } 
 from '@reduxjs/toolkit';
+import { reset } from './actions';
 
 const songsSlice = createSlice({
     name: 'song',
@@ -41,7 +42,7 @@ const store = configureStore({
     }
 });
 
-export { store };
+export { store, reset };
 export const { addSong, removeSong } = 
 songsSlice.actions;
 export const { addMovie, removeMovie } =
