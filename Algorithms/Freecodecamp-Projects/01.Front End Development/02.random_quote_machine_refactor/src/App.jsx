@@ -13,22 +13,20 @@ let URL = "https://gist.githubusercontent.com/Rockstar4400/7"+
 function App() { 
 
   const dispatch = useDispatch();
+  
   useEffect(() => {
   fetch(URL)
   .then(response => response.json())
-  .then((jsonData) => {
-    dispatch(loadQuotes(jsonData));
-  })
+  .then(jsonData => dispatch(loadQuotes(jsonData)))
   .catch(() => {
-    console.log("Error")
+    console.log("Error 2")
   })
   }),[];
 
-  if(store.getState().quotes[1] !== undefined){
-    console.log(store.getState().quotes[1].data.quotes[0].quote)
-    return <ContainerWithData key="1" 
-    props={JSON.stringify(store.getState().quotes[1].data.quotes[0].quote)}></ContainerWithData>
-  }else
+  console.log(store.getState())
+  // if(store.getState().quotes[1] !== undefined){
+  //   return <ContainerWithData></ContainerWithData>
+  // }else
   return <ContainerNoData />
 }
 
