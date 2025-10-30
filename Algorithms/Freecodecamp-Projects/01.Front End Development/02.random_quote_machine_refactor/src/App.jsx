@@ -14,19 +14,18 @@ function App() {
 
   const dispatch = useDispatch();
   
-  useEffect(() => {
   fetch(URL)
   .then(response => response.json())
   .then(jsonData => dispatch(loadQuotes(jsonData)))
   .catch(() => {
-    console.log("Error 2")
+    console.log("Error")
   })
-  }),[];
 
-  console.log(store.getState())
-  // if(store.getState().quotes[1] !== undefined){
-  //   return <ContainerWithData></ContainerWithData>
-  // }else
+  console.log(store.getState().quotes["data"].quotes[0])
+
+  if(store.getState().quotes["data"] !== undefined){
+    return <ContainerWithData></ContainerWithData>
+  }else
   return <ContainerNoData />
 }
 

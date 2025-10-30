@@ -1,22 +1,29 @@
 import { useEffect,useRef } from "react";
 import { store } from "../store";
+import { useSelector } from "react-redux";
 
 function ContainerWithData (){
     const mounted = useRef();
-    useEffect(() => {
+
+    const properties = useSelector((state) => {
+        return state.quotes;
+      });
+
+    //useEffect(() => {
     if (!mounted.current) {
-        // document.body.style.background = "linear-gradient(to right, #9b08e9, #d5f08d)";
-        // document.body.style.fontFamily = "Elephant";
+        document.body.style.background = properties.background;
+        document.body.style.fontFamily = properties.FontFace;
         mounted.current = true;
     } else {
         // document.body.style.background = store.getState().quotes[0].background;
         // document.body.style.fontFamily = store.getState().quotes[0].FontFace;
     }
-    }),[];
+    //}),[];
+    console.log(store.getState().quotes["data"])
 
     return (
     <div>
-        {/* {store.getState().quotes[1].data.quotes[0].quote} */}
+        {store.getState().quotes["data"][0]}
     </div>
     )
 }

@@ -11,9 +11,8 @@ const quoteSlice = createSlice({
         FontFace: "Satisfy"}
     ,
     reducers: {
-        loadQuotes(state, action){
-            return {...state, data: action.payload}
-        },
+        loadQuotes: (state, action) => 
+        ({...state, data: action.payload})
     },
 });
 
