@@ -15,16 +15,20 @@ const quotesSlice = createSlice ({
         setProps(state, action){
             state.push({
                 data: action.payload,
-                back: (document.body.style.background = divStyles.background),
-                font: (document.body.style.fontFamily = divStyles.FontFace),
+                back: (document.body.style.background 
+                    = divStyles.background),
+                font: (document.body.style.fontFamily 
+                    = divStyles.FontFace),
             });
         },
         editProps(state, action){
             const { back, font, id } = action.payload.data;
             const quotes = state.find(q => q.id === id);
             if (quotes){
-                quotes.back = (document.body.style.background = back);
-                quotes.font = (document.body.style.fontFamily = font);
+                quotes.back = 
+                (document.body.style.background = back);
+                quotes.font = 
+                (document.body.style.fontFamily = font);
             }
         }
     }
