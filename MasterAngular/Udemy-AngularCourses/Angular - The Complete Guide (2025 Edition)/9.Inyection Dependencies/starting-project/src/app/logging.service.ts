@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoggingService {
-  log(message: string){
+  logAction(action: string){
     const timeStrap = new Date().toLocaleDateString();
-    console.log(`[${timeStrap}: ${message}]`);
+    console.log(`[${timeStrap}: ${action}]`);
   }
 }

@@ -53,3 +53,7 @@ DROP TABLE challenges_occupations;
 -- https://www.geeksforgeeks.org/sql/window-functions-in-sql/
 -- https://www.geeksforgeeks.org/sql/sql-max-function/
 -- Book: SQL Cooking
+
+-- EXERCISES
+
+

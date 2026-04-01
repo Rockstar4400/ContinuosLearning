@@ -18,13 +18,13 @@ export class TasksService {
             status: 'OPEN'
         }
         this.tasks.update((oldTask) => [...oldTask, newTask]);
-        this.loggingService.log('ADDED TASK' + taskData.title);
+        this.loggingService.logAction('ADDED TASK' + taskData.title);
     }
 
     updateTaskStatus(taskId: string, newStatus: TaskStatus){
         this.tasks.update((oldTasks) => oldTasks.map((task) =>
             task.id === taskId ? {...task, status: newStatus} : task));
-        this.loggingService.log('UPDATED TASK' + newStatus);
+        this.loggingService.logAction('UPDATED TASK' + newStatus);
     }
 
 }
