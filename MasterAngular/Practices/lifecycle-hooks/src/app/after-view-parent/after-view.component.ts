@@ -3,24 +3,16 @@ import { AfterViewChecked, AfterViewInit, Component, ViewChild } from '@angular/
 import { LoggerService }  from '../services/logger.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ChildViewComponent } from './app-child-view-component';
 
-//////////////////
-@Component({
-  selector: 'app-child-view',
-  templateUrl: '../after-content-parent/app-child-view.html',
-  imports: [FormsModule]
-})
-export class ChildViewComponent {
-  hero = 'Magneta';
-}
-
-//////////////////////
 @Component({
   selector: 'after-view',
   templateUrl: './after-view.component.html',
   imports: [CommonModule, FormsModule,ChildViewComponent]
 })
-export class AfterViewComponent implements  AfterViewChecked, AfterViewInit {
+export class AfterViewComponent implements 
+AfterViewChecked, 
+AfterViewInit {
   private prevHero = '';
 
   // Query for a VIEW child of type `ChildViewComponent`
@@ -64,28 +56,6 @@ export class AfterViewComponent implements  AfterViewChecked, AfterViewInit {
     this.logger.log(message);
   }
   // ...
-}
-
-//////////////
-@Component({
-  selector: 'after-view-parent',
-  templateUrl: './after-view-parent.component.html',
-  styles: ['.parent {background: burlywood}'],
-  providers: [LoggerService],
-  imports: [AfterViewComponent, CommonModule]
-})
-export class AfterViewParentComponent {
-  show = true;
-
-  constructor(public logger: LoggerService) {
-  }
-
-  reset() {
-    this.logger.clear();
-    // quickly remove and reload AfterViewComponent which recreates it
-    this.show = false;
-    this.logger.tick_then(() => this.show = true);
-  }
 }
 
 
