@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { AfterContentChecked, AfterContentInit, Component, ContentChild, isStandalone } from "@angular/core";
 import { LoggerService } from "../../services/logger.service";
-import { ChildComponent } from "../after-content.component";
+import { ChildComponent } from "../after-content-child/after-content-child";
 
 @Component({
   selector: 'after-content',
@@ -48,5 +48,4 @@ AfterContentInit {
     let message = `${method}: ${child ? child.hero : 'no'} child content`;
     this.logger.log(message);
   }
-  // ...
 }

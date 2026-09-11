@@ -4,9 +4,9 @@ import { SpyParentComponent } from '../app/sky-component/spy.component';
 import { LoggerService } from '../app/services/logger.service';
 import { OnChangesParentComponent } from './on-change-parent/on-changes-parent.component';
 import { DoCheckParentComponent } from './do-check-parent/do-check.component';
-import { AfterContentParentComponent } from '../app/after-content-parent/after-content.component';
 import { CounterParentComponent } from './counter-parent/counter.component';
 import { AfterViewParentComponent } from './after-view-parent/after-view-parent.component';
+import { AfterContentParentComponent } from './after-content-parent/after-content-parent';
 
 @Component({
   selector: 'app-root',
