@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { AfterContentChecked, AfterContentInit, Component, ContentChild, isStandalone } from "@angular/core";
+import { AfterContentChecked, AfterContentInit, Component, ContentChild } from "@angular/core";
 import { LoggerService } from "../../services/logger.service";
 import { ChildComponent } from "../after-content-child/after-content-child";
 
@@ -40,7 +40,8 @@ AfterContentInit {
 
   // This surrogate for real business logic sets the `comment`
   private doSomething() {
-    this.comment = this.contentChild.hero.length > 10 ? `That's a long name` : '';
+    this.comment = 
+    this.contentChild.hero.length > 10 ? `That's a long name` : '';
   }
 
   private logIt(method: string) {
