@@ -16,10 +16,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class AliasingComponent {
 
   input1 = '';
-  outputEvent1: EventEmitter<string> = new EventEmitter<string>();
+  outputEvent1: EventEmitter<string> 
+  = new EventEmitter<string>();
 
   @Input('wishListItem') input2 = ''; //  @Input(alias)
-  @Output('wishEvent') outputEvent2 = new EventEmitter<string>(); //  @Output(alias) propertyName = ...
+  @Output('wishEvent') outputEvent2 
+  = new EventEmitter<string>(); //  @Output(alias) propertyName = ...
 
 
   saveIt() {

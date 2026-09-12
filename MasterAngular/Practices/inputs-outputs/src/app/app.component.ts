@@ -4,7 +4,7 @@ import { NgFor } from '@angular/common';
 import { AliasingComponent } from './aliasing.component';
 import { InputOutputComponent } from './input-output.component';
 import { InTheMetadataComponent } from './in-the-metadata.component';
-import { ItemDetailComponent } from './item-detail.component';
+import { ItemDetailComponent } from './item-detail-component/item-detail.component';
 import { ItemDetailMetadataComponent } from './item-details-metadata.component';
 import { ItemOutputComponent } from './item-output.component';
 
@@ -30,11 +30,9 @@ export class AppComponent {
   items = ['item1', 'item2', 'item3', 'item4'];
   wishlist = ['Drone', 'Computer'];
 
-
   addItem(newItem: string) {
     this.items.push(newItem);
   }
-
 
   crossOffItem(item: string) {
     console.warn(`Parent says: crossing off ${item}.`);

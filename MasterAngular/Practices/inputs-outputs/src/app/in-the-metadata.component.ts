@@ -4,15 +4,18 @@ import { Component, EventEmitter } from '@angular/core';
   standalone: true,
   selector: 'app-in-the-metadata',
   template: `
-  <p>Latest clearance item: {{clearanceItem}}</p>
+  <p>
+    Latest clearance item: {{clearanceItem}}
+  </p>
 
-  <button type="button" (click)="buyIt()"> Buy it with an Output!</button>
+  <button type="button" (click)="buyIt()"> 
+    Buy it with an Output!
+  </button>
   `,
   inputs: ['clearanceItem'],
   outputs: ['buyEvent']
 })
 export class InTheMetadataComponent  {
-
 
   buyEvent = new EventEmitter<string>();
   clearanceItem = '';
