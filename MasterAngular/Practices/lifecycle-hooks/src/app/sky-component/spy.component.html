@@ -9,6 +9,7 @@
   <div *ngFor="let hero of heroes" mySpy class="heroes">
     {{hero}}
   </div>
+  <h3>Heros counter: {{heroes.length}} </h3>
   <h4>-- Spy Lifecycle Hook Log --</h4>
   <div *ngFor="let msg of logger.logs">{{msg}}</div>
 </div>

@@ -9,7 +9,8 @@ export class LoggerService {
   log(msg: string)  {
     if (msg === this.prevMsg) {
       // Repeat message; update last log entry with count.
-      this.logs[this.logs.length - 1] = msg + ` (${this.prevMsgCount += 1}x)`;
+      this.logs[this.logs.length - 1] = 
+      msg + ` (${this.prevMsgCount += 1}x)`;
     } else {
       // New message; log it.
       this.prevMsg = msg;
