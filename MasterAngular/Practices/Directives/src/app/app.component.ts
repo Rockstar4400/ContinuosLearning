@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms'; // <--- JavaScript import from Angular
-import {Item} from './item';
+import {Item} from './Models/item';
 import {ItemDetailComponent} from './item-detail/item-detail.component';
 import {ItemSwitchComponents} from './item-switch.component';
 import {StoutItemComponent} from './item-switch.component';

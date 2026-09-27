@@ -13,7 +13,6 @@ export class Item {
     new Item(4, 'Fishbowl')
   ];
 
-
   constructor(
     public id: number,
     public name?: string,
