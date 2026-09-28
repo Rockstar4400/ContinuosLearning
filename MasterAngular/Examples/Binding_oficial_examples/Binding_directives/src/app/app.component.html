@@ -1,6 +1,6 @@
 <h1>Built-in Directives</h1>
 
-<h2>Built-in attribute directives</h2>
+<h2><u>Built-in attribute directives</u></h2>
 
 <h3 id="ngModel">NgModel (two-way) Binding</h3>
 
@@ -101,6 +101,7 @@
   </li>
 </ul>
 
+<!-- toggle the "special" class on/off with a property -->
 <button 
   type="button" 
   (click)="setCurrentClasses()">
@@ -108,15 +109,15 @@
 </button>
 
 <div [ngClass]="currentClasses">
-  This div should be {{ canSave ? "": "not"}} saveable,
-                  {{ isUnchanged ? "unchanged" : "modified" }} and
-                  {{ isSpecial ? "": "not"}} special after clicking "Refresh".
+  This div should be 
+  {{ canSave ? "": "not"}} saveable,
+  {{ isUnchanged ? "unchanged" : "modified" }} and
+  {{ isSpecial ? "": "not"}} special after clicking "Refresh".
 </div>
 
 <br>
 <br>
 
-<!-- toggle the "special" class on/off with a property -->
 <div [ngClass]="isSpecial ? 'special' : ''">
   This div is special
 </div>
@@ -126,7 +127,7 @@
 <div [ngClass]="{'helpful':false, 'study':true, 'course':true}">
   Study course
 </div>
-
+<!-- ################################################# -->
 
 <!-- NgStyle binding -->
 <hr><h3>NgStyle Binding</h3>
@@ -174,35 +175,46 @@
   {{ isUnchanged ? "normal weight" : "bold" }} and,
   {{ isSpecial ? "extra large": "normal size"}} after clicking "Refresh".
 </div>
+<!-- ################################################# -->
 
 <hr>
-<h2>Built-in structural directives</h2>
+
+<h2><u>Built-in structural directives</u></h2>
+
 <h3 id="ngIf">NgIf Binding</h3>
 <div>
-  <p>If isActive is true, app-item-detail will render: </p>
-  <app-item-detail *ngIf="isActive" [item]="item"></app-item-detail>
+  <p>If isActive is true, <i>app-item-detail</i>
+    component will render: </p>
+  
+  <app-item-detail 
+  *ngIf="isActive" 
+  [item]="item">
+  </app-item-detail>
 
   <button 
     type="button" 
     (click)="isActiveToggle()">
-    Toggle app-item-detail
+    Toggle component
   </button>
 </div>
-<p>If currentCustomer isn't null, say hello to Laura:</p>
+<hr>
+
+<p>If <i>currentCustomer</i> variable isn't null, say hello to Laura:</p>
 <div *ngIf="currentCustomer">
   Hello, {{currentCustomer.name}}
 </div>
-<p>nullCustomer is null by default.
+<p><i>nullCustomer</i> variable is null by default.
   NgIf guards against null. 
   Give it a value to show it:
 </p>
 <div *ngIf="nullCustomer">
   Hello, <span>{{nullCustomer}}</span>
 </div>
+<br>
 <button 
   type="button" 
   (click)="giveNullCustomerValue()">
-  Give nullCustomer a value
+  Give <i>nullCustomer</i> a value
 </button>
 
 
@@ -292,7 +304,7 @@
   </div>
 </div>
 
-<br><br><br>
+<br>
 
 <p>with trackBy and <em>semi-colon</em> separator</p>
 <div class="box">
