@@ -64,33 +64,43 @@
 <div [ngClass]="currentClasses">
   This div is initially saveable, unchanged, and special.
 </div>
+
 <ul>
   <li>
     <label for="saveable">
       saveable
     </label>
-    <input 
-    type="checkbox" 
-    [(ngModel)]="canSave" 
-    id="saveable">
+    <!--#1 way to handle the binding-->
+    <!--############################-->
+    <!--############################-->
+    <input type="checkbox" [(ngModel)]="canSave" id="saveable">
   </li>
+
   <li>
-    <label for="modified">modified:</label>
+    <label for="modified">
+      modified:
+    </label>
+    <!--#2 way to handle the binding-->
+    <!--############################-->
+    <!--############################-->
     <input 
     type="checkbox" 
-    [value]="!isUnchanged" 
+    [value]="!isUnchanged"
     (change)="isUnchanged=!isUnchanged" 
-    id="modified"></li>
+    id="modified">
+  </li>
+
   <li>
     <label for="special">
-      special: 
-      <input 
-      type="checkbox" 
-      [(ngModel)]="isSpecial" 
-      id="special">
+      special:   
     </label>
-</li>
+    <!--same way to handle the binding that #1-->
+    <!--######################################-->
+    <!--######################################-->
+    <input type="checkbox" [(ngModel)]="isSpecial" id="special">
+  </li>
 </ul>
+
 <button 
   type="button" 
   (click)="setCurrentClasses()">
@@ -103,7 +113,9 @@
                   {{ isSpecial ? "": "not"}} special after clicking "Refresh".
 </div>
 
-<br><br>
+<br>
+<br>
+
 <!-- toggle the "special" class on/off with a property -->
 <div [ngClass]="isSpecial ? 'special' : ''">
   This div is special
