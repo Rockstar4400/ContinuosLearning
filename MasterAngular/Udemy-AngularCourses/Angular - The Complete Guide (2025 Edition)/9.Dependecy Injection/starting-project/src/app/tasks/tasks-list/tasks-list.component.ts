@@ -11,8 +11,11 @@ import { TasksService } from '../../services/tasks.service';
   imports: [TaskItemComponent],
 })
 export class TasksListComponent {
-  private taskService = inject(TasksService);
+  
+  // Alternative of Inject Dependencies
+  private taskService = inject(TasksService); 
   private selectedFilter = signal<string>('all');
+
   tasks = computed(() => {
     switch(this.selectedFilter()) {
       case 'open':

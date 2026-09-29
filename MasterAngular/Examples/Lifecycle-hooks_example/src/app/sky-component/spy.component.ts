@@ -18,8 +18,9 @@ export class SpyParentComponent {
   newName = 'Herbie';
   heroes: string[] = ['Windstorm', 'Magneta'];
 
-  constructor(public logger: LoggerService) {
-  }
+  constructor(
+    public logger: LoggerService
+  ) { }
 
   addHero() {
     if (this.newName.trim()) {
