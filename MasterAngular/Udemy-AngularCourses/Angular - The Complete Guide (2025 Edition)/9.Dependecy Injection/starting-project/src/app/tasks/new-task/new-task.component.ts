@@ -1,6 +1,6 @@
 import { Component, ElementRef, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TasksService } from '../tasks.service';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-new-task',

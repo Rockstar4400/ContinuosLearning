@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from "@angular/core";
-import { Task, TaskStatus } from "./task.model";
-import { LoggingService } from "../logging.service";
+import { Task, TaskStatus } from "../models/task.model";
+import { LoggingService } from "./logging.service";
 
 @Injectable({
     providedIn: 'root'

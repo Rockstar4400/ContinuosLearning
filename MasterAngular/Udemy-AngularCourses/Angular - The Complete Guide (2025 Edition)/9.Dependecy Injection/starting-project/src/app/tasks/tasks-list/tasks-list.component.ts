@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 
 import { TaskItemComponent } from './task-item/task-item.component';
-import { TasksService } from '../tasks.service';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-tasks-list',

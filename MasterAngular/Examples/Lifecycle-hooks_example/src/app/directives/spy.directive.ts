@@ -7,9 +7,13 @@ let nextId = 1;
 // Spy on any element to which it is applied.
 // Usage: <div mySpy>...</div>
 @Directive({selector: '[mySpy]'})
-export class SpyDirective implements OnInit, OnDestroy {
+export class SpyDirective implements 
+  OnInit, 
+  OnDestroy {
 
-  constructor(private logger: LoggerService) { }
+  constructor(
+    private logger: LoggerService
+  ) { }
 
   ngOnInit()    { 
     this.logIt(`onInit`)
