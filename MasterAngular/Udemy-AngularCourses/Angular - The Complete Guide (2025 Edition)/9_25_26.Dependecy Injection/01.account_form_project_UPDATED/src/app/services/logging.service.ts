@@ -1,11 +1,13 @@
 
-import { Injectable } from "@angular/core";
+import { Service } from "@angular/core";
 
-@Injectable({
-  providedIn:'root'
-})
+@Service()
 export class LoggingService {
-    logStatusChange(status: string){
-        console.log('A server status changed, new status: ' + status);
+    logStatusChange(status: string, name: string){
+        console.log(name + ' status changed, new status: '+ status);
+    }
+
+    logAccountAdded(name: string, status: string){
+        console.log(name + ' Account was added with status: ' + status)
     }
 }

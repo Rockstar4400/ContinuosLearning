@@ -1,19 +1,17 @@
-import { EventEmitter, inject, Service } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { LoggingService } from "./logging.service";
 
-@Service()
+@Injectable({
+  providedIn:'root'
+})
 export class AccountsService {
-  private LoggingService = inject(LoggingService);
-  constructor() {}
-  statusUpdated = new EventEmitter<string>();
-
     accounts = [
         {
           name: 'Master Account',
           status: 'active'
         },
         {
-          name: 'Test Account',
+          name: 'Testaccount',
           status: 'inactive'
         },
         {
@@ -21,14 +19,18 @@ export class AccountsService {
           status: 'unknown'
         }
       ];
+
+    statusUpdated = new EventEmitter<string>();
+
+    constructor(private loggingService: LoggingService) {}
     
     addAccount(name: string, status: string){
         this.accounts.push({name: name, status: status});
-        this.LoggingService.logAccountAdded(name, status);
+        this.loggingService.logStatusChange(status);
     }
 
-    updatedStatus(id: number, status: string, name: string){
+    updatedStatus(id: number, status: string){
         this.accounts[id].status = status;
-        this.LoggingService.logStatusChange(status, name);
+        this.loggingService.logStatusChange(status);
     }
 }

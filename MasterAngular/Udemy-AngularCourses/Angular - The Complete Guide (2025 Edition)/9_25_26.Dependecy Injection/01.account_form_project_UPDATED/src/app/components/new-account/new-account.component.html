@@ -7,6 +7,7 @@
         class="form-control"
         #accountName>
     </div>
+    <br>
     <div class="form-group">
       <select class="form-control" #status>
         <option value="active">Active</option>
@@ -14,6 +15,7 @@
         <option value="hidden">Hidden</option>
       </select>
     </div>
+    <br>
     <button
       class="btn btn-primary"
       (click)="onCreateAccount(accountName.value, status.value)">
