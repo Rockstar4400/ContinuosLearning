@@ -1,0 +1,17 @@
+<div class="draft-panel">
+    <h2>New Post</h2>
+    <input 
+        #titleInput
+        [value]="draft.title()" 
+        (input)="draft.title.set(titleInput.value)" 
+        placeholder="Title" />
+    <textarea 
+        #bodyInput
+        [value]="draft.body()" 
+        (input)="draft.body.set(bodyInput.value)" 
+        placeholder="Body">
+    </textarea>
+    <button [disabled]="!draft.isValid()" (click)="draft.reset()">
+        Submit
+    </button>
+</div>

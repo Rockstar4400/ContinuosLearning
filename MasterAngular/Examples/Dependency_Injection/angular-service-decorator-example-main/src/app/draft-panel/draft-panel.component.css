@@ -1,0 +1,55 @@
+.draft-panel {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #475569;
+    border-radius: 8px;
+}
+
+.draft-panel h2 {
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.draft-panel input,
+.draft-panel textarea {
+    background-color: #1e293b;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    color: white;
+    font-size: 0.9rem;
+    font-family: inherit;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.draft-panel input:focus,
+.draft-panel textarea:focus {
+    outline: none;
+    border-color: white;
+}
+
+.draft-panel textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.draft-panel button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.draft-panel button:hover:not(:disabled) {
+    background: #333;
+}
+
+.draft-panel button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}

@@ -1,0 +1,41 @@
+<h1>User Posts</h1>
+
+@if (postsService.users.isLoading()) {
+  <p>Loading users…</p>
+}
+
+<ul>
+  @for (user of postsService.users.value(); track user.id) {
+    <li>
+      <button
+        [class.active]="postsService.selectedUserId() === user.id"
+        (click)="postsService.selectedUserId.set(user.id)"
+      >
+        {{ user.name }}
+      </button>
+    </li>
+  }
+</ul>
+
+@if (postsService.selectedUserId()) {
+  <h2>Posts</h2>
+
+  @if (postsService.posts.isLoading()) {
+    <p>Loading posts…</p>
+  }
+
+  @if (postsService.posts.error()) {
+    <p class="error">Failed to load posts.</p>
+  }
+
+  @for (post of postsService.posts.value(); track post.id) {
+    <article>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+    </article>
+  }
+} @else {
+  <p>Select a user to see their posts.</p>
+}
+
+<app-draft-panel />
