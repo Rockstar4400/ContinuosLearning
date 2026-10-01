@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { Ingredient } from '../../models/ingredient.model';
 import { ShoppingListService } from '../../services/shopping-list.service';
@@ -13,8 +13,9 @@ import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [];
+  private slService = inject(ShoppingListService);
 
-  constructor(private slService: ShoppingListService) { }
+  constructor() { }
 
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();

@@ -4,9 +4,10 @@ import { Ingredient } from "../models/ingredient.model";
 @Service()
 export class ShoppingListService{
     IngredientChanges = new EventEmitter<Ingredient[]>();
+
     private ingredients: Ingredient[] = [
-        new Ingredient('Apples', 5),
-        new Ingredient('Tomatoes', 10),
+        new Ingredient(1,'Apples', 5),
+        new Ingredient(2,'Tomatoes', 10),
       ];
 
     getIngredients(){

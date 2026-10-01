@@ -13,11 +13,10 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
   providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
-  selectedRecipe: Recipe;
+  selectedRecipe?: Recipe;
   private recipeService = inject(RecipeService);
 
   constructor() {
-    this.selectedRecipe = new Recipe ("","","",[])
    }
 
   ngOnInit() {

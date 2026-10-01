@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { Recipe } from '../../../models/recipe.model';
 import { RecipeService } from '../../../services/recipe.service';
@@ -12,10 +12,10 @@ import { RecipeItemComponent } from './recipe-item/recipe-item.component';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-
+  private recipeService = inject(RecipeService);
   recipes: Recipe[];
 
-  constructor(private recipeService: RecipeService) {
+  constructor() {
     this.recipes = [];
    }
 

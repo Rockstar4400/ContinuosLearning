@@ -7,8 +7,10 @@
 <div class="row">
   <div class="col-xs-12"> 
 
-    @for(recipeEl of recipes; track recipes){
-      <app-recipe-item [recipe]="recipeEl"></app-recipe-item>
+    @for(recipeNum of recipes; track recipeNum.id){
+      <app-recipe-item class="list-group"
+      [recipe]="recipeNum">
+      </app-recipe-item>
     }
   </div>
 </div>

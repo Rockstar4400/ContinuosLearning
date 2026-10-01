@@ -6,12 +6,12 @@
   <div class="col-md-7">
 
     @if (selectedRecipe) {
-      <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
+      <app-recipe-detail 
+      [recipe]="selectedRecipe">
+      </app-recipe-detail>
     }
     @else{
-      <ng-template #infoText>
-      <p>Please select a recipe!</p>
-      </ng-template>  
-    }    
+        <p>Please select a recipe!</p>
+    }
   </div>
 </div>

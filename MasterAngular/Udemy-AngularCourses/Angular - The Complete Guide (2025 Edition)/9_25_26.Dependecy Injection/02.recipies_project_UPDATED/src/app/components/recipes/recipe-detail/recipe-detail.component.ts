@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Recipe } from '../../../models/recipe.model';
 import { RecipeService } from '../../../services/recipe.service';
 
@@ -9,9 +9,10 @@ import { RecipeService } from '../../../services/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
+  private recipeService = inject(RecipeService);
 
-  constructor(private recipeService: RecipeService) { 
-    this.recipe = new Recipe("","","",[])
+  constructor() { 
+    this.recipe = new Recipe(0,"","","",[])
   }
 
   ngOnInit() {
