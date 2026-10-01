@@ -1,6 +1,7 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, Service } from "@angular/core";
 import { Ingredient } from "../models/ingredient.model";
 
+@Service()
 export class ShoppingListService{
     IngredientChanges = new EventEmitter<Ingredient[]>();
     private ingredients: Ingredient[] = [

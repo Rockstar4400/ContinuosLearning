@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Recipe } from '../recipe.model';
+import { Recipe } from '../../../models/recipe.model';
 import { RecipeService } from '../../../services/recipe.service';
+import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 
 @Component({
   selector: 'app-recipe-list',
   standalone: true,
+  imports: [RecipeItemComponent],
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
