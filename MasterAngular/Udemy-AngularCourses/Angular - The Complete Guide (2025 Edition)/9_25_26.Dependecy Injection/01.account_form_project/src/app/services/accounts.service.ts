@@ -4,8 +4,8 @@ import { LoggingService } from "./logging.service";
 @Service()
 export class AccountsService {
   private LoggingService = inject(LoggingService);
-  constructor() {}
-  statusUpdated = new EventEmitter<string>();
+  constructor() {} // ???
+  statusUpdated = new EventEmitter<string>(); // ???
 
     accounts = [
         {
