@@ -1,0 +1,33 @@
+
+:host {
+  display: contents;
+
+  .demo-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .defer-card {
+    background: #fce4ec;
+    border-left: 4px solid #d81b60;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .defer-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #d81b60;
+    margin-bottom: 0.5rem;
+  }
+
+  .defer-content {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+}

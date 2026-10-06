@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import { Item } from './models/item';
 
-import { CustomEventComponent } from './components/custom-event/custom-event.component';
-import { TargetEventComponent } from './components/target-event/target-event.component';
-import { ClickEventComponent } from './components/click-event/click-event.component';
-import { EventDirectiveComponent } from './components/event-directive/event-directive.component';
-import { EventHandlingComponent } from './components/event-handling/event-handling.component';
+import { CustomEventComponent } from
+ './components/custom-event/custom-event.component';
+import { TargetEventComponent } from
+ './components/target-event/target-event.component';
+import { ClickEventComponent } from
+ './components/click-event/click-event.component';
+import { EventDirectiveComponent } from
+ './components/event-directive/event-directive.component';
+import { EventHandlingComponent } from
+ './components/event-handling/event-handling.component';
 
 @Component({
   standalone: true,

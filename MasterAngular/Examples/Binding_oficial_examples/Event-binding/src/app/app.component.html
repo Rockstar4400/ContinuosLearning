@@ -1,18 +1,32 @@
-<h1 class="display-1" id="event-binding">Event Binding</h1>
+<h1 class="display-1" id="event-binding">
+    Event Binding
+</h1>
 
-<target-event class="card" (saveRequest)="onSave($event)" />
+<target-event 
+class="card" 
+(saveRequest)="onSave($event)" />
 <br/>
-<click-event class="card" (clickRequest)="onClickMe($event)"/>
+
+<click-event 
+class="card" 
+(clickRequest)="onClickMe($event)"/>
 <br/>
-<event-directive class="card" [message]="clickMessage"/>
+
+<event-directive 
+class="card" 
+[message]="clickMessage"/>
 <br/>
-<event-handling class="card" 
-    [item]="currentItem" 
-    (getRequest)="getValue($event)"/>
+
+<event-handling 
+class="card" 
+[item]="currentItem" 
+(getRequest)="getValue($event)"/>
 <br/>
-<custom-event class="card" 
-    (deleteRequest)="deleteItem($event)" 
-    [item]="currentItem" />
+
+<custom-event 
+class="card" 
+(deleteRequest)="deleteItem($event)" 
+[item]="currentItem" />
 <br/>
 
 

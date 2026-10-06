@@ -1,0 +1,46 @@
+import { Route } from '@angular/router';
+
+const LINKED_ROUTES: Route[] = [
+  {
+    path: '',
+    loadComponent: () => import('./linked-signal.component'),
+  },
+  {
+    path: 'example1',
+    loadComponent: () => import('./ls-example1/ls-example1.component'),
+  },
+  {
+    path: 'example2',
+    loadComponent: () => import('./ls-example2/ls-example2.component').then(c => c.LsExample2Component),
+  },
+  {
+    path: 'example3',
+    loadComponent: () => import('./ls-example3/ls-example3.component').then(c => c.LsExample3Component),
+  },
+  {
+    path: 'example4',
+    loadComponent: () => import('./ls-example4/ls-example4.component').then(c => c.LsExample4Component),
+  },
+  {
+    path: 'example5',
+    loadComponent: () => import('./ls-example5/ls-example5.component').then(c => c.LsExample5Component),
+  },
+  {
+    path: 'example6',
+    loadComponent: () => import('./ls-example6/ls-example6.component').then(c => c.LsExample6Component),
+  },
+  {
+    path: 'example7',
+    loadComponent: () => import('./ls-example7/ls-example7.component').then(c => c.LsExample7Component),
+  },
+  {
+    path: 'example8',
+    loadComponent: () => import('./ls-example8/ls-example8.component').then(c => c.LsExample8Component),
+  },
+  {
+    path: 'example9',
+    loadComponent: () => import('./ls-example9/ls-example9.component').then(c => c.LsExample9Component),
+  },
+];
+
+export default LINKED_ROUTES;

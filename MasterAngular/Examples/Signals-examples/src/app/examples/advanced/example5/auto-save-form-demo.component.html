@@ -1,0 +1,30 @@
+<form [formGroup]="form" [autoSaveForm]="form" [debounce]="1000" [storageKey]="'autoSaveDemo'" [apiSaveFn]="saveToApi" (savingStatus)="savingStatus.set($event)">
+  <label>
+    Name:
+    <input formControlName="name" />
+  </label>
+  <label>
+    Email:
+    <input formControlName="email" />
+  </label>
+  <label>
+    Notes:
+    <textarea formControlName="notes"></textarea>
+  </label>
+  <div class="status">
+    @switch (savingStatus()) {
+      @case ('saving'){
+        Saving...
+      }
+      @case ('saved'){
+        ✅ Saved
+      }
+      @case ('error'){
+        ❌ Error! Retrying...
+      }
+      @default{
+        Idle
+      }
+    }
+  </div>
+</form>

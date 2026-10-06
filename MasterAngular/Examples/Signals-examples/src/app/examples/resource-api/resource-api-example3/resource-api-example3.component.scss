@@ -1,0 +1,113 @@
+:host {
+  display: contents;
+
+  .page-info {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: #f5f5f5;
+    border-radius: 6px;
+  }
+
+  .todos-display {
+    margin: 24px 0;
+
+    .todos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+
+      .todo-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        &.completed {
+          background: #f8fdf8;
+          border-left: 4px solid #4caf50;
+        }
+
+        mat-card-header {
+          mat-card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+
+            mat-icon {
+              font-size: 20px;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        mat-card-content {
+          .todo-title {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 12px 0;
+            color: #333;
+          }
+
+          .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+
+            &.completed {
+              background: #e8f5e8;
+              color: #2e7d2e;
+            }
+
+            &.pending {
+              background: #fff3cd;
+              color: #856404;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loading-state, .error-state {
+    text-align: center;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .loading-state {
+    color: #2196f3;
+  }
+
+  .error-state {
+    color: #f44336;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes loading-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+}
