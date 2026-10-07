@@ -5,7 +5,8 @@ import {Directive, ElementRef, EventEmitter, Output} from '@angular/core';
   selector: '[myClick]',
 })
 export class ClickDirective {
-  @Output('myClick') clicks = new EventEmitter<string>(); // @Output(Alias)
+  @Output('myClick') clicks = 
+  new EventEmitter<string>(); // @Output(Alias)
   toggle = false;
 
   constructor(el: ElementRef) {

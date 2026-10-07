@@ -38,7 +38,7 @@ export class AppComponent {
     const evtMsg = event ? ' Event target is ' + 
     (event.target as HTMLElement).textContent : '';
 
-    alert('Saved.' + evtMsg);
+    console.log('Saved. On parent' + evtMsg);
 
     if (event) {
       event.stopPropagation();
@@ -52,11 +52,11 @@ export class AppComponent {
     const evtMsg = event
       ? ' Event target class is ' + 
       (event.target as HTMLElement).className : '';
-    alert('Click me.' + evtMsg);
+    console.log('Click me. On parent' + evtMsg);
   }
 
   deleteItem(item: Item) {
-    alert(`Delete the ${item.name}.`);
+    console.log(`Delete the ${item.name}.`);
   }
 
   getValue(event: Event): string {
