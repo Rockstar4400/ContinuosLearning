@@ -1,118 +1,15 @@
 <h1>Built-in Directives</h1>
 
-<h2><u>Built-in attribute directives</u></h2>
+<build-in-attributes 
+  [ChildCurrentitem]="currentItem">
+</build-in-attributes>
 
-<h3 id="ngModel">NgModel (two-way) Binding</h3>
-
-<fieldset><h4>NgModel examples</h4>
-  <p>Current item name: {{currentItem.name}}</p>
-  <p>
-    <!--#1 way to handle the binding-->
-    <label for="without">without NgModel:</label>
-    <input 
-    [value]="currentItem.name" 
-    (input)="currentItem.name=getValue($event)" 
-    id="without">
-  </p>
-
-  <p>
-    <!--#2 way to handle the binding-->
-    <label for="example-ngModel">
-      [(ngModel)]:
-    </label>
-    <input 
-    [(ngModel)]="currentItem.name" 
-    id="example-ngModel">
-  </p>
-
-  <p>
-    <!--#3 way to handle the binding-->
-    <label for="example-change">
-      (ngModelChange)="...name=$event":
-    </label>
-    <input 
-    [ngModel]="currentItem.name" 
-    (ngModelChange)="currentItem.name=$event" 
-    id="example-change">
-  </p>
-
-  <p>
-    <!--Change in input change letters to uppercase-->
-    <label for="example-uppercase">
-      (ngModelChange)="setUppercaseName($event)"
-      <input 
-      [ngModel]="currentItem.name" 
-      (ngModelChange)="setUppercaseName($event)" 
-      id="example-uppercase">
-    </label>
-  </p>
-</fieldset>
-
-<hr>
-
-<h2 id="ngClass">class Binding</h2>
-
-<p>currentClasses is {{currentClasses | json}}</p>
-<div [class]="currentClasses">
-  This div is initially saveable, unchanged, and special.
-</div>
-
-<ul>
-  <li>
-    <label for="saveable">
-      saveable
-    </label>
-    <!--#1 way to handle the binding-->
-    <input type="checkbox" [(ngModel)]="canSave" id="saveable">
-  </li>
-
-  <li>
-    <label for="modified">
-      modified:
-    </label>
-    <!--#2 way to handle the binding-->
-    <input 
-    type="checkbox" 
-    [value]="!isUnchanged"
-    (change)="isUnchanged=!isUnchanged" 
-    id="modified">
-  </li>
-
-  <li>
-    <label for="special">
-      special:   
-    </label>
-    <!--same way to handle the binding that #1-->
-    <input type="checkbox" [(ngModel)]="isSpecial" id="special">
-  </li>
-</ul>
-
-<!-- toggle the "special" class on/off with a property -->
-<button 
-  type="button" 
-  (click)="setCurrentClasses()">
-  Refresh currentClasses
-</button>
-
-<div [class]="currentClasses">
-  This div should be 
-  {{ canSave ? "": "not"}} saveable,
-  {{ isUnchanged ? "unchanged" : "modified" }} and
-  {{ isSpecial ? "": "not"}} special after clicking "Refresh".
-</div>
-
-<br>
-<br>
-
-<div [class]="isSpecial ? 'special' : ''">
-  This div is special
-</div>
-<div class="helpful study course">
-  Helpful study course
-</div>
-<div [class]="{'helpful':false, 'study':true, 'course':true}">
-  Study course
-</div>
+<class-attribute 
+  [ChildCurrentClasses]="currentClasses"
+  [ChildSave]="canSave"
+  [ChildisUnchanged]="isUnchanged"
+  [ChildisSpecial]="isSpecial">
+</class-attribute>
 
 <!-- NgStyle binding -->
 <hr><h3>style Binding</h3>
@@ -208,10 +105,10 @@
 
 <h4>if() binding with template (no *)</h4>
 
-<ng-template [ngIf]="currentItem">
+<!-- <ng-template [ngIf]="currentItem">
   Add {{currentItem.name}} with template
 </ng-template>
-<hr>
+<hr> -->
 
 <h4>Show/hide vs. if()</h4>
 <!-- isSpecial is true -->
@@ -357,7 +254,7 @@
 <hr>
 <h2>switch() Binding</h2>
 
-<p>Pick your favorite item</p>
+<!-- <p>Pick your favorite item</p>
 <div>
 
   @for(item of items; track item){
@@ -393,6 +290,6 @@
     </app-unknown-item>
     <div>Are you as bright as {{currentItem.name}}?</div>
   }
-}
+} -->
 
 

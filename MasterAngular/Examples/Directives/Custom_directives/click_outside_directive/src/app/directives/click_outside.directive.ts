@@ -12,7 +12,8 @@ export class ClickOutsideDirective {
   clickOutside = outputFromObservable(
     fromEvent<MouseEvent>(document, 'click').pipe(
       filter(event => {
-        const clickedInside = this.elementRef.nativeElement.contains(event.target);
+        const clickedInside = 
+        this.elementRef.nativeElement.contains(event.target);
         return !clickedInside;
       }),
       map(() => undefined)

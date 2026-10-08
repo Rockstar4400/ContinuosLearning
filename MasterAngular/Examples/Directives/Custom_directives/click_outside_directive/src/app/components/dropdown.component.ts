@@ -7,8 +7,13 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ClickOutsideDirective, CommonModule],
   template: `
-    <div class="dropdown" (appClickOutside)="closeDropdown()">
-      <button (click)="toggleDropdown()">Menu</button>
+    <div 
+      class="dropdown" 
+      (appClickOutside)="closeDropdown()">
+      <button 
+        (click)="toggleDropdown()">
+        Menu
+      </button>
       @if (isOpen()) {
         <ul>
           <li>Option 1</li>
@@ -20,7 +25,10 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     .dropdown { position: relative; }
-    ul { position: absolute; background: white; border: 1px solid #ccc; }
+    ul { 
+      position: absolute; 
+      background: white; 
+      border: 1px solid #ccc; }
   `]
 })
 export class DropdownComponent {

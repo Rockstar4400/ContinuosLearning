@@ -1,0 +1,63 @@
+<h2 id="ngClass"><u>class Binding</u></h2>
+
+<p>currentClasses is {{ChildCurrentClasses | json}}</p>
+<div [class]="ChildCurrentClasses">
+  This div is initially saveable, unchanged, and special.
+</div>
+
+<ul>
+  <li>
+    <label for="saveable">
+      saveable
+    </label>
+    <!--#1 way to handle the binding-->
+    <input type="checkbox" [(ngModel)]="ChildSave" id="saveable">
+  </li>
+
+  <li>
+    <label for="modified">
+      modified:
+    </label>
+    <!--#2 way to handle the binding-->
+    <input 
+    type="checkbox" 
+    [value]="!ChildisUnchanged"
+    (change)="ChildisUnchanged=!ChildisUnchanged" 
+    id="modified">
+  </li>
+
+  <li>
+    <label for="special">
+      special:   
+    </label>
+    <!--same way to handle the binding that #1-->
+    <input type="checkbox" [(ngModel)]="ChildisSpecial" id="special">
+  </li>
+</ul>
+
+<!-- toggle the "special" class on/off with a property -->
+<button 
+  type="button" 
+  (click)="setCurrentClasses()">
+  Refresh currentClasses
+</button>
+
+<div [class]="ChildCurrentClasses">
+  This div should be 
+  {{ ChildSave ? "": "not"}} saveable,
+  {{ ChildisUnchanged ? "unchanged" : "modified" }} and
+  {{ ChildisSpecial ? "": "not"}} special after clicking "Refresh".
+</div>
+
+<br>
+<br>
+
+<div [class]="ChildisSpecial ? 'special' : ''">
+  This div is special
+</div>
+<div class="helpful study course">
+  Helpful study course
+</div>
+<div [class]="{'helpful':false, 'study':true, 'course':true}">
+  Study course
+</div>

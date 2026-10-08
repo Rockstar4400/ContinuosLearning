@@ -1,0 +1,49 @@
+<h2><u>Built-in attribute directives</u></h2>
+
+<h3 id="ngModel">NgModel (two-way) Binding</h3>
+
+<fieldset><h4>NgModel examples</h4>
+  <p>Current item name: {{ChildCurrentitem.name}}</p>
+  <p>
+    <!--#1 way to handle the binding-->
+    <label for="without">without NgModel:</label>
+    <input 
+    [value]="ChildCurrentitem.name" 
+    (input)="ChildCurrentitem.name=getValue($event)" 
+    id="without">
+  </p>
+
+  <p>
+    <!--#2 way to handle the binding-->
+    <label for="example-ngModel">
+      [(ngModel)]:
+    </label>
+    <input 
+    [(ngModel)]="ChildCurrentitem.name" 
+    id="example-ngModel">
+  </p>
+
+  <p>
+    <!--#3 way to handle the binding-->
+    <label for="example-change">
+      (ngModelChange)="...name=$event":
+    </label>
+    <input 
+    [ngModel]="ChildCurrentitem.name" 
+    (ngModelChange)="ChildCurrentitem.name=$event" 
+    id="example-change">
+  </p>
+
+  <p>
+    <!--Change in input change letters to uppercase-->
+    <label for="example-uppercase">
+      (ngModelChange)="setUppercaseName($event)"
+      <input 
+      [ngModel]="ChildCurrentitem.name" 
+      (ngModelChange)="setUppercaseName($event)" 
+      id="example-uppercase">
+    </label>
+  </p>
+</fieldset>
+
+<hr>

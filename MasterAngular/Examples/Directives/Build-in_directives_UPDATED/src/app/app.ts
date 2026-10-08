@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, Input, OnInit, signal } from '@angular/core';
 import { Item } from './models/item';
 import { FormsModule } from '@angular/forms';
 import { ItemDetailComponent } 
@@ -6,6 +6,8 @@ from './components/item-detail/item-detail.component';
 import { JsonPipe } from '@angular/common';
 import { ItemSwitchComponents } 
 from './components/switch/item-switch.component';
+import { BuildInAttributesComponent } from './components/build-in-attributes/build-in-attributes.component';
+import { ClassAttributeComponent } from './components/class-attribute/class-attribute.component';
 
 @Component({
   standalone: true,
@@ -13,13 +15,18 @@ from './components/switch/item-switch.component';
   styleUrl: './app.css',
   templateUrl: './app.html',
   imports: [
-    FormsModule, 
-    ItemDetailComponent, 
+    FormsModule,
+    ItemDetailComponent,
     JsonPipe,
-    ItemSwitchComponents]
+    ItemSwitchComponents,
+    BuildInAttributesComponent,
+    ClassAttributeComponent
+]
 })
 export class App implements OnInit{
   protected readonly title = signal('Build-in_directives_UPDATED');
+
+  currentItem!: Item;
 
   canSave = true;
   isSpecial = true;
@@ -27,14 +34,13 @@ export class App implements OnInit{
 
   isActive = true;
   nullCustomer: string | null = null;
+
   currentCustomer = {
     name: 'Laura',
   };
 
   item!: Item; // defined to demonstrate template context precedence
   items: Item[] = [];
-
-  currentItem!: Item;
 
   // trackBy change counting
   itemsNoTrackByCount = 0;
@@ -48,25 +54,12 @@ export class App implements OnInit{
 
   ngOnInit() {
     this.resetItems();
-    this.setCurrentClasses();
+    //this.setCurrentClasses();
     this.setCurrentStyles();
     this.itemsNoTrackByCount = 0;
   }
 
-  setUppercaseName(name: string) {
-    this.currentItem.name = name.toUpperCase();
-  }
-
-  setCurrentClasses() {
-    // CSS classes: added/removed per current state 
-    // of component properties
-    this.currentClasses = {
-      saveable: this.canSave,
-      modified: !this.isUnchanged,
-      special: this.isSpecial,
-    };
-  }
-
+ 
   setCurrentStyles() {
     // CSS styles: set per current state of component properties
     this.currentStyles = {
@@ -117,7 +110,4 @@ export class App implements OnInit{
     return item.id;
   }
 
-  getValue(event: Event): string {
-    return (event.target as HTMLInputElement).value;
-  }
 }

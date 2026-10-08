@@ -1,9 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { DropdownComponent } from './components/dropdown.component';
 
 @Component({
-  imports: [RouterOutlet, DropdownComponent],
+  imports: [DropdownComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

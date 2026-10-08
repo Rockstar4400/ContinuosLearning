@@ -14,8 +14,10 @@ import { booleanAttribute } from '@angular/core'; // First, import booleanAttrib
 })
 
 export class ItemDetailMetadataComponent {
-  @Input({required: true}) item!: string; // Second, decorate the property with required metadata
+  // Second, decorate the property with required metadata
+  @Input({required: true}) item!: string; 
 
-  @Input({transform: booleanAttribute}) itemAvailability!: boolean; // Second, decorate the property with transform
+  // Second, decorate the property with transform
+  @Input({transform: booleanAttribute}) itemAvailability!: boolean; 
 }
 

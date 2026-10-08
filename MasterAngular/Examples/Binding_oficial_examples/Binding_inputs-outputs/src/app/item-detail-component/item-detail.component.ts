@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core'; // First, import Input
 })
 
 export class ItemDetailComponent {
-  @Input() item = ''; // decorate the property with @Input()
+  // decorate the property with @Input()
+  @Input() item = ''; 
 }

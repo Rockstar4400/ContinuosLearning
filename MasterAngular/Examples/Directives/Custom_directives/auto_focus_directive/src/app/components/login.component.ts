@@ -6,9 +6,14 @@ import { AutoFocusDirective } from '../directives/auto_focus.directive';
   standalone: true,
   imports: [AutoFocusDirective],
   template: `
-    <!-- <input type="text" appAutoFocus placeholder="I'm focused on load"> ???-->
-    <input type="text" [appAutoFocus]="shouldFocus()" placeholder="Conditional">
-    <!-- <input type="text" appAutoFocus [autoFocusDelay]="300" placeholder="Delayed"> ???-->
+    <input type="text" appAutoFocus 
+     placeholder="I'm focused on load">
+    <!-- <input type="checkbox" 
+    [appAutoFocus]="shouldFocus()" 
+    placeholder="Conditional"> ??? -->
+    <input type="text" 
+     appAutoFocus [autoFocusDelay]="3000" 
+     placeholder="Delayed">
   `
 })
 export class LoginComponent {

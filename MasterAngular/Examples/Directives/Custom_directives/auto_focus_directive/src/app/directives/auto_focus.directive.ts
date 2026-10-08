@@ -5,8 +5,8 @@ import { Directive, ElementRef, effect, input } from '@angular/core';
   standalone: true
 })
 export class AutoFocusDirective {
-  enabled = input(true, { alias: 'appAutoFocus' });
-  delay = input(0, { alias: 'autoFocusDelay' });
+  enabled = input<string>('', { alias: 'appAutoFocus' });
+  delay = input<number>(0, { alias: 'autoFocusDelay' });
 
   constructor(private el: ElementRef<HTMLElement>) {
     effect(() => {
