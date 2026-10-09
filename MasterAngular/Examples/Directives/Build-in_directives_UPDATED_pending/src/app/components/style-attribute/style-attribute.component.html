@@ -1,0 +1,48 @@
+
+<h2><i>style Binding</i></h2>
+<div [style.font-size]="ChildisSpecial ? 'x-large' : 'smaller'">
+  This div is x-large or smaller.
+</div>
+
+<h4>[ngStyle] binding to currentStyles - CSS property names</h4>
+<p>currentStyles is {{ChildcurrentStyles | json}}</p>
+
+<div [style]="ChildcurrentStyles">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+
+<br>
+<label for="canSave">
+  italic:
+  <input 
+  id="canSave" 
+  type="checkbox" 
+  [(ngModel)]="ChildCanSave">
+</label> |
+<label for="isUnchanged">
+  normal: 
+  <input 
+  id="isUnchanged" 
+  type="checkbox" 
+  [(ngModel)]="ChildisUnchanged">
+</label> |
+<label for="isSpecial">
+  xlarge: 
+  <input 
+  id="isSpecial" 
+  type="checkbox" 
+  [(ngModel)]="ChildisSpecial">
+</label>
+<button 
+  type="button" 
+  (click)="setCurrentStyles()">
+  Refresh currentStyles
+</button>
+<br><br>
+<div [style]="ChildcurrentStyles">
+  This div should be {{ ChildCanSave ? "italic": "plain"}},
+  {{ ChildisUnchanged ? "normal weight" : "bold" }} and,
+  {{ ChildisSpecial ? "extra large": "normal size"}} after clicking "Refresh".
+</div>
+
+<hr>

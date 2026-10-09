@@ -1,0 +1,22 @@
+<p>If <i>currentCustomer</i> variable isn't null, say hello to Laura:</p>
+
+@if(ChildCurrentCustomer){
+  <div>Hello, {{ChildCurrentCustomer.name}}</div>
+}
+
+<p><i>nullCustomer</i> variable is null by default.
+  if() guards against null. 
+  Give it a value to show it:
+</p>
+
+@if(ChildNullCustomer){
+  <div>Hello, <span>{{ChildNullCustomer}}</span></div>
+}
+
+<br>
+<button 
+  type="button" 
+  (click)="giveNullCustomerValue()">
+  Give <i>nullCustomer</i> a value
+</button>
+

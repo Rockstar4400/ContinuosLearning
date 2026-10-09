@@ -1,0 +1,216 @@
+<h1>Built-in Directives</h1>
+
+<build-in-attributes 
+  [ChildCurrentitem]="currentItem">
+</build-in-attributes>
+
+<class-attribute 
+  [ChildCurrentClasses]="currentClasses"
+  [ChildSave]="canSave"
+  [ChildisUnchanged]="isUnchanged"
+  [ChildisSpecial]="isSpecial">
+</class-attribute>
+
+<style-attribute
+  [ChildcurrentStyles]="currentStyles"
+  [ChildCanSave]="canSave"
+  [ChildisUnchanged]="isUnchanged"
+  [ChildisSpecial]="isSpecial">
+</style-attribute>
+
+<build-in-structural-if_case_1
+  [ChildisActive]="isActive">
+</build-in-structural-if_case_1>
+
+<build-structural-if-case-2
+  [ChildCurrentCustomer]="currentCustomer"
+  [ChildNullCustomer]="nullCustomer">
+</build-structural-if-case-2>
+
+<build-structural-if-case-3
+  [ChildcurrentItem]="currentItem">
+</build-structural-if-case-3>
+
+<h4>Show/hide vs. if()</h4>
+<!-- isSpecial is true -->
+<div [class.hidden]="!isSpecial">Show with class</div>
+<div [class.hidden]="isSpecial">Hide with class</div>
+
+<p>ItemDetail is in the DOM but hidden</p>
+<app-item-detail [class.hidden]="isSpecial"></app-item-detail>
+
+<div [style.display]="isSpecial ? 'block' : 'none'">
+  Show with style
+</div>
+<div [style.display]="isSpecial ? 'none'  : 'block'">
+  Hide with style
+</div>
+
+
+<hr>
+<h2 id="ngFor">for() Structural directive</h2>
+
+<div class="box">
+  @for (item of items; track item) {
+    <div>{{item.name}}</div>  
+  }
+</div>
+
+<p>for() with ItemDetailComponent element</p>
+<div class="box">
+
+  @for(item of items; track item){
+    <!-- <app-item-detail [item]="item"></app-item-detail> -->
+  }
+  
+</div>
+
+
+<h4 id="ngFor-index">for() with index</h4>
+<p>with <em>semi-colon</em> separator</p>
+<div class="box">
+
+  @for (item of items; track item; let i = $index) {
+    <div>{{i + 1}} - {{item.name}}</div>
+  }
+  
+</div>
+
+<p>with <em>comma</em> separator</p>
+<div class="box">
+
+  @for(item of items; track item; let i = $index){
+    <div>{{i + 1}} - {{item.name}}</div>
+  }
+  
+</div>
+
+<h4 id="ngFor-trackBy">for() trackBy</h4>
+<button 
+  type="button" 
+  (click)="resetList()">Reset items</button>
+<button 
+  type="button" 
+  (click)="changeIds()">Change ids</button>
+<button 
+  type="button" 
+  (click)="clearTrackByCounts()">Clear counts</button>
+
+<p><em>without</em> trackBy</p>
+<div class="box">
+
+  @for(item of items; track item){
+    <div #noTrackBy>({{item.id}}) {{item.name}}</div>
+  }
+
+  @if(itemsNoTrackByCount){
+    <div>Item DOM elements change 
+      #{{itemsNoTrackByCount}} without trackBy
+    </div>
+  }
+
+</div>
+
+<p>with trackBy</p>
+<div class="box">
+
+  @for(item of items; track item){
+    <div #withTrackBy>
+      ({{item.id}}) {{item.name}}
+    </div>
+  }
+
+  @if(itemsWithTrackByCount){
+    <div id="withTrackByCnt">
+      Item DOM elements change #{{itemsWithTrackByCount}} with trackBy
+    </div>
+  }
+  
+</div>
+
+<br>
+
+<p>with trackBy and <em>semi-colon</em> separator -NO MORE REQUIRED-</p>
+<div class="box">
+
+  @for(item of items; track item){
+    <div>
+      ({{item.id}}) {{item.name}}
+    </div>
+  }
+  
+</div>
+
+<p>with trackBy and <em>comma</em> separator -NO MORE REQUIRED-</p>
+<div class="box">
+  
+  @for(item of items; track item){
+    <div>
+      ({{item.id}}) {{item.name}}
+    </div>
+  }
+  
+</div>
+
+<p>with trackBy and <em>space</em> separator -NO MORE REQUIRED-</p>
+<div class="box">
+
+  @for(item of items; track item){
+    <div>
+      ({{item.id}}) {{item.name}}
+    </div>
+  }
+</div>
+
+<p>with <em>generic</em> trackById function -NO MORE REQUIRED-</p>
+<div class="box">
+
+  @for(item of items; track item){
+    <div>
+      ({{item.id}}) {{item.name}}
+    </div>
+  }
+</div>
+
+<hr>
+<h2>switch() Binding</h2>
+
+<!-- <p>Pick your favorite item</p>
+<div>
+
+  @for(item of items; track item){
+    <label for="item-{{item}}">
+      <div>
+        <input 
+        id="item-{{item}}"
+        type="radio"
+        name="items"
+        [(ngModel)]="currentItem"
+        [value]="item">
+        {{item.name}}
+      </div>
+    </label>
+  }
+</div>
+
+@switch (currentItem.feature) {
+  @case ('stout') {
+    <app-stout-item [item]="currentItem"></app-stout-item>
+  }
+  @case ('slim'){
+    <app-device-item [item]="currentItem"></app-device-item>
+  }
+  @case ('vintage') {
+    <app-lost-item [item]="currentItem"></app-lost-item>
+  }
+  @case ('bright') {
+    <app-best-item [item]="currentItem"></app-best-item>
+  }
+  @default {
+    <app-unknown-item [item]="currentItem">
+    </app-unknown-item>
+    <div>Are you as bright as {{currentItem.name}}?</div>
+  }
+} -->
+
+

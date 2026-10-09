@@ -1,0 +1,20 @@
+<h2><u>Built-in structural directives</u></h2>
+
+<h3 id="ngIf"><i>if() Binding</i></h3>
+<div>
+  <p>If isActive is true, <i>app-item-detail</i>
+    component will render: </p>
+
+  @if(ChildisActive){
+    <app-item-detail [Childitem]="item">
+    </app-item-detail>
+  }
+  
+  <button 
+    type="button" 
+    (click)="isActiveToggle()">
+    Toggle component
+  </button>
+</div>
+<hr>
+
