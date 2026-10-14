@@ -7,14 +7,14 @@
 
 // Example readonly
 
-interface User {
+interface UserMap {
     name: string;
     age: number;
 }
 
 // Mapped type that makes all properties of User, readonly
 type ReadOnlyUser = {
-    readonly [K in keyof User]: User[K];
+    readonly [K in keyof UserMap]: UserMap[K];
 }
 
 const user: ReadOnlyUser = {
@@ -31,7 +31,7 @@ type MakeOptional<T> = {
     [K in keyof T]?: T[K];
 }
 
-type OptionalUser = MakeOptional<User>;
+type OptionalUserMap = MakeOptional<User>;
 
 const user2: OptionalUser = {
     name: "Alice"

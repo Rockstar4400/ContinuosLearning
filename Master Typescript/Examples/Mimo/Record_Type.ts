@@ -41,7 +41,8 @@ const messages: StatusMessages = {
 type Permissions_Record = 'read' | 'write' | 'delete';
 type Roles = 'admin' | 'user' | 'guest';
 
-type RoleAccessMatrix = Record<Roles, Record<Permissions_Record, boolean>>;
+type RoleAccessMatrix = 
+Record<Roles, Record<Permissions_Record, boolean>>;
 
 const accessMatrix: RoleAccessMatrix = {
     admin: { read: true, write: true, delete: true },
@@ -73,7 +74,8 @@ const handlers: EventHandler = {
 
 // Record and Generics
 
-function createLogger<T extends string>(levels: T[]): Record<T, () => void> {
+function createLogger<T extends 
+string>(levels: T[]): Record<T, () => void> {
   const logger = {} as Record<T, () => void>;
 
   levels.forEach(level => {
