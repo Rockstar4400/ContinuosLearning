@@ -1,15 +1,30 @@
+/*
+Given a year, return the century it is in. 
+The first century spans from the year 1 up to and 
+including the year 100, the second - from the year 101 up to 
+and including the year 200, etc.
 
-var array = [[true,false,true],[false, true, false]];
-var a_length = array.length;
-var a_lenColumn = array[0].length;
+Example
 
+For year = 1905, the output should be
+centuryFromYear(year) = 20;
+For year = 1700, the output should be
+centuryFromYear(year) = 17.
+Input/Output
 
-for (var i = 0 ; i < a_length; i++){
-    for (var j = 0 ; j < a_lenColumn ; j++){
+[time limit] 3000ms (java)
+[input] integer year
 
-        if (array[i][j]){
-            console.log("f");
-        }else
-            console.log("t");
-    }
+A positive integer, designating the year.
+
+Guaranteed constraints:
+1 ¡Â year ¡Â 2005.
+
+[output] integer
+
+The number of the century the year is in.
+*/
+
+function centuryFromYear(year) {
+    return (year + 99) / 100;
 }
