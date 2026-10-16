@@ -33,11 +33,11 @@ type T6_RT = ReturnType<never>;
 
 /* Type 'string' does not satisfy the constraint 
 '(...args: any) => any'. */
-type T7_RT = ReturnType<string>;
+//type T7_RT = ReturnType<string>;
 
 // type T8_RT = any
 /*Type 'Function' does not satisfy the constraint 
 '(...args: any) => any'. Type 'Function' provides 
 no match for the signature '(...args: any): any'.
 */
-type T8_RT = ReturnType<Function>;
+//type T8_RT = ReturnType<Function>;
