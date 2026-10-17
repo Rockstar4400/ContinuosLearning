@@ -107,3 +107,30 @@ function firstElement<T>(arr: T[]): T{
 }
 
 const first = firstElement([1, 2, 3]); // inferred as number
+
+// Discriminated Unions and Generics
+type ResponseDiscr<T> = | { status: "success"; data: T }
+| { status: "error"; message: string };
+
+function handle<T>(response: ResponseDiscr<T>) {
+  if (response.status === "success") {
+    console.log(response.data);
+  } else {
+    console.error(response.message);
+  }
+}
+
+// Example: From handling
+function handleForm<T>(values: T): void {
+    // Send data to server
+}
+
+// Example: API Wrappers
+// This pattern ensures that the returned value always 
+// matches the expected data structure.
+function apiGet<T>(endpoint: string): Promise<T> {
+  return fetch(endpoint).then((res) => res.json());
+}
+
+// Example: Using type aliases
+type Callback<T> = (value: T) => void;
