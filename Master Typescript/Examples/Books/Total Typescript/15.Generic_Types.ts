@@ -30,11 +30,11 @@ type StreamingAlbum = ResourceStatus<{
 }>;
 
 // Multiple type parameters
-type ResourceStatusExpand<T, IU> =
+type ResourceStatusExpand<T, U> =
   | {
       status: "available";
       content: T;
-      metadata: T;
+      metadata: U;
     }
   | {
       status: "unavailable";
@@ -69,6 +69,8 @@ type StreamingAlbumEx = ResourceStatusExpand<
 >;
 
 // Default type parameter
+// Now you can create a StreamingPlaylist type without 
+// providing a U type argument:
 type ResourceStatusDefault<T, U = {}> =
   | {
       status: "available";
@@ -80,9 +82,6 @@ type ResourceStatusDefault<T, U = {}> =
       reason: string;
     };
 
-// Now you can create a StreamingPlaylist type without 
-// providing a TMetadata type argument:
-
 // If you hover over it, you’ll see that it’s typed 
 // as expected, with metadata being an empty object:
 type StreamingPlaylistDef = ResourceStatusDefault<{
@@ -93,14 +92,14 @@ type StreamingPlaylistDef = ResourceStatusDefault<{
 
 // Type parameter constraints
 // Example
-
 type HasId = {
   id: number;
 };
 
-// With these changes in place, it is now required that the T type 
-// parameter must include an id property
-type ResourceStatusGen<T extends HasId, U extends object = {}> =
+// With these changes in place, it is now required that the 
+// T type parameter must include an id property
+type ResourceStatusGen<T extends HasId, U 
+extends object = {}> =
   | {
       status: "available";
       content: T;
@@ -124,3 +123,33 @@ type ToArray<T> = T extends any[] ? T : T[];
 type Example = ToArray<string>; // string[]
 type Example2 = ToArray<string[]>; // string[]
 
+// Mapped types
+interface AlbumGen {
+  name: string;
+  artist: string;
+  songs: string[];
+}
+
+type AlbumWithNullable = {
+  [K in keyof AlbumGen]?: AlbumGen[K] | null;
+}
+
+// Alternative 1
+type Nullable<T> = {
+  [K in keyof T]?: T[K] | null;
+}
+
+// Alternative 2
+type AlbumCustom = Nullable<AlbumGen>;
+
+// Key remapping with as
+type AlbumUpper = {
+  [K in keyof AlbumGen as Uppercase<K>]: AlbumGen[K];
+}
+
+// Mapped types with Union types
+type ExampleMU = "a" | "b" | "c";
+
+type MappedExampleMU = {
+  [E in ExampleMU]: E;
+};

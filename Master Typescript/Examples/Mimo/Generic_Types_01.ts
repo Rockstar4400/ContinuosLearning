@@ -59,8 +59,8 @@ T[keyof T] {
 // Even more specific constraints
 function getNameProperty<T extends { name: string }>(obj: T): 
 string {
-  return obj.name; 
   // Safe access to the name property
+  return obj.name; 
 }
 
 const user = { name: "Alice", role: "Admin" };
