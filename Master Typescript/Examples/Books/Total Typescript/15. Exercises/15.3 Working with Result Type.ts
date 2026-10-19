@@ -13,7 +13,7 @@ type Result<TResult, TError> =
 // You also have the createRandomNumber function that returns
 // a Result type:
 
-const createRandomNumber = (): Result<number> => {
+const createRandomN = (): Result<number> => {
   const num = Math.random();
 
   if (num > 0.5) {

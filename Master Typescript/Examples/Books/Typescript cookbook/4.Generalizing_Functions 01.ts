@@ -28,3 +28,25 @@ function loadLanguage(collection: Languages, lang: string) {
     collection[lang]; // access ok!
   }
 }
+
+// Same application, different scenario, entirely different file
+type AllowedElements = {
+  video: HTMLVideoElement;
+  audio: HTMLAudioElement;
+  canvas: HTMLCanvasElement;
+};
+
+function isElementAllowed(
+  collection: AllowedElements,
+  elem: string
+): elem is keyof AllowedElements {
+  return elem in collection;
+}
+
+function selectElement(collection: AllowedElements, elem: string) {
+  if (isElementAllowed(collection, elem)) {
+    // elem is keyof AllowedElements
+    collection[elem]; // access ok
+  }
+}
+

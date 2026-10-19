@@ -23,3 +23,5 @@ type test2 = Expect<Equal<Example2, (input: boolean) =>
 
 // Your task is to update PromiseFunc so that both of the 
 // tests pass without errors.
+
+// Solution:
