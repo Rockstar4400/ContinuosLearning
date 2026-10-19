@@ -1,0 +1,17 @@
+<h4>Show/hide vs. if()</h4>
+<!-- isSpecial is true -->
+<div [class.hidden]="!isSpecialChildren">Show with class</div>
+<div [class.hidden]="isSpecialChildren">Hide with class</div>
+
+<p>ItemDetail is in the DOM but hidden</p>
+<app-item-detail 
+  [class.hidden]="isSpecialChildren">
+</app-item-detail>
+
+<div [style.display]="isSpecialChildren ? 'block' : 'none'">
+  Show with style
+</div>
+<div [style.display]="isSpecialChildren ? 'none'  : 'block'">
+  Hide with style
+</div>
+<hr>

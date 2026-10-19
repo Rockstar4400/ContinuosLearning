@@ -11,9 +11,15 @@ import { ClassAttributeComponent }
 from './components/class-attribute/class-attribute.component';
 import { StyleAttributeComponent } 
 from './components/style-attribute/style-attribute.component';
-import { BuildInStructuralComponentsIfCase1 } from './components/build-in-structural/if_case_1/build-in-structural-if_case_1.components';
-import { BuildStructuralIfCase2 } from './components/build-in-structural/if_case-2/build-structural-if-case-2.components';
-import { BuildStructuralIfCase3 } from './components/build-in-structural/if_case-3/build-structural-if-case-3.components';
+import { BuildInStructuralComponentsIfCase1 } 
+from './components/build-in-structural/if_case_1/build-in-structural-if_case_1.components';
+import { BuildStructuralIfCase2 } 
+from './components/build-in-structural/if_case-2/build-structural-if-case-2.components';
+import { BuildStructuralIfCase3 } 
+from './components/build-in-structural/if_case-3/build-structural-if-case-3.components';
+import { BuildStructuralIfCase4 }
+ from './components/build-in-structural/if_case-4/build-structural-if-case-4.components';
+import { ForComponent } from './components/build-in-structural/for/for.component';
 
 
 
@@ -26,12 +32,14 @@ import { BuildStructuralIfCase3 } from './components/build-in-structural/if_case
     FormsModule,
     ItemDetailComponent,
     ItemSwitchComponents,
-    BuildInAttributesComponent,
+     BuildInAttributesComponent,
     ClassAttributeComponent,
     StyleAttributeComponent,
     BuildInStructuralComponentsIfCase1,
     BuildStructuralIfCase2,
-    BuildStructuralIfCase3
+    BuildStructuralIfCase3,
+    BuildStructuralIfCase4,
+    ForComponent
 ]
 })
 export class App implements OnInit{
@@ -63,6 +71,7 @@ export class App implements OnInit{
 
   currentStyles: Record<string, string> = {};
 
+
   ngOnInit() {
     this.resetItems();
     //this.setCurrentClasses();
@@ -76,25 +85,6 @@ export class App implements OnInit{
     this.item = this.currentItem;
   }
 
-  resetList() {
-    this.resetItems();
-    this.itemsWithTrackByCountReset = 0;
-    this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
-  }
-
-  changeIds() {
-    this.items.forEach((i) => (i.id += 1 * this.itemIdIncrement));
-    this.itemsWithTrackByCountReset = -1;
-    this.itemsNoTrackByCount = ++this.itemsNoTrackByCount;
-    this.itemsWithTrackByCount = ++this.itemsWithTrackByCount;
-  }
-
-  clearTrackByCounts() {
-    this.resetItems();
-    this.itemsNoTrackByCount = 0;
-    this.itemsWithTrackByCount = 0;
-    this.itemIdIncrement = 1;
-  }
   trackByItems(index: number, item: Item): number {
     return item.id;
   }

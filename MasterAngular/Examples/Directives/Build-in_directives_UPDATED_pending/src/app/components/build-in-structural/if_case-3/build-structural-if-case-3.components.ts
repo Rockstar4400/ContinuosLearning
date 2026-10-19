@@ -8,5 +8,5 @@ import { Item } from '../../../models/item';
   templateUrl: './build-structural-if-case-3.components.html',
 })
 export class BuildStructuralIfCase3 {
-  @Input() ChildcurrentItem!: Item;
+  @Input() ChildCurrentItem!: Item;
 }
