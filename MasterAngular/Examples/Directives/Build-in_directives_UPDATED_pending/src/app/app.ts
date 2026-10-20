@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, input, Input, OnInit, signal } from '@angular/core';
 import { Item } from './models/item';
 import { FormsModule } from '@angular/forms';
 import { ItemDetailComponent } 
@@ -19,9 +19,9 @@ import { BuildStructuralIfCase3 }
 from './components/build-in-structural/if_case-3/build-structural-if-case-3.components';
 import { BuildStructuralIfCase4 }
  from './components/build-in-structural/if_case-4/build-structural-if-case-4.components';
-import { ForComponent } from './components/build-in-structural/for/for.component';
-
-
+import { ForComponent } 
+from './components/build-in-structural/for/for.component';
+import { DataService } from './services/data.service';
 
 @Component({
   standalone: true,
@@ -32,7 +32,7 @@ import { ForComponent } from './components/build-in-structural/for/for.component
     FormsModule,
     ItemDetailComponent,
     ItemSwitchComponents,
-     BuildInAttributesComponent,
+    BuildInAttributesComponent,
     ClassAttributeComponent,
     StyleAttributeComponent,
     BuildInStructuralComponentsIfCase1,
@@ -44,8 +44,10 @@ import { ForComponent } from './components/build-in-structural/for/for.component
 })
 export class App implements OnInit{
   protected readonly title = signal('Build-in_directives_UPDATED');
+  private dataService = inject(DataService);
 
-  currentItem!: Item;
+  currentItem = input<Item>();
+  //currentItem!: Item;
 
   canSave = true;
   isSpecial = true;
@@ -67,7 +69,8 @@ export class App implements OnInit{
   itemsWithTrackByCountReset = 0;
   itemIdIncrement = 1;
 
-  currentClasses: Record<string, boolean> = {};
+  //currentClasses: Record<string, boolean> = {};
+  currentClasses = input<Record<string, boolean>>({});
 
   currentStyles: Record<string, string> = {};
 
@@ -81,8 +84,8 @@ export class App implements OnInit{
 
   resetItems() {
     this.items = Item.items.map((item) => item.clone());
-    this.currentItem = this.items[0];
-    this.item = this.currentItem;
+    //this.currentItem = this.items[0];
+    //this.item = this.currentItem;
   }
 
   trackByItems(index: number, item: Item): number {

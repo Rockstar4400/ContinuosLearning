@@ -1,16 +1,16 @@
 <h1>Built-in Directives</h1>
 
 <build-in-attributes 
-  [ChildCurrentitem]="currentItem">
+  [ChildCurrentItem]="currentItem()">
 </build-in-attributes>
 
 <class-attribute 
-  [ChildCurrentClasses]="currentClasses"
+  [ChildCurrentClasses]="currentClasses()"
   [ChildSave]="canSave"
   [ChildisUnchanged]="isUnchanged"
   [ChildisSpecial]="isSpecial">
 </class-attribute>
-
+<!-- 
 <style-attribute
   [ChildcurrentStyles]="currentStyles"
   [ChildCanSave]="canSave"
@@ -77,6 +77,6 @@
     </app-unknown-item>
     <div>Are you as bright as {{currentItem.name}}?</div>
   }
-}
+} -->
 
 

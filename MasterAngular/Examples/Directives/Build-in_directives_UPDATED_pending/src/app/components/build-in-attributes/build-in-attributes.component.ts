@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Item } from '../../models/item';
+import { DataService } from '../../services/data.service';
+import { input } from '@angular/core';
 
 @Component({
   imports: [FormsModule],
@@ -10,13 +12,16 @@ import { Item } from '../../models/item';
 })
 export class BuildInAttributesComponent {
 
-  @Input() ChildCurrentitem!: Item; 
+  private dataService = inject(DataService);
+
+  //@Input() ChildCurrentItem!: Item; 
+  ChildCurrentItem = input<Item>();
 
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
 
   setUppercaseName(name: string) {
-    this.ChildCurrentitem.name = name.toUpperCase();
+    //this.ChildCurrentItem.name = name.toUpperCase();
   }
 }

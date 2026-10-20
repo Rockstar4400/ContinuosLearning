@@ -3,14 +3,14 @@
 <h3 id="ngModel"><i>NgModel (two-way) Binding</i></h3>
 
 <fieldset><h4>NgModel examples</h4>
-  <p>Current item name: {{ChildCurrentitem.name}}</p>
+  <p>Current item name: {{ChildCurrentItem.name}}</p>
   <p>
     <!--#1 way to handle the binding-->
     <label for="without">without NgModel:</label>
-    <input 
-    [value]="ChildCurrentitem.name" 
-    (input)="ChildCurrentitem.name=getValue($event)" 
-    id="without">
+    <!-- <input 
+    [value]="ChildCurrentItem.name" 
+    (input)="ChildCurrentItem.name=getValue($event)" 
+    id="without"> -->
   </p>
 
   <p>
@@ -19,7 +19,7 @@
       [(ngModel)]:
     </label>
     <input 
-    [(ngModel)]="ChildCurrentitem.name" 
+    [(ngModel)]="ChildCurrentItem.name" 
     id="example-ngModel">
   </p>
 
@@ -28,10 +28,10 @@
     <label for="example-change">
       (ngModelChange)="...name=$event":
     </label>
-    <input 
-    [ngModel]="ChildCurrentitem.name" 
-    (ngModelChange)="ChildCurrentitem.name=$event" 
-    id="example-change">
+    <!-- <input 
+    [ngModel]="ChildCurrentItem.name" 
+    (ngModelChange)="ChildCurrentItem.name=$event" 
+    id="example-change"> -->
   </p>
 
   <p>
@@ -39,7 +39,7 @@
     <label for="example-uppercase">
       (ngModelChange)="setUppercaseName($event)"
       <input 
-      [ngModel]="ChildCurrentitem.name" 
+      [ngModel]="ChildCurrentItem.name" 
       (ngModelChange)="setUppercaseName($event)" 
       id="example-uppercase">
     </label>
