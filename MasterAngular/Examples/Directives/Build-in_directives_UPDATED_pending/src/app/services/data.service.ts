@@ -6,4 +6,10 @@ export class DataService {
     private currentItem = signal<Item[]>([]);
     private currentClasses = signal<Record<string,boolean>>({});
     
+
+    setUppercaseName(name: string) {
+        this.currentItem.update(obj => ({
+        ...obj, name: name
+        }))
+    }
 }

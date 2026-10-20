@@ -22,6 +22,7 @@ export class BuildInAttributesComponent {
   }
 
   setUppercaseName(name: string) {
-    //this.ChildCurrentItem.name = name.toUpperCase();
+    console.log(name)
+    this.dataService.setUppercaseName(name);
   }
 }
