@@ -1,4 +1,4 @@
-import { Component, inject, input, Input, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, input, Input, OnInit, signal } from '@angular/core';
 import { Item } from './models/item';
 import { FormsModule } from '@angular/forms';
 import { ItemDetailComponent } 
@@ -45,8 +45,8 @@ import { DataService } from './services/data.service';
 export class App implements OnInit{
   protected readonly title = signal('Build-in_directives_UPDATED');
   private dataService = inject(DataService);
-
-  currentItem = input<Item>();
+  
+  //currentItem = input<Item>();
   //currentItem!: Item;
 
   canSave = true;
