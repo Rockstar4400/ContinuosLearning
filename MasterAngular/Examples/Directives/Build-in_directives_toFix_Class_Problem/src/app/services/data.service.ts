@@ -1,15 +1,18 @@
 import { computed, Service, signal } from "@angular/core";
-import { Item } from "../models/item";
+import { item } from "../models/model-item";
 
 @Service()
 export class DataService {
-    private signalItem = signal(Item);
+    private signalItem = signal<item>({ id: 0, name: 'Teapot', feature: 'stout' });
     private currentClasses = signal<Record<string,boolean>>({});
 
-    readonly currentItem = this.signalItem
+    readonly currentItem = this.signalItem.asReadonly();
     
-    nameService = computed(() => this.currentItem.name);
-    
+    updateName(event: Event) {
+        const inputEl = event.target as HTMLInputElement;
+        this.signalItem.update(current => ({ ...current, name: inputEl.value }));
+    }
+
     setUppercaseName(name: string) {
         
     }

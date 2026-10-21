@@ -46,9 +46,6 @@ export class App implements OnInit{
   protected readonly title = signal('Build-in_directives_UPDATED');
   private dataService = inject(DataService);
   
-  //currentItem = input<Item>();
-  //currentItem!: Item;
-
   canSave = true;
   isSpecial = true;
   isUnchanged = true;
