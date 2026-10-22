@@ -1,14 +1,14 @@
 <h1>Built-in Directives</h1>
 
 <build-in-attributes 
-[ChildCurrentItem]="dataService.currentItem()">
+  [ChildCurrentItem]="dataService.currentItem()">
 </build-in-attributes>
 
 <class-attribute 
-  [ChildCurrentClasses]="currentClasses()"
-  [ChildSave]="canSave"
-  [ChildisUnchanged]="isUnchanged"
-  [ChildisSpecial]="isSpecial">
+  [ChildCurrentClasses]="dataService.currentClasses()"
+  [ChildSave]="dataService.canSave()"
+  [ChildisUnchanged]="dataService.isUnchanged()"
+  [ChildisSpecial]="dataService.isSpecial()">
 </class-attribute>
 <!-- 
 <style-attribute

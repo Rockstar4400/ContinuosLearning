@@ -9,8 +9,7 @@
     <label for="without">without NgModel:</label>
     <input 
     [value]="ChildCurrentItem()?.name"
-    (input)="dataService.updateName($event)"
-    //(input)="updateName($event)" 
+    (input)="dataService.updateNameInput($event)"
     id="without">
   </p>
 
@@ -20,7 +19,7 @@
       [(ngModel)]:
     </label>
     <input 
-    //[(ngModel)]="ChildCurrentItem.name" 
+    [(ngModel)]="dataService.currentItem().name" 
     id="example-ngModel">
   </p>
 
@@ -31,7 +30,8 @@
     </label>
     <input 
     [ngModel]="ChildCurrentItem()?.name" 
-    //(ngModelChange)="ChildCurrentItem()?.name=$event" 
+    (ngModelChange)=
+    "dataService.updateNameModel($event)" 
     id="example-change">
   </p>
 
@@ -40,8 +40,9 @@
     <label for="example-uppercase">
       (ngModelChange)="setUppercaseName($event)"
       <input 
-      [ngModel]="ChildCurrentItem.name" 
-      (ngModelChange)="setUppercaseName($event)" 
+      [ngModel]="ChildCurrentItem()?.name" 
+      (ngModelChange)=
+      "dataService.updateNameModelUpper($event)" 
       id="example-uppercase">
     </label>
   </p>

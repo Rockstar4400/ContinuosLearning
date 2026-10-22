@@ -13,10 +13,5 @@ import { item } from '../../models/model-item';
 export class BuildInAttributesComponent {
   private dataService = inject(DataService);
   ChildCurrentItem = input<item>();
-
-  setUppercaseName(name: string) {
-    console.log(name)
-    //this.dataService.setUppercaseName(name);
-  }
   
 }

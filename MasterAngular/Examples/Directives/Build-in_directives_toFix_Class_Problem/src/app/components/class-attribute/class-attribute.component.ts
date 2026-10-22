@@ -1,7 +1,8 @@
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Input, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DataService } from '../../services/data.service';
 
 @Component({
   imports: [JsonPipe, FormsModule],
@@ -10,18 +11,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './class-attribute.component.html',
 })
 export class ClassAttributeComponent {
-  @Input() ChildCurrentClasses: Record<string, boolean> = {};
-  @Input() ChildSave = true;
-  @Input() ChildisUnchanged = true;
-  @Input() ChildisSpecial = true;
+  dataService = inject(DataService);
 
-  setCurrentClasses() {
-    // CSS classes: added/removed per current state 
-    // of component properties
-    this.ChildCurrentClasses = {
-      saveable: this.ChildSave,
-      modified: !this.ChildisUnchanged,
-      special: this.ChildisSpecial,
-    };
-  }
+  ChildCurrentClasses = input<Record<string,boolean>>({});
+  ChildSave = input<boolean>(true);
+  ChildisUnchanged = input<boolean>(true);
+  ChildisSpecial = input<boolean>(true);
+
 }
