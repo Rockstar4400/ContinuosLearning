@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { Item } from './models/item';
 import { FormsModule } from '@angular/forms';
 import { ItemDetailComponent } 

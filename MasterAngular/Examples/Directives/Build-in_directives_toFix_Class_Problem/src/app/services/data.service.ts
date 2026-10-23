@@ -1,4 +1,4 @@
-import { Service, signal } from "@angular/core";
+import { model, Service, signal } from "@angular/core";
 import { item } from "../models/model-item";
 
 @Service()
@@ -8,16 +8,29 @@ export class DataService {
     );
     private signalClasses = signal<Record<string,boolean>>({});
     private signalSave = signal<boolean>(true);
-    private signalisSpecial = signal<boolean>(true);
     private signalisUnchanged = signal<boolean>(true);
+    private signalisSpecial = signal<boolean>(true);
     
     readonly currentItem = this.signalItem.asReadonly();
     readonly currentClasses = this.signalClasses.asReadonly();
     readonly canSave = this.signalSave.asReadonly();
-    readonly isUnchanged = this.signalisSpecial.asReadonly();
-    readonly isSpecial = this.signalisUnchanged.asReadonly();
+    readonly isUnchanged = this.signalisUnchanged.asReadonly();
+    readonly isSpecial = this.signalisSpecial.asReadonly();
 
-    
+    saveChange(event: Event): void {
+        const element = event.target as HTMLInputElement;
+        this.signalSave.set(element.checked);
+    }
+
+    modifyChange(event: Event): void {
+        const element = event.target as HTMLInputElement;
+    this.signalisUnchanged.set(element.checked);
+    }
+
+    specialChange(event: Event): void {
+        const element = event.target as HTMLInputElement;
+        this.signalisSpecial.set(element.checked);
+    }
     
     updateCurrentClass() {
         this.signalClasses.update(currentUser => (

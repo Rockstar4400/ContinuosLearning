@@ -11,8 +11,13 @@
       saveable
     </label>
     <!--#1 way to handle the binding-->
-    <input type="checkbox" 
-    [(ngModel)]="ChildSave" 
+    <!-- <input type="checkbox" 
+    [(ngModel)]="dataService.canSave" 
+    id="saveable"> -->
+    <input 
+    type="checkbox" 
+    [value]="!ChildSave()"
+    (change)="dataService.saveChange($event)" 
     id="saveable">
   </li>
 
@@ -24,7 +29,7 @@
     <input 
     type="checkbox" 
     [value]="!ChildisUnchanged()"
-    //(change)="ChildisUnchanged()=!ChildisUnchanged()" 
+    (change)="dataService.modifyChange($event)" 
     id="modified">
   </li>
 
@@ -33,8 +38,13 @@
       special:   
     </label>
     <!--same way to handle the binding that #1-->
-    <input type="checkbox" 
-    [(ngModel)]="ChildisSpecial" 
+    <!-- <input type="checkbox" 
+    [(ngModel)]="dataService.isSpecial" 
+    id="special"> -->
+    <input 
+    type="checkbox" 
+    [value]="!dataService.isSpecial()"
+    (change)="dataService.specialChange($event)" 
     id="special">
   </li>
 </ul>
