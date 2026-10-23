@@ -6,6 +6,12 @@ type ErrorShape = {
   };
 };
 
+// Solution:
+
+
+
+
+
 type UserDataShape =
   | {
       data: {

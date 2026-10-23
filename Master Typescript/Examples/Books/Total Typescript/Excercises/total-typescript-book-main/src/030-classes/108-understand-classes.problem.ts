@@ -1,5 +1,7 @@
 import { expect, it } from "vitest";
 
+// My solution: 
+
 class CanvasNode {}
 
 it("Should store some basic properties", () => {
