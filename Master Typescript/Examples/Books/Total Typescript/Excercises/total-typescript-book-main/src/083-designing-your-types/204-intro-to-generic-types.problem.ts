@@ -1,6 +1,6 @@
 import { Equal, Expect } from "@total-typescript/helpers";
 
-type ErrorShape = {
+type ErrorShapeP = {
   error: {
     message: string;
   };
@@ -12,7 +12,7 @@ type ErrorShape = {
 
 
 
-type UserDataShape =
+type UserDataShapeP =
   | {
       data: {
         id: string;
@@ -20,9 +20,9 @@ type UserDataShape =
         email: string;
       };
     }
-  | ErrorShape;
+  | ErrorShapeP;
 
-type PostDataShape =
+type PostDataShapeP =
   | {
       data: {
         id: string;
@@ -30,14 +30,14 @@ type PostDataShape =
         body: string;
       };
     }
-  | ErrorShape;
+  | ErrorShapeP;
 
 // TESTS
 
 type tests = [
   Expect<
     Equal<
-      UserDataShape,
+      UserDataShapeP,
       | {
           data: {
             id: string;
@@ -54,7 +54,7 @@ type tests = [
   >,
   Expect<
     Equal<
-      PostDataShape,
+      PostDataShapeP,
       | {
           data: {
             id: string;

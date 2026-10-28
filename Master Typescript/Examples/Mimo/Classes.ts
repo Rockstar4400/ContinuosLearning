@@ -138,3 +138,49 @@ function logClass(target: Function){
 class Account{
     constructor(public balance: number) {}
 }
+
+// Extending multiple classes
+
+class Runner {
+    run(): void{
+        console.log("Running...");
+    }
+}
+
+class Swimmer{
+    swim(): void {
+        console.log("Swimming...");
+    }
+}
+
+class Athlete implements Runner, Swimmer {
+    run!: () => void;
+    swim!: () => void;
+}
+
+Object.assign(
+    Athlete.prototype, 
+    Runner.prototype, 
+    Swimmer.prototype
+);
+
+const athlete = new Athlete();
+athlete.run();
+athlete.swim();
+
+// Method overriding in classes
+class Parent {
+    greet(): void{
+        console.log("Hellow from the parent class.")
+    }
+}
+
+class Child extends Parent{
+    greet(): void {
+        super.greet();
+        console.log("Hello from the children class.")
+    }
+}
+
+const child = new Child();
+child.greet();

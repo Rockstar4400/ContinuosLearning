@@ -1,5 +1,12 @@
 import { expect, it } from "vitest";
 
+/*
+    8.4  Implementing a setter
+    Your task is to write a setter for the position property that will
+    allow the test case to pass. 
+    Hint: Use the set keyword in your solution. 
+*/
+
 class CanvasNode {
   #x: number;
   #y: number;
@@ -7,6 +14,11 @@ class CanvasNode {
   constructor(position?: { x: number; y: number }) {
     this.#x = position?.x ?? 0;
     this.#y = position?.y ?? 0;
+  }
+  // ???
+  set position(pos){
+      x: pos.x;
+      y: pos.y;
   }
 
   get position() {

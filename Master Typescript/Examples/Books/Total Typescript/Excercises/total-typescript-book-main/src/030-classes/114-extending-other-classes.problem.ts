@@ -2,27 +2,17 @@ import { expect, it } from "vitest";
 
 type ViewMode = "hidden" | "visible" | "selected";
 
+// Solution
+
+
+
 class CanvasNode {
-  #x: number;
-  #y: number;
+  
   #viewMode: ViewMode;
 
-  constructor(options?: { x: number; y: number; viewMode?: ViewMode }) {
-    this.#x = options?.x ?? 0;
-    this.#y = options?.y ?? 0;
+  constructor(options?: { viewMode?: ViewMode }) {
+
     this.#viewMode = options?.viewMode ?? "visible";
-  }
-
-  get position() {
-    return {
-      x: this.#x,
-      y: this.#y,
-    };
-  }
-
-  move(x: number, y: number) {
-    this.#x = x;
-    this.#y = y;
   }
 
   hide() {
@@ -39,6 +29,30 @@ class CanvasNode {
 
   get isVisible() {
     return this.#viewMode === "visible";
+  }
+}
+
+class Shape  extends CanvasNode{
+  #x: number;
+  #y: number;
+
+  constructor(options?: {x: number; y: number}){
+    super(options);
+    this.#x = options?.x ?? 0;
+    this.#y = options?.y ?? 0;
+    
+  }
+
+  get position() {
+    return {
+      x: this.#x,
+      y: this.#y,
+    };
+  }
+
+  move(x: number, y: number) {
+    this.#x = x;
+    this.#y = y;
   }
 }
 

@@ -12,20 +12,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.magicbytes.myapplication.ui.theme.MyApplicationTheme
+import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
+
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        // Read and parse the local file
+        //val Data = readLocalJson()
+        val Data = readLocalJson(context = this)
+
         setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            // Access your data safely
+            //Data?.''?.forEach { exam ->
+                //Text("Exam Name: ${exam.name}")
+           // }
+
         }
     }
 }
@@ -44,4 +51,16 @@ fun GreetingPreview() {
     MyApplicationTheme {
         Greeting("Android")
     }
+}
+
+fun readLocalJson(context: Context): List<Exams> {
+    // 1. Read asset file as a String
+    val jsonString = context.assets.open("questions.json")
+        .bufferedReader().use {
+        it.readText()
+    }
+
+    // 2. Parse the string into objects using Gson
+    val listType = object : TypeToken<List<Exams>>() {}.type
+    return Gson().fromJson(jsonString, listType)
 }
