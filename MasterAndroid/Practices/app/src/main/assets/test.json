@@ -1,0 +1,71 @@
+{
+  "exams": [
+    {
+      "id": 1,
+      "name": "Exam 1",
+      "chapters": [
+        {
+          "id": 1,
+          "name": "Custom 1",
+          "examQuestions": [
+            {
+              "id": 1,
+              "questionText": "Question 1",
+              "code": "Code 1",
+              "explanation": "Explanation 1",
+              "answers": [
+                {
+                  "id": 1,
+                  "textAnswer": "Answer 1"
+                }
+              ],
+              "correctAnswerIds": [
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "unsortedQuestions": [
+        {
+          "id": 1,
+          "questionText": "Question 1",
+          "code": "Code 1",
+          "explanation": "Explanation 1",
+          "answers": [
+            {
+              "id": 1,
+              "textAnswer": "Answer 1"
+            }
+          ],
+          "correctAnswerIds": [
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "miscChapters": [
+    {
+      "id": 1,
+      "name": "Assessment 1",
+      "examQuestions": [
+        {
+          "id": 1,
+          "questionText": "Question 1",
+          "code": "Code 1",
+          "explanation": "Explanation 1",
+          "answers": [
+            {
+              "id": 1,
+              "textAnswer": "Answer 1"
+            }
+          ],
+          "correctAnswerIds": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}
